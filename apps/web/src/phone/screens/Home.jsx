@@ -84,26 +84,52 @@ export default function Home() {
         {notWriting && (
           <>
           <div className="enter" style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-            <TLink className="big" to="/speak" style={{ height: "116px", boxSizing: "border-box", padding: "0 20px", display: "flex", alignItems: "center", gap: "18px", textAlign: "left", background: "#1F6B3A", border: "0", borderRadius: "24px", color: "#FFFFFF", textDecoration: "none", cursor: "pointer" }}>
-              <span className="micdot" style={{ flex: "none", width: "70px", height: "70px", borderRadius: "50%", background: "#FFFFFF", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1F6B3A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <rect x="9" y="3" width="6" height="11" rx="3" />
-                  <path d="M5 11a7 7 0 0 0 14 0M12 18v3" />
-                </svg>
-              </span>
-              <span style={{ fontSize: "36px", fontWeight: "700", lineHeight: "1.1" }}> {T("Speak")} </span>
-            </TLink>
+            <div style={{ display: "flex", gap: "12px" }}>
+              <TLink className="big" to="/speak" style={{ flex: "1 1 0", minWidth: "0", height: "124px", boxSizing: "border-box", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "8px", borderRadius: "28px", color: "#FFFFFF", textDecoration: "none", position: "relative", background: "#1F6B3A", border: "0" }}>
+                <span className="micdot" style={{ flex: "none", width: "58px", height: "58px", borderRadius: "50%", background: "#FFFFFF", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
+                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1F6B3A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="9" y="3" width="6" height="11" rx="3" />
+                    <path d="M5 11a7 7 0 0 0 14 0M12 18v3" />
+                  </svg>
+                </span>
+                <span style={{ fontSize: "26px", fontWeight: "700", lineHeight: "1.1" }}>
+                  {T("Speak")}
+                </span>
+              </TLink>
+              <TLink className="talk" to="/talk" aria-label="Talk to the AI voice assistant" style={{ flex: "1 1 0", minWidth: "0", height: "124px", boxSizing: "border-box", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "8px", borderRadius: "28px", color: "#FFFFFF", textDecoration: "none", position: "relative", background: "linear-gradient(160deg,#0F3F22,#1F6B3A)", border: "3px solid #E0A526" }}>
+                <span style={{ position: "absolute", top: "10px", right: "10px", padding: "2px 10px", borderRadius: "99px", background: "#E0A526", color: "#14502B", fontSize: "13px", fontWeight: "700", letterSpacing: ".06em" }}>
+                  {T("AI")}
+                </span>
+                <span className="tb" style={{ flex: "none", width: "58px", height: "58px", borderRadius: "50%", background: "#E0A526", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "4px" }}>
+                  <i>
+                  </i>
+                  <i>
+                  </i>
+                  <i>
+                  </i>
+                  <i>
+                  </i>
+                </span>
+                <span style={{ fontSize: "26px", fontWeight: "700", lineHeight: "1.1" }}>
+                  {T("Talk")}
+                </span>
+              </TLink>
+            </div>
             <div style={{ display: "flex", gap: "12px" }}>
               <TLink className="alt" to="/photo" style={{ flex: "1 1 0", minWidth: "0", height: "116px", boxSizing: "border-box", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "8px", background: "#EFF5D5", border: "3px solid #1F6B3A", borderRadius: "28px", color: "#1F6B3A", font: "inherit", fontSize: "22px", fontWeight: "700", textDecoration: "none", cursor: "pointer" }}>
                 <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#1F6B3A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M4 8h3l2-3h6l2 3h3v11H4z" />
                   <circle cx="12" cy="13" r="3.500" />
-                </svg> {T("Photo")} </TLink>
+                </svg>
+                {T("Photo")}
+              </TLink>
               <button className="alt" type="button" onClick={openWrite} style={{ flex: "1 1 0", minWidth: "0", height: "116px", boxSizing: "border-box", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "8px", background: "#EFF5D5", border: "3px solid #1F6B3A", borderRadius: "28px", color: "#1F6B3A", font: "inherit", fontSize: "22px", fontWeight: "700", cursor: "pointer" }}>
                 <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#1F6B3A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M4 20h4L19 9l-4-4L4 16v4z" />
                   <path d="M13 7l4 4" />
-                </svg> {T("Write")} </button>
+                </svg>
+                {T("Write")}
+              </button>
             </div>
           </div>
           </>
