@@ -1,0 +1,79 @@
+@keyframes sent-drift {0%{transform:translateY(0) scale(1);opacity:.95}100%{transform:translateY(-16px) scale(1.25);opacity:0}}
+.sc-sent .smoke ellipse { transform-box:fill-box; transform-origin:center; animation:sent-drift 5s ease-out infinite }
+.sc-sent .smoke ellipse:nth-child(2) { animation-delay:1.6s }
+.sc-sent .smoke ellipse:nth-child(3) { animation-delay:3.2s }
+.sc-sent a, .sc-sent button { transition:background-color .35s cubic-bezier(.32,.72,0,1),border-color .35s cubic-bezier(.32,.72,0,1),color .35s cubic-bezier(.32,.72,0,1),box-shadow .45s cubic-bezier(.32,.72,0,1),transform .45s cubic-bezier(.32,.72,0,1) }
+.sc-sent a:active, .sc-sent button:active { transform:scale(.96) }
+.sc-sent a:focus-visible, .sc-sent button:focus-visible { outline:3px solid #E0A526; outline-offset:3px }
+.sc-sent a.solid:hover { background:#14502B }
+.sc-sent a.alt:hover { background:#E2EDB5 }
+@keyframes sent-rise {from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes sent-grow {0%{transform:scale(.4);opacity:0}60%{transform:scale(1.08);opacity:1}100%{transform:scale(1)}}
+@keyframes sent-draw {to{stroke-dashoffset:0}}
+@keyframes sent-float {0%{transform:translateY(0);opacity:0}20%{opacity:1}100%{transform:translateY(-70px);opacity:0}}
+.sc-sent .badge { animation:sent-grow .9s cubic-bezier(.22,1,.36,1) backwards }
+.sc-sent .circ { stroke-dasharray:378; stroke-dashoffset:378; animation:sent-draw .8s cubic-bezier(.45,0,.2,1) .15s forwards }
+.sc-sent .tick { stroke-dasharray:70; stroke-dashoffset:70; animation:sent-draw .5s cubic-bezier(.45,0,.2,1) .8s forwards }
+.sc-sent .dot { position:absolute; border-radius:50%; animation:sent-float 3.2s ease-out infinite }
+.sc-sent main>* { animation:sent-rise .8s cubic-bezier(.22,1,.36,1) backwards }
+.sc-sent main>*:nth-child(2) { animation-delay:.5s }
+.sc-sent main>*:nth-child(3) { animation-delay:.62s }
+@media (prefers-reduced-motion:reduce) {
+.sc-sent * { animation:none!important; transition:none!important }
+.sc-sent .circ, .sc-sent .tick { stroke-dashoffset:0 }
+}
+@keyframes sent-cloudmove {from{transform:translateX(-80px)}to{transform:translateX(480px)}}
+.sc-sent .cloud { animation:sent-cloudmove 46s linear infinite }
+@keyframes sent-flutter {from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
+.sc-sent .flut { transform-box:fill-box; transform-origin:0% 50%; animation:sent-flutter 3.6s ease-in-out infinite alternate }
+.sc-sent .flut.f2 { animation-duration:4.6s; animation-delay:-1.4s }
+.sc-sent .flut.f3 { animation-duration:3.1s; animation-delay:-2.2s }
+.sc-sent .cloud.c2 { animation-duration:62s; animation-delay:-22s }
+@keyframes sent-swayanim {from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+.sc-sent .sway { animation:sent-swayanim 6s ease-in-out infinite alternate }
+.sc-sent .sway.s2 { animation-duration:7.5s; animation-direction:alternate-reverse }
+@keyframes sent-leaffall {0%{transform:translate(0,-20px) rotate(0);opacity:0}8%{opacity:.7}100%{transform:translate(-90px,880px) rotate(420deg);opacity:0}}
+.sc-sent .leaf { transform-box:fill-box; transform-origin:center; animation:sent-leaffall 19s linear infinite }
+.sc-sent .leaf.l2 { animation-duration:23s; animation-delay:-6s }
+.sc-sent .leaf.l3 { animation-duration:17s; animation-delay:-11s }
+.sc-sent .leaf.l4 { animation-duration:26s; animation-delay:-3s }
+.sc-sent .leaf.l5 { animation-duration:21s; animation-delay:-15s }
+@keyframes sent-spin {to{transform:rotate(360deg)}}
+.sc-sent .spin { transform-box:fill-box; transform-origin:center; animation:sent-spin 7s linear infinite }
+.sc-sent .spin.s2 { animation-duration:5s }
+@keyframes sent-drive {from{transform:translateX(-60px)}to{transform:translateX(450px)}}
+.sc-sent .bus { animation:sent-drive 17s linear infinite }
+@keyframes sent-fly {from{transform:translate(-50px,0)}50%{transform:translate(200px,-10px)}to{transform:translate(440px,4px)}}
+.sc-sent .bird { animation:sent-fly 24s linear infinite }
+.sc-sent .bird.b2 { animation-duration:31s; animation-delay:-12s }
+@keyframes sent-tw {0%,100%{opacity:1}50%{opacity:.3}}
+.sc-sent .tw { animation:sent-tw 3s ease-in-out infinite }
+.sc-sent .tw.t2 { animation-delay:-1s }
+.sc-sent .tw.t3 { animation-delay:-2s }
+@keyframes sent-ping {0%{transform:scale(.6);opacity:.9}100%{transform:scale(3);opacity:0}}
+.sc-sent .ping { transform-box:fill-box; transform-origin:center; animation:sent-ping 2.2s ease-out infinite }
+@keyframes sent-tapburst {0%{box-shadow:0 0 0 0 rgba(31,107,58,.45)}100%{box-shadow:0 0 0 22px rgba(31,107,58,0)}}
+.sc-sent .tapped { animation:sent-tapburst .4s ease-out !important }
+@keyframes sent-micring {0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}100%{box-shadow:0 0 0 16px rgba(255,255,255,0)}}
+.sc-sent .micdot { animation:sent-micring 2.4s ease-out infinite }
+.sc-sent a.link svg { transition:transform .4s cubic-bezier(.32,.72,0,1) }
+.sc-sent a.link:hover svg { transform:translateX(6px) }
+.sc-sent a.solid svg, .sc-sent a.big svg { transition:transform .45s cubic-bezier(.32,.72,0,1) }
+.sc-sent a.solid:hover svg { transform:translateX(5px) }
+@keyframes sent-cellpop {0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.sc-sent .cellpop { animation:sent-cellpop .3s cubic-bezier(.34,1.56,.64,1) }
+@keyframes sent-dropin {0%{transform:translate(-50%,-260%);opacity:0}55%{transform:translate(-50%,-100%);opacity:1}72%{transform:translate(-50%,-150%)}100%{transform:translate(-50%,-100%)}}
+@keyframes sent-growx {from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes sent-popin {0%{transform:scale(.3);opacity:0}60%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
+.sc-sent .prog>span:nth-child(odd) { animation:sent-popin .55s cubic-bezier(.34,1.56,.64,1) backwards }
+.sc-sent .prog>span:nth-child(even) { transform-origin:left center; animation:sent-growx .5s cubic-bezier(.32,.72,0,1) backwards }
+.sc-sent .prog>span:nth-child(1) { animation-delay:.3s }
+.sc-sent .prog>span:nth-child(2) { animation-delay:.55s }
+.sc-sent .prog>span:nth-child(3) { animation-delay:.7s }
+.sc-sent .prog>span:nth-child(4) { animation-delay:.95s }
+.sc-sent .prog>span:nth-child(5) { animation-delay:1.1s }
+.sc-sent .prog>span:nth-child(6) { animation-delay:1.35s }
+.sc-sent .prog>span:nth-child(7) { animation-delay:1.5s }
+.sc-sent .prog>span:nth-child(8) { animation-delay:1.75s }
+.sc-sent .prog>span:nth-child(9) { animation-delay:1.9s }
+.sc-sent .prog>span.ring:nth-child(5) { animation:sent-popin .55s cubic-bezier(.34,1.56,.64,1) 1.1s backwards, ring 2.4s ease-in-out 1.7s infinite }

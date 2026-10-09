@@ -1,0 +1,68 @@
+.sc-voice a, .sc-voice button { transition:background-color .35s cubic-bezier(.32,.72,0,1),border-color .35s cubic-bezier(.32,.72,0,1),color .35s cubic-bezier(.32,.72,0,1),box-shadow .45s cubic-bezier(.32,.72,0,1),transform .45s cubic-bezier(.32,.72,0,1),opacity .45s cubic-bezier(.32,.72,0,1) }
+.sc-voice a:active, .sc-voice button:active { transform:scale(.97) }
+.sc-voice a:focus-visible, .sc-voice button:focus-visible { outline:3px solid #E0A526; outline-offset:3px }
+.sc-voice button.pill:hover, .sc-voice a.plain:hover { background:#E3F1E6 }
+@keyframes voice-rise {from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes voice-wave {0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+@keyframes voice-soundring {0%{transform:scale(.7);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+.sc-voice header { animation:voice-rise .6s cubic-bezier(.22,1,.36,1) backwards }
+.sc-voice main>* { animation:voice-rise .8s cubic-bezier(.22,1,.36,1) backwards }
+.sc-voice main>*:nth-child(2) { animation-delay:.1s }
+.sc-voice main>*:nth-child(3) { animation-delay:.18s }
+.sc-voice main>*:nth-child(4) { animation-delay:.26s }
+.sc-voice .bar { transform-box:fill-box; transform-origin:center; animation:voice-wave 1.1s ease-in-out infinite }
+.sc-voice .bar.b2 { animation-delay:.15s }
+.sc-voice .bar.b3 { animation-delay:.3s }
+.sc-voice .bar.b4 { animation-delay:.45s }
+.sc-voice .bar.b5 { animation-delay:.6s }
+.sc-voice .sring { transform-box:fill-box; transform-origin:center; animation:voice-soundring 2.4s ease-out infinite }
+.sc-voice .sring.r2 { animation-delay:1.2s }
+@keyframes voice-tapburst {0%{box-shadow:0 0 0 0 rgba(31,107,58,.45)}100%{box-shadow:0 0 0 22px rgba(31,107,58,0)}}
+.sc-voice .tapped { animation:voice-tapburst .4s ease-out !important }
+@keyframes voice-micring {0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}100%{box-shadow:0 0 0 16px rgba(255,255,255,0)}}
+.sc-voice .micdot { animation:voice-micring 2.4s ease-out infinite }
+.sc-voice a.link svg { transition:transform .4s cubic-bezier(.32,.72,0,1) }
+.sc-voice a.link:hover svg { transform:translateX(6px) }
+.sc-voice a.solid:hover { background:#14502B }
+.sc-voice a.solid svg, .sc-voice a.big svg { transition:transform .45s cubic-bezier(.32,.72,0,1) }
+.sc-voice a.solid:hover svg { transform:translateX(5px) }
+@keyframes voice-cellpop {0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.sc-voice .cellpop { animation:voice-cellpop .3s cubic-bezier(.34,1.56,.64,1) }
+@keyframes voice-dropin {0%{transform:translate(-50%,-260%);opacity:0}55%{transform:translate(-50%,-100%);opacity:1}72%{transform:translate(-50%,-150%)}100%{transform:translate(-50%,-100%)}}
+@keyframes voice-growx {from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes voice-popin {0%{transform:scale(.3);opacity:0}60%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
+.sc-voice .prog>span:nth-child(odd) { animation:voice-popin .55s cubic-bezier(.34,1.56,.64,1) backwards }
+.sc-voice .prog>span:nth-child(even) { transform-origin:left center; animation:voice-growx .5s cubic-bezier(.32,.72,0,1) backwards }
+.sc-voice .prog>span:nth-child(1) { animation-delay:.3s }
+.sc-voice .prog>span:nth-child(2) { animation-delay:.55s }
+.sc-voice .prog>span:nth-child(3) { animation-delay:.7s }
+.sc-voice .prog>span:nth-child(4) { animation-delay:.95s }
+.sc-voice .prog>span:nth-child(5) { animation-delay:1.1s }
+.sc-voice .prog>span:nth-child(6) { animation-delay:1.35s }
+.sc-voice .prog>span:nth-child(7) { animation-delay:1.5s }
+.sc-voice .prog>span:nth-child(8) { animation-delay:1.75s }
+.sc-voice .prog>span:nth-child(9) { animation-delay:1.9s }
+.sc-voice .prog>span.ring:nth-child(5) { animation:voice-popin .55s cubic-bezier(.34,1.56,.64,1) 1.1s backwards, ring 2.4s ease-in-out 1.7s infinite }
+@media (prefers-reduced-motion:reduce) {
+.sc-voice * { animation:none!important; transition:none!important }
+}
+.sc-voice .sw { position:relative; flex:none; width:var(--W); height:var(--H); border:0; padding:0; border-radius:999px; cursor:pointer; background:#B4491F; box-shadow:inset 0 3px 8px rgba(0,0,0,.2); transition:background-color .55s cubic-bezier(.32,.72,0,1),box-shadow .5s ease }
+.sc-voice .sw[aria-checked="true"] { background:#1F6B3A }
+.sc-voice .sw .knob { position:absolute; top:var(--P); left:var(--P); width:var(--D); height:var(--D); transition:transform .65s cubic-bezier(.3,1.12,.5,1) }
+.sc-voice .sw[aria-checked="true"] .knob { transform:translateX(calc(var(--W) - var(--D) - 2 * var(--P))) }
+.sc-voice .sw .disc { position:relative; display:block; width:100%; height:100%; border-radius:50%; background:#FFFFFF; box-shadow:0 5px 16px rgba(0,0,0,.25); transition:transform .3s cubic-bezier(.32,.72,0,1) }
+.sc-voice .sw:active .disc { transform:scaleX(1.14) }
+.sc-voice .sw:active { transform:none }
+.sc-voice .sw .ic { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; transition:opacity .4s ease,transform .55s cubic-bezier(.32,.72,0,1) }
+.sc-voice .sw .ic-on { opacity:0; transform:scale(.5) rotate(-30deg) }
+.sc-voice .sw[aria-checked="true"] .ic-on { opacity:1; transform:none }
+.sc-voice .sw[aria-checked="true"] .ic-off { opacity:0; transform:scale(.5) rotate(30deg) }
+.sc-voice .sw .lab { position:absolute; top:0; bottom:0; display:flex; align-items:center; justify-content:center; width:calc(var(--W) - var(--D) - 2 * var(--P)); color:#FFFFFF; font-weight:700; font-size:var(--F); letter-spacing:.02em; transition:opacity .45s ease,transform .6s cubic-bezier(.32,.72,0,1) }
+.sc-voice .sw .l-on { left:var(--P); opacity:0; transform:translateX(-16px) }
+.sc-voice .sw .l-off { right:var(--P); opacity:1 }
+.sc-voice .sw[aria-checked="true"] .l-on { opacity:1; transform:none }
+.sc-voice .sw[aria-checked="true"] .l-off { opacity:0; transform:translateX(16px) }
+.sc-voice .sw:focus-visible { outline:3px solid #E0A526; outline-offset:5px }
+@media (prefers-reduced-motion:reduce) {
+.sc-voice .sw, .sc-voice .sw * { transition:none!important }
+}

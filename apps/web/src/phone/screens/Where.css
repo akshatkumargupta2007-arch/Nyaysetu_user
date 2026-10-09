@@ -1,0 +1,46 @@
+.sc-where a, .sc-where button, .sc-where textarea { transition:background-color .35s cubic-bezier(.32,.72,0,1),border-color .35s cubic-bezier(.32,.72,0,1),color .35s cubic-bezier(.32,.72,0,1),box-shadow .45s cubic-bezier(.32,.72,0,1),transform .45s cubic-bezier(.32,.72,0,1) }
+.sc-where a:active, .sc-where button:active { transform:scale(.96) }
+.sc-where a:focus-visible, .sc-where button:focus-visible, .sc-where textarea:focus-visible { outline:3px solid #E0A526; outline-offset:3px }
+.sc-where textarea::placeholder { color:#566657; opacity:1 }
+.sc-where button.pill:hover, .sc-where a.plain:hover { background:#E3F1E6 }
+.sc-where a.solid:hover, .sc-where button.speak:hover { background:#14502B }
+@keyframes where-rise {from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes where-hop {0%,100%{transform:translate(-50%,-100%)}50%{transform:translate(-50%,calc(-100% - 8px))}}
+@keyframes where-shadow {0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.35}50%{transform:translate(-50%,-50%) scale(.7);opacity:.2}}
+@keyframes where-pulse {0%{box-shadow:0 0 0 0 rgba(31,107,58,.45)}100%{box-shadow:0 0 0 18px rgba(31,107,58,0)}}
+.sc-where header { animation:where-rise .6s cubic-bezier(.22,1,.36,1) backwards }
+.sc-where main>* { animation:where-rise .8s cubic-bezier(.22,1,.36,1) backwards }
+.sc-where main>*:nth-child(2) { animation-delay:.08s }
+.sc-where main>*:nth-child(3) { animation-delay:.16s }
+.sc-where .field:focus-within { box-shadow:0 0 0 5px rgba(31,107,58,.16) }
+.sc-where .mapwrap { animation:where-rise .8s cubic-bezier(.22,1,.36,1) .16s backwards }
+.sc-where .pin { position:absolute; left:50%; top:46%; transform:translate(-50%,-100%); animation:where-hop 1.8s cubic-bezier(.45,0,.55,1) infinite }
+.sc-where .pinshadow { position:absolute; left:50%; top:46%; width:30px; height:10px; border-radius:50%; background:#1E2B22; animation:where-shadow 1.8s cubic-bezier(.45,0,.55,1) infinite }
+@media (prefers-reduced-motion:reduce) {
+.sc-where * { animation:none!important; transition:none!important }
+}
+@keyframes where-tapburst {0%{box-shadow:0 0 0 0 rgba(31,107,58,.45)}100%{box-shadow:0 0 0 22px rgba(31,107,58,0)}}
+.sc-where .tapped { animation:where-tapburst .4s ease-out !important }
+@keyframes where-micring {0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}100%{box-shadow:0 0 0 16px rgba(255,255,255,0)}}
+.sc-where .micdot { animation:where-micring 2.4s ease-out infinite }
+.sc-where a.link svg { transition:transform .4s cubic-bezier(.32,.72,0,1) }
+.sc-where a.link:hover svg { transform:translateX(6px) }
+.sc-where a.solid svg, .sc-where a.big svg { transition:transform .45s cubic-bezier(.32,.72,0,1) }
+.sc-where a.solid:hover svg { transform:translateX(5px) }
+@keyframes where-cellpop {0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.sc-where .cellpop { animation:where-cellpop .3s cubic-bezier(.34,1.56,.64,1) }
+@keyframes where-dropin {0%{transform:translate(-50%,-260%);opacity:0}55%{transform:translate(-50%,-100%);opacity:1}72%{transform:translate(-50%,-150%)}100%{transform:translate(-50%,-100%)}}
+@keyframes where-growx {from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes where-popin {0%{transform:scale(.3);opacity:0}60%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
+.sc-where .prog>span:nth-child(odd) { animation:where-popin .55s cubic-bezier(.34,1.56,.64,1) backwards }
+.sc-where .prog>span:nth-child(even) { transform-origin:left center; animation:where-growx .5s cubic-bezier(.32,.72,0,1) backwards }
+.sc-where .prog>span:nth-child(1) { animation-delay:.3s }
+.sc-where .prog>span:nth-child(2) { animation-delay:.55s }
+.sc-where .prog>span:nth-child(3) { animation-delay:.7s }
+.sc-where .prog>span:nth-child(4) { animation-delay:.95s }
+.sc-where .prog>span:nth-child(5) { animation-delay:1.1s }
+.sc-where .prog>span:nth-child(6) { animation-delay:1.35s }
+.sc-where .prog>span:nth-child(7) { animation-delay:1.5s }
+.sc-where .prog>span:nth-child(8) { animation-delay:1.75s }
+.sc-where .prog>span:nth-child(9) { animation-delay:1.9s }
+.sc-where .prog>span.ring:nth-child(5) { animation:where-popin .55s cubic-bezier(.34,1.56,.64,1) 1.1s backwards, ring 2.4s ease-in-out 1.7s infinite }
