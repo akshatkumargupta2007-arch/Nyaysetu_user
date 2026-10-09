@@ -1,0 +1,48 @@
+{
+  "name": "@nyaysetu/api",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx src/db/migrate.ts",
+    "db:migrate:prod": "node dist/db/migrate.js",
+    "seed": "tsx src/db/seed.ts",
+    "seed:prod": "node dist/db/seed.js --prod",
+    "seed:demo": "tsx src/db/seed-demo.ts",
+    "eval": "tsx ../../eval/run.ts",
+    "tts:prewarm": "tsx src/scripts/tts-prewarm.ts"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.3.0",
+    "@fastify/jwt": "^10.2.2",
+    "@fastify/rate-limit": "^11.2.0",
+    "bcrypt": "^6.0.0",
+    "drizzle-orm": "^0.45.3",
+    "fastify": "^5.12.5",
+    "fastify-type-provider-zod": "^7.0.0",
+    "h3-js": "^4.5.0",
+    "pg": "^8.13.1",
+    "pg-boss": "^12.36.0",
+    "pino": "^10.4.0",
+    "pino-pretty": "^13.0.0",
+    "sharp": "^0.35.5",
+    "zod": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/node": "^22.9.0",
+    "@types/pg": "^8.11.10",
+    "drizzle-kit": "^0.31.11",
+    "tsx": "^4.23.15",
+    "typescript": "^5.6.3",
+    "vitest": "^5.0.3"
+  }
+}
