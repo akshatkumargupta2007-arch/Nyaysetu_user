@@ -1,0 +1,113 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "cg.bhilai.city",
+        "tenant_id": "cg.bhilai",
+        "kind": "city",
+        "name": { "hi": "भिलाई", "en": "Bhilai" },
+        "specificity": 0,
+        "owner_agency_id": "cg.bhilai.bmc",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [[[
+          [81.28, 21.15], [81.42, 21.15], [81.42, 21.25], [81.28, 21.25], [81.28, 21.15]
+        ]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "cg.bhilai.ward.14",
+        "tenant_id": "cg.bhilai",
+        "kind": "ward",
+        "name": { "hi": "वार्ड 14 (सुपेला)", "en": "Ward 14 (Supela)" },
+        "specificity": 10,
+        "owner_agency_id": "cg.bhilai.bmc",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [[[
+          [81.322, 21.178], [81.338, 21.178], [81.338, 21.192], [81.322, 21.192], [81.322, 21.178]
+        ]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "cg.bhilai.ward.22",
+        "tenant_id": "cg.bhilai",
+        "kind": "ward",
+        "name": { "hi": "वार्ड 22 (नेहरू नगर)", "en": "Ward 22 (Nehru Nagar)" },
+        "specificity": 10,
+        "owner_agency_id": "cg.bhilai.bmc",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [[[
+          [81.340, 21.192], [81.356, 21.192], [81.356, 21.206], [81.340, 21.206], [81.340, 21.192]
+        ]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "cg.bhilai.sector.7",
+        "tenant_id": "cg.bhilai",
+        "kind": "sector",
+        "name": { "hi": "सेक्टर 7 (बीएसपी टाउनशिप)", "en": "Sector 7 (BSP Township)" },
+        "specificity": 20,
+        "owner_agency_id": "cg.bhilai.bsp_town",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [[[
+          [81.358, 21.205], [81.374, 21.205], [81.374, 21.219], [81.358, 21.219], [81.358, 21.205]
+        ]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "cg.bhilai.sector.9",
+        "tenant_id": "cg.bhilai",
+        "kind": "sector",
+        "name": { "hi": "सेक्टर 9 (बीएसपी टाउनशिप)", "en": "Sector 9 (BSP Township)" },
+        "specificity": 20,
+        "owner_agency_id": "cg.bhilai.bsp_town",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [[[
+          [81.376, 21.210], [81.392, 21.210], [81.392, 21.224], [81.376, 21.224], [81.376, 21.210]
+        ]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nh53.bhilai",
+        "tenant_id": "cg.bhilai",
+        "kind": "corridor",
+        "name": { "hi": "जीई रोड / राष्ट्रीय राजमार्ग 53", "en": "GE Road / NH-53" },
+        "specificity": 30,
+        "owner_agency_id": "nhai",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [[[
+          [81.28, 21.188], [81.42, 21.188], [81.42, 21.192], [81.28, 21.192], [81.28, 21.188]
+        ]]]
+      }
+    }
+  ]
+}

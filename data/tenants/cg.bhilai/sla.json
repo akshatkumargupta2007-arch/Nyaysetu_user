@@ -1,0 +1,1161 @@
+[
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_UNCOLLECTED",
+    "resolve_hours": 48,
+    "ladder": [
+      {
+        "after_h": 24,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 96,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_DEAD_ANIMAL",
+    "resolve_hours": 24,
+    "ladder": [
+      {
+        "after_h": 12,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 24,
+        "role": "SANITARY_INSPECTOR_OR_AE"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_BURNING",
+    "resolve_hours": 24,
+    "ladder": [
+      {
+        "after_h": 12,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 24,
+        "role": "SANITARY_INSPECTOR_OR_AE"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_DUSTBIN_OVERFLOW",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_SWEEPER_ABSENT",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_NO_SUPPLY",
+    "resolve_hours": 24,
+    "ladder": [
+      {
+        "after_h": 12,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 24,
+        "role": "SANITARY_INSPECTOR_OR_AE"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_CONTAMINATED",
+    "resolve_hours": 4,
+    "ladder": [
+      {
+        "after_h": 2,
+        "role": "FIELD_SUPERVISOR"
+      },
+      {
+        "after_h": 4,
+        "role": "ASSISTANT_ENGINEER"
+      },
+      {
+        "after_h": 12,
+        "role": "EXECUTIVE_ENGINEER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_PIPELINE_LEAK",
+    "resolve_hours": 24,
+    "ladder": [
+      {
+        "after_h": 12,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 24,
+        "role": "SANITARY_INSPECTOR_OR_AE"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_LOW_PRESSURE",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_ILLEGAL_CONNECTION",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_OPEN_MANHOLE",
+    "resolve_hours": 4,
+    "ladder": [
+      {
+        "after_h": 2,
+        "role": "FIELD_SUPERVISOR"
+      },
+      {
+        "after_h": 4,
+        "role": "ASSISTANT_ENGINEER"
+      },
+      {
+        "after_h": 12,
+        "role": "EXECUTIVE_ENGINEER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_BLOCKED",
+    "resolve_hours": 24,
+    "ladder": [
+      {
+        "after_h": 12,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 24,
+        "role": "SANITARY_INSPECTOR_OR_AE"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_SEWAGE_OVERFLOW",
+    "resolve_hours": 24,
+    "ladder": [
+      {
+        "after_h": 12,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 24,
+        "role": "SANITARY_INSPECTOR_OR_AE"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_SEWAGE_IN_DRINKING_WATER",
+    "resolve_hours": 4,
+    "ladder": [
+      {
+        "after_h": 2,
+        "role": "FIELD_SUPERVISOR"
+      },
+      {
+        "after_h": 4,
+        "role": "ASSISTANT_ENGINEER"
+      },
+      {
+        "after_h": 12,
+        "role": "EXECUTIVE_ENGINEER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_ILLEGAL_DISCHARGE",
+    "resolve_hours": 48,
+    "ladder": [
+      {
+        "after_h": 24,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 96,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_POTHOLE",
+    "resolve_hours": 48,
+    "ladder": [
+      {
+        "after_h": 24,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 96,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_CAVED_IN",
+    "resolve_hours": 4,
+    "ladder": [
+      {
+        "after_h": 2,
+        "role": "FIELD_SUPERVISOR"
+      },
+      {
+        "after_h": 4,
+        "role": "ASSISTANT_ENGINEER"
+      },
+      {
+        "after_h": 12,
+        "role": "EXECUTIVE_ENGINEER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_BROKEN_FOOTPATH",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_WATERLOGGING",
+    "resolve_hours": 24,
+    "ladder": [
+      {
+        "after_h": 12,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 24,
+        "role": "SANITARY_INSPECTOR_OR_AE"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_DEBRIS",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_SINGLE_OUT",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_AREA_DARK",
+    "resolve_hours": 24,
+    "ladder": [
+      {
+        "after_h": 12,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 24,
+        "role": "SANITARY_INSPECTOR_OR_AE"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_DAYTIME_ON",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_POLE_DAMAGED",
+    "resolve_hours": 24,
+    "ladder": [
+      {
+        "after_h": 12,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 24,
+        "role": "SANITARY_INSPECTOR_OR_AE"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_HIGH_MAST_BROKEN",
+    "resolve_hours": 48,
+    "ladder": [
+      {
+        "after_h": 24,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 96,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ELEC_OUTAGE",
+    "resolve_hours": 48,
+    "ladder": [
+      {
+        "after_h": 24,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 96,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ELEC_LIVE_WIRE",
+    "resolve_hours": 4,
+    "ladder": [
+      {
+        "after_h": 2,
+        "role": "FIELD_SUPERVISOR"
+      },
+      {
+        "after_h": 4,
+        "role": "ASSISTANT_ENGINEER"
+      },
+      {
+        "after_h": 12,
+        "role": "EXECUTIVE_ENGINEER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ELEC_TRANSFORMER_SPARK",
+    "resolve_hours": 4,
+    "ladder": [
+      {
+        "after_h": 2,
+        "role": "FIELD_SUPERVISOR"
+      },
+      {
+        "after_h": 4,
+        "role": "ASSISTANT_ENGINEER"
+      },
+      {
+        "after_h": 12,
+        "role": "EXECUTIVE_ENGINEER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ELEC_VOLTAGE_FLUCTUATION",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ELEC_BILLING",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_MOSQUITO_FOGGING",
+    "resolve_hours": 48,
+    "ladder": [
+      {
+        "after_h": 24,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 96,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_UNCLEAN_TOILET",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_MEDICAL_WASTE",
+    "resolve_hours": 12,
+    "ladder": [
+      {
+        "after_h": 6,
+        "role": "FIELD_SUPERVISOR"
+      },
+      {
+        "after_h": 12,
+        "role": "ASSISTANT_ENGINEER"
+      },
+      {
+        "after_h": 24,
+        "role": "EXECUTIVE_ENGINEER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_PUBLIC_URINATION",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_UNHYGIENIC_VENDOR",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_SIGNAL_DOWN",
+    "resolve_hours": 24,
+    "ladder": [
+      {
+        "after_h": 12,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 24,
+        "role": "SANITARY_INSPECTOR_OR_AE"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_ABANDONED_VEHICLE",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_UNAUTHORIZED_PARKING",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_BUS_SHELTER_DAMAGED",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_MISSING_SIGNAGE",
+    "resolve_hours": 48,
+    "ladder": [
+      {
+        "after_h": 24,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 96,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_BROKEN_EQUIPMENT",
+    "resolve_hours": 48,
+    "ladder": [
+      {
+        "after_h": 24,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 96,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_UNKEMPT",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_TREE_FALLEN",
+    "resolve_hours": 24,
+    "ladder": [
+      {
+        "after_h": 12,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 24,
+        "role": "SANITARY_INSPECTOR_OR_AE"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_TREE_PRUNING",
+    "resolve_hours": 48,
+    "ladder": [
+      {
+        "after_h": 24,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 96,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_ENCROACHMENT",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_UNAUTHORIZED_CONSTRUCTION",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_DANGEROUS_BUILDING",
+    "resolve_hours": 4,
+    "ladder": [
+      {
+        "after_h": 2,
+        "role": "FIELD_SUPERVISOR"
+      },
+      {
+        "after_h": 4,
+        "role": "ASSISTANT_ENGINEER"
+      },
+      {
+        "after_h": 12,
+        "role": "EXECUTIVE_ENGINEER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_COMMERCIAL_IN_RESIDENTIAL",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_ILLEGAL_HOARDING",
+    "resolve_hours": 48,
+    "ladder": [
+      {
+        "after_h": 24,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 96,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_CELL_TOWER",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_CREMATORIUM",
+    "resolve_hours": 48,
+    "ladder": [
+      {
+        "after_h": 24,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 96,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_PUBLIC_TAP_BROKEN",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_UNHYGIENIC_MARKET",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_STRAY_CATTLE",
+    "resolve_hours": 48,
+    "ladder": [
+      {
+        "after_h": 24,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 96,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_COMMUNITY_HALL",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_STRAY_DOG",
+    "resolve_hours": 24,
+    "ladder": [
+      {
+        "after_h": 12,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 24,
+        "role": "SANITARY_INSPECTOR_OR_AE"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_DEAD_LARGE",
+    "resolve_hours": 24,
+    "ladder": [
+      {
+        "after_h": 12,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 24,
+        "role": "SANITARY_INSPECTOR_OR_AE"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_ILLEGAL_SLAUGHTER",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_MONKEY_MENACE",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_CRUELTY",
+    "resolve_hours": 48,
+    "ladder": [
+      {
+        "after_h": 24,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 48,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 96,
+        "role": "COMMISSIONER"
+      }
+    ]
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "OTHER_CIVIC",
+    "resolve_hours": 168,
+    "ladder": [
+      {
+        "after_h": 48,
+        "role": "WARD_SUPERVISOR"
+      },
+      {
+        "after_h": 96,
+        "role": "ZONAL_OFFICER"
+      },
+      {
+        "after_h": 168,
+        "role": "COMMISSIONER"
+      }
+    ]
+  }
+]

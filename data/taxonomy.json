@@ -1,0 +1,1006 @@
+[
+  {
+    "code": "SW_UNCOLLECTED",
+    "l1": "SOLID_WASTE",
+    "names": {
+      "hi": "कचरा नहीं उठा",
+      "en": "Garbage uncollected"
+    },
+    "icon": "trash",
+    "default_severity": 35,
+    "safety_hazards": [],
+    "dedup_radius_m": 80,
+    "dedup_window_h": 72,
+    "seasonal": {},
+    "mappings": {
+      "open311": "SW_UNCOLLECTED",
+      "digit": "SWM.GARBAGE"
+    }
+  },
+  {
+    "code": "SW_DEAD_ANIMAL",
+    "l1": "SOLID_WASTE",
+    "names": {
+      "hi": "सड़क पर मरा जानवर",
+      "en": "Dead animal on street"
+    },
+    "icon": "trash",
+    "default_severity": 60,
+    "safety_hazards": [
+      "public_health_risk"
+    ],
+    "dedup_radius_m": 50,
+    "dedup_window_h": 24,
+    "seasonal": {},
+    "mappings": {
+      "open311": "SW_DEAD_ANIMAL"
+    }
+  },
+  {
+    "code": "SW_BURNING",
+    "l1": "SOLID_WASTE",
+    "names": {
+      "hi": "कचरा जलाना",
+      "en": "Burning of garbage/leaves"
+    },
+    "icon": "flame",
+    "default_severity": 55,
+    "safety_hazards": [
+      "air_quality"
+    ],
+    "dedup_radius_m": 150,
+    "dedup_window_h": 48,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "SW_DUSTBIN_OVERFLOW",
+    "l1": "SOLID_WASTE",
+    "names": {
+      "hi": "डस्टबिन भरा हुआ",
+      "en": "Overflowing public dustbin"
+    },
+    "icon": "trash",
+    "default_severity": 30,
+    "safety_hazards": [],
+    "dedup_radius_m": 60,
+    "dedup_window_h": 72,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "SW_SWEEPER_ABSENT",
+    "l1": "SOLID_WASTE",
+    "names": {
+      "hi": "सफाईवाला नहीं आया",
+      "en": "Sweeper absent / street unclean"
+    },
+    "icon": "broom",
+    "default_severity": 20,
+    "safety_hazards": [],
+    "dedup_radius_m": 100,
+    "dedup_window_h": 168,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "WATER_NO_SUPPLY",
+    "l1": "WATER_SUPPLY",
+    "names": {
+      "hi": "पानी नहीं आ रहा",
+      "en": "No water supply"
+    },
+    "icon": "droplet",
+    "default_severity": 60,
+    "safety_hazards": [],
+    "dedup_radius_m": 400,
+    "dedup_window_h": 72,
+    "seasonal": {
+      "summer": 1
+    },
+    "mappings": {
+      "open311": "WATER_NO_SUPPLY",
+      "digit": "WS.NO_SUPPLY"
+    }
+  },
+  {
+    "code": "WATER_CONTAMINATED",
+    "l1": "WATER_SUPPLY",
+    "names": {
+      "hi": "गंदा/दूषित पानी",
+      "en": "Contaminated / muddy water"
+    },
+    "icon": "droplet",
+    "default_severity": 90,
+    "safety_hazards": [
+      "disease_risk"
+    ],
+    "dedup_radius_m": 300,
+    "dedup_window_h": 72,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "WATER_PIPELINE_LEAK",
+    "l1": "WATER_SUPPLY",
+    "names": {
+      "hi": "पाइपलाइन लीकेज",
+      "en": "Pipeline leakage / burst"
+    },
+    "icon": "droplet",
+    "default_severity": 55,
+    "safety_hazards": [],
+    "dedup_radius_m": 60,
+    "dedup_window_h": 72,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "WATER_LOW_PRESSURE",
+    "l1": "WATER_SUPPLY",
+    "names": {
+      "hi": "पानी का प्रेशर कम",
+      "en": "Low water pressure"
+    },
+    "icon": "droplet",
+    "default_severity": 25,
+    "safety_hazards": [],
+    "dedup_radius_m": 300,
+    "dedup_window_h": 72,
+    "seasonal": {
+      "summer": 1
+    },
+    "mappings": {}
+  },
+  {
+    "code": "WATER_ILLEGAL_CONNECTION",
+    "l1": "WATER_SUPPLY",
+    "names": {
+      "hi": "अवैध पानी कनेक्शन",
+      "en": "Illegal water connection"
+    },
+    "icon": "droplet",
+    "default_severity": 15,
+    "safety_hazards": [],
+    "dedup_radius_m": 50,
+    "dedup_window_h": 168,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "DRAIN_OPEN_MANHOLE",
+    "l1": "SEWERAGE_DRAINAGE",
+    "names": {
+      "hi": "खुला मैनहोल",
+      "en": "Open / missing manhole cover"
+    },
+    "icon": "alert-triangle",
+    "default_severity": 95,
+    "safety_hazards": [
+      "fall_hazard",
+      "child_safety"
+    ],
+    "dedup_radius_m": 30,
+    "dedup_window_h": 48,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "DRAIN_BLOCKED",
+    "l1": "SEWERAGE_DRAINAGE",
+    "names": {
+      "hi": "नाली जाम",
+      "en": "Blocked storm-water drain"
+    },
+    "icon": "waves",
+    "default_severity": 55,
+    "safety_hazards": [
+      "flood_risk"
+    ],
+    "dedup_radius_m": 100,
+    "dedup_window_h": 72,
+    "seasonal": {
+      "monsoon": 1
+    },
+    "mappings": {}
+  },
+  {
+    "code": "DRAIN_SEWAGE_OVERFLOW",
+    "l1": "SEWERAGE_DRAINAGE",
+    "names": {
+      "hi": "सीवर ओवरफ्लो",
+      "en": "Sewage overflowing on road"
+    },
+    "icon": "waves",
+    "default_severity": 65,
+    "safety_hazards": [
+      "hygiene_hazard"
+    ],
+    "dedup_radius_m": 80,
+    "dedup_window_h": 48,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "DRAIN_SEWAGE_IN_DRINKING_WATER",
+    "l1": "SEWERAGE_DRAINAGE",
+    "names": {
+      "hi": "पीने के पानी में सीवेज मिक्स",
+      "en": "Sewage mixing in drinking water"
+    },
+    "icon": "alert-triangle",
+    "default_severity": 95,
+    "safety_hazards": [
+      "biohazard",
+      "disease_risk"
+    ],
+    "dedup_radius_m": 300,
+    "dedup_window_h": 48,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "DRAIN_ILLEGAL_DISCHARGE",
+    "l1": "SEWERAGE_DRAINAGE",
+    "names": {
+      "hi": "नाले में अवैध रसायन",
+      "en": "Illegal discharge into lake/river"
+    },
+    "icon": "waves",
+    "default_severity": 50,
+    "safety_hazards": [
+      "pollution"
+    ],
+    "dedup_radius_m": 200,
+    "dedup_window_h": 168,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "ROAD_POTHOLE",
+    "l1": "ROADS_FOOTPATHS",
+    "names": {
+      "hi": "सड़क पर गड्ढा",
+      "en": "Pothole on road"
+    },
+    "icon": "road",
+    "default_severity": 40,
+    "safety_hazards": [],
+    "dedup_radius_m": 40,
+    "dedup_window_h": 336,
+    "seasonal": {
+      "monsoon": 1
+    },
+    "mappings": {
+      "open311": "ROAD_POTHOLE",
+      "digit": "PWD.POTHOLE"
+    }
+  },
+  {
+    "code": "ROAD_CAVED_IN",
+    "l1": "ROADS_FOOTPATHS",
+    "names": {
+      "hi": "सड़क धंस गई",
+      "en": "Road caved in / sinkhole"
+    },
+    "icon": "alert-triangle",
+    "default_severity": 95,
+    "safety_hazards": [
+      "collapse_risk"
+    ],
+    "dedup_radius_m": 40,
+    "dedup_window_h": 72,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "ROAD_BROKEN_FOOTPATH",
+    "l1": "ROADS_FOOTPATHS",
+    "names": {
+      "hi": "टूटा फुटपाथ",
+      "en": "Broken / missing footpath"
+    },
+    "icon": "road",
+    "default_severity": 20,
+    "safety_hazards": [],
+    "dedup_radius_m": 40,
+    "dedup_window_h": 336,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "ROAD_WATERLOGGING",
+    "l1": "ROADS_FOOTPATHS",
+    "names": {
+      "hi": "सड़क पर जलजमाव",
+      "en": "Waterlogging on road"
+    },
+    "icon": "waves",
+    "default_severity": 55,
+    "safety_hazards": [
+      "mosquito_breeding"
+    ],
+    "dedup_radius_m": 100,
+    "dedup_window_h": 48,
+    "seasonal": {
+      "monsoon": 1
+    },
+    "mappings": {}
+  },
+  {
+    "code": "ROAD_DEBRIS",
+    "l1": "ROADS_FOOTPATHS",
+    "names": {
+      "hi": "मलबा सड़क पर",
+      "en": "Construction debris on road"
+    },
+    "icon": "road",
+    "default_severity": 30,
+    "safety_hazards": [],
+    "dedup_radius_m": 50,
+    "dedup_window_h": 168,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "LIGHT_SINGLE_OUT",
+    "l1": "STREETLIGHTS",
+    "names": {
+      "hi": "एक स्ट्रीटलाइट बंद",
+      "en": "Single streetlight not working"
+    },
+    "icon": "lamp",
+    "default_severity": 20,
+    "safety_hazards": [],
+    "dedup_radius_m": 40,
+    "dedup_window_h": 336,
+    "seasonal": {},
+    "mappings": {
+      "open311": "LIGHT_OUT"
+    }
+  },
+  {
+    "code": "LIGHT_AREA_DARK",
+    "l1": "STREETLIGHTS",
+    "names": {
+      "hi": "पूरी गली अंधेरे में",
+      "en": "Entire street / area dark"
+    },
+    "icon": "lamp",
+    "default_severity": 60,
+    "safety_hazards": [
+      "crime_risk"
+    ],
+    "dedup_radius_m": 150,
+    "dedup_window_h": 336,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "LIGHT_DAYTIME_ON",
+    "l1": "STREETLIGHTS",
+    "names": {
+      "hi": "दिन में स्ट्रीटलाइट जल रही",
+      "en": "Streetlight glowing during daytime"
+    },
+    "icon": "lamp",
+    "default_severity": 10,
+    "safety_hazards": [],
+    "dedup_radius_m": 40,
+    "dedup_window_h": 336,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "LIGHT_POLE_DAMAGED",
+    "l1": "STREETLIGHTS",
+    "names": {
+      "hi": "खम्बा टेढ़ा/क्षतिग्रस्त",
+      "en": "Light pole damaged / leaning"
+    },
+    "icon": "alert-triangle",
+    "default_severity": 65,
+    "safety_hazards": [
+      "collapse_risk"
+    ],
+    "dedup_radius_m": 30,
+    "dedup_window_h": 72,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "LIGHT_HIGH_MAST_BROKEN",
+    "l1": "STREETLIGHTS",
+    "names": {
+      "hi": "हाई-मास्ट लाइट खराब",
+      "en": "High-mast light broken"
+    },
+    "icon": "lamp",
+    "default_severity": 40,
+    "safety_hazards": [],
+    "dedup_radius_m": 100,
+    "dedup_window_h": 336,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "ELEC_OUTAGE",
+    "l1": "ELECTRICITY",
+    "names": {
+      "hi": "बिजली गुल",
+      "en": "Power outage / blackout"
+    },
+    "icon": "zap",
+    "default_severity": 35,
+    "safety_hazards": [],
+    "dedup_radius_m": 500,
+    "dedup_window_h": 24,
+    "seasonal": {
+      "heatwave": 1
+    },
+    "mappings": {}
+  },
+  {
+    "code": "ELEC_LIVE_WIRE",
+    "l1": "ELECTRICITY",
+    "names": {
+      "hi": "टूटा/खुला बिजली का तार",
+      "en": "Live wire broken / sparking"
+    },
+    "icon": "alert-triangle",
+    "default_severity": 100,
+    "safety_hazards": [
+      "electrocution"
+    ],
+    "dedup_radius_m": 30,
+    "dedup_window_h": 24,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "ELEC_TRANSFORMER_SPARK",
+    "l1": "ELECTRICITY",
+    "names": {
+      "hi": "ट्रांसफार्मर में स्पार्क/आग",
+      "en": "Transformer sparking / fire risk"
+    },
+    "icon": "alert-triangle",
+    "default_severity": 100,
+    "safety_hazards": [
+      "fire_risk",
+      "electrocution"
+    ],
+    "dedup_radius_m": 50,
+    "dedup_window_h": 24,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "ELEC_VOLTAGE_FLUCTUATION",
+    "l1": "ELECTRICITY",
+    "names": {
+      "hi": "वोल्टेज घटना-बढ़ना",
+      "en": "Voltage fluctuation"
+    },
+    "icon": "zap",
+    "default_severity": 25,
+    "safety_hazards": [],
+    "dedup_radius_m": 300,
+    "dedup_window_h": 72,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "ELEC_BILLING",
+    "l1": "ELECTRICITY",
+    "names": {
+      "hi": "बिल की समस्या",
+      "en": "Meter reading / billing issue"
+    },
+    "icon": "zap",
+    "default_severity": 10,
+    "safety_hazards": [],
+    "dedup_radius_m": 10,
+    "dedup_window_h": 720,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "HEALTH_MOSQUITO_FOGGING",
+    "l1": "PUBLIC_HEALTH",
+    "names": {
+      "hi": "मच्छर/फॉगिंग चाहिए",
+      "en": "Mosquito breeding / fogging request"
+    },
+    "icon": "bug",
+    "default_severity": 40,
+    "safety_hazards": [
+      "disease_risk"
+    ],
+    "dedup_radius_m": 200,
+    "dedup_window_h": 168,
+    "seasonal": {
+      "monsoon": 1
+    },
+    "mappings": {}
+  },
+  {
+    "code": "HEALTH_UNCLEAN_TOILET",
+    "l1": "PUBLIC_HEALTH",
+    "names": {
+      "hi": "गंदा सार्वजनिक शौचालय",
+      "en": "Unclean public toilet"
+    },
+    "icon": "droplet",
+    "default_severity": 25,
+    "safety_hazards": [],
+    "dedup_radius_m": 60,
+    "dedup_window_h": 168,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "HEALTH_MEDICAL_WASTE",
+    "l1": "PUBLIC_HEALTH",
+    "names": {
+      "hi": "मेडिकल वेस्ट फेंका",
+      "en": "Illegal dumping of medical waste"
+    },
+    "icon": "alert-triangle",
+    "default_severity": 85,
+    "safety_hazards": [
+      "biohazard"
+    ],
+    "dedup_radius_m": 50,
+    "dedup_window_h": 72,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "HEALTH_PUBLIC_URINATION",
+    "l1": "PUBLIC_HEALTH",
+    "names": {
+      "hi": "सार्वजनिक स्थान पर गंदगी",
+      "en": "Public urination / defecation spot"
+    },
+    "icon": "droplet",
+    "default_severity": 15,
+    "safety_hazards": [],
+    "dedup_radius_m": 50,
+    "dedup_window_h": 336,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "HEALTH_UNHYGIENIC_VENDOR",
+    "l1": "PUBLIC_HEALTH",
+    "names": {
+      "hi": "गंदगी वाला खाने का ठेला",
+      "en": "Unhygienic food vendor"
+    },
+    "icon": "alert-triangle",
+    "default_severity": 30,
+    "safety_hazards": [
+      "food_poisoning_risk"
+    ],
+    "dedup_radius_m": 30,
+    "dedup_window_h": 336,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "TRAFFIC_SIGNAL_DOWN",
+    "l1": "TRAFFIC_TRANSPORT",
+    "names": {
+      "hi": "ट्रैफिक सिग्नल खराब",
+      "en": "Traffic signal not working"
+    },
+    "icon": "traffic-cone",
+    "default_severity": 60,
+    "safety_hazards": [
+      "accident_risk"
+    ],
+    "dedup_radius_m": 50,
+    "dedup_window_h": 72,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "TRAFFIC_ABANDONED_VEHICLE",
+    "l1": "TRAFFIC_TRANSPORT",
+    "names": {
+      "hi": "खड़ी खटारा गाड़ी",
+      "en": "Abandoned vehicle on road"
+    },
+    "icon": "car",
+    "default_severity": 15,
+    "safety_hazards": [],
+    "dedup_radius_m": 20,
+    "dedup_window_h": 720,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "TRAFFIC_UNAUTHORIZED_PARKING",
+    "l1": "TRAFFIC_TRANSPORT",
+    "names": {
+      "hi": "अवैध पार्किंग",
+      "en": "Unauthorized parking"
+    },
+    "icon": "car",
+    "default_severity": 25,
+    "safety_hazards": [],
+    "dedup_radius_m": 30,
+    "dedup_window_h": 48,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "TRAFFIC_BUS_SHELTER_DAMAGED",
+    "l1": "TRAFFIC_TRANSPORT",
+    "names": {
+      "hi": "बस स्टॉप क्षतिग्रस्त",
+      "en": "Bus shelter damaged"
+    },
+    "icon": "car",
+    "default_severity": 20,
+    "safety_hazards": [],
+    "dedup_radius_m": 20,
+    "dedup_window_h": 720,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "TRAFFIC_MISSING_SIGNAGE",
+    "l1": "TRAFFIC_TRANSPORT",
+    "names": {
+      "hi": "स्पीड ब्रेकर का बोर्ड नहीं",
+      "en": "Blind spot / missing signage"
+    },
+    "icon": "traffic-cone",
+    "default_severity": 35,
+    "safety_hazards": [
+      "accident_risk"
+    ],
+    "dedup_radius_m": 30,
+    "dedup_window_h": 336,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "PARK_BROKEN_EQUIPMENT",
+    "l1": "PARKS_RECREATION",
+    "names": {
+      "hi": "टूटा झूला/उपकरण",
+      "en": "Broken playground equipment"
+    },
+    "icon": "trees",
+    "default_severity": 35,
+    "safety_hazards": [
+      "child_safety"
+    ],
+    "dedup_radius_m": 30,
+    "dedup_window_h": 336,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "PARK_UNKEMPT",
+    "l1": "PARKS_RECREATION",
+    "names": {
+      "hi": "पार्क में घास बढ़ी हुई",
+      "en": "Park unkempt / overgrown weeds"
+    },
+    "icon": "trees",
+    "default_severity": 15,
+    "safety_hazards": [],
+    "dedup_radius_m": 50,
+    "dedup_window_h": 336,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "PARK_TREE_FALLEN",
+    "l1": "PARKS_RECREATION",
+    "names": {
+      "hi": "पेड़ गिर गया",
+      "en": "Tree fallen on road/property"
+    },
+    "icon": "alert-triangle",
+    "default_severity": 55,
+    "safety_hazards": [
+      "blocked_access"
+    ],
+    "dedup_radius_m": 30,
+    "dedup_window_h": 72,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "PARK_TREE_PRUNING",
+    "l1": "PARKS_RECREATION",
+    "names": {
+      "hi": "पेड़ की टहनी तार को छू रही",
+      "en": "Tree branch touching power lines"
+    },
+    "icon": "alert-triangle",
+    "default_severity": 50,
+    "safety_hazards": [
+      "electrocution"
+    ],
+    "dedup_radius_m": 30,
+    "dedup_window_h": 336,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "PARK_ENCROACHMENT",
+    "l1": "PARKS_RECREATION",
+    "names": {
+      "hi": "पार्क में अतिक्रमण",
+      "en": "Encroachment in park"
+    },
+    "icon": "trees",
+    "default_severity": 20,
+    "safety_hazards": [],
+    "dedup_radius_m": 30,
+    "dedup_window_h": 720,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "PLAN_UNAUTHORIZED_CONSTRUCTION",
+    "l1": "BUILDING_PLANNING",
+    "names": {
+      "hi": "अवैध निर्माण",
+      "en": "Unauthorized construction"
+    },
+    "icon": "building",
+    "default_severity": 25,
+    "safety_hazards": [],
+    "dedup_radius_m": 20,
+    "dedup_window_h": 720,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "PLAN_DANGEROUS_BUILDING",
+    "l1": "BUILDING_PLANNING",
+    "names": {
+      "hi": "जर्जर/खतरनाक इमारत",
+      "en": "Dangerous / dilapidated building"
+    },
+    "icon": "alert-triangle",
+    "default_severity": 95,
+    "safety_hazards": [
+      "collapse_risk"
+    ],
+    "dedup_radius_m": 20,
+    "dedup_window_h": 336,
+    "seasonal": {
+      "monsoon": 1
+    },
+    "mappings": {}
+  },
+  {
+    "code": "PLAN_COMMERCIAL_IN_RESIDENTIAL",
+    "l1": "BUILDING_PLANNING",
+    "names": {
+      "hi": "रिहायशी इलाके में फैक्ट्री/दुकान",
+      "en": "Commercial activity in residential zone"
+    },
+    "icon": "building",
+    "default_severity": 20,
+    "safety_hazards": [],
+    "dedup_radius_m": 20,
+    "dedup_window_h": 720,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "PLAN_ILLEGAL_HOARDING",
+    "l1": "BUILDING_PLANNING",
+    "names": {
+      "hi": "खतरनाक होर्डिंग/बैनर",
+      "en": "Illegal hoarding / banner"
+    },
+    "icon": "alert-triangle",
+    "default_severity": 35,
+    "safety_hazards": [
+      "falling_hazard"
+    ],
+    "dedup_radius_m": 20,
+    "dedup_window_h": 336,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "PLAN_CELL_TOWER",
+    "l1": "BUILDING_PLANNING",
+    "names": {
+      "hi": "बिना परमिशन मोबाइल टावर",
+      "en": "Cell tower installation concern"
+    },
+    "icon": "building",
+    "default_severity": 15,
+    "safety_hazards": [],
+    "dedup_radius_m": 20,
+    "dedup_window_h": 720,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "AMENITY_CREMATORIUM",
+    "l1": "PUBLIC_AMENITIES",
+    "names": {
+      "hi": "श्मशान घाट की समस्या",
+      "en": "Crematorium / burial ground issue"
+    },
+    "icon": "flame",
+    "default_severity": 45,
+    "safety_hazards": [],
+    "dedup_radius_m": 30,
+    "dedup_window_h": 168,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "AMENITY_PUBLIC_TAP_BROKEN",
+    "l1": "PUBLIC_AMENITIES",
+    "names": {
+      "hi": "सार्वजनिक नल टूटा",
+      "en": "Public drinking water tap broken"
+    },
+    "icon": "droplet",
+    "default_severity": 30,
+    "safety_hazards": [],
+    "dedup_radius_m": 30,
+    "dedup_window_h": 168,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "AMENITY_UNHYGIENIC_MARKET",
+    "l1": "PUBLIC_AMENITIES",
+    "names": {
+      "hi": "गंदी सब्जी मंडी",
+      "en": "Market area unhygienic"
+    },
+    "icon": "trash",
+    "default_severity": 25,
+    "safety_hazards": [],
+    "dedup_radius_m": 50,
+    "dedup_window_h": 168,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "AMENITY_STRAY_CATTLE",
+    "l1": "PUBLIC_AMENITIES",
+    "names": {
+      "hi": "सड़क पर आवारा मवेशी",
+      "en": "Stray cattle on main road"
+    },
+    "icon": "alert-triangle",
+    "default_severity": 45,
+    "safety_hazards": [
+      "accident_risk"
+    ],
+    "dedup_radius_m": 100,
+    "dedup_window_h": 48,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "AMENITY_COMMUNITY_HALL",
+    "l1": "PUBLIC_AMENITIES",
+    "names": {
+      "hi": "सामुदायिक भवन की मरम्मत",
+      "en": "Community hall maintenance"
+    },
+    "icon": "building",
+    "default_severity": 10,
+    "safety_hazards": [],
+    "dedup_radius_m": 20,
+    "dedup_window_h": 720,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "ANIMAL_STRAY_DOG",
+    "l1": "ANIMAL_CONTROL",
+    "names": {
+      "hi": "आवारा कुत्तों का आतंक",
+      "en": "Stray dog menace / bite"
+    },
+    "icon": "bug",
+    "default_severity": 60,
+    "safety_hazards": [
+      "bite_risk",
+      "rabies_risk"
+    ],
+    "dedup_radius_m": 150,
+    "dedup_window_h": 72,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "ANIMAL_DEAD_LARGE",
+    "l1": "ANIMAL_CONTROL",
+    "names": {
+      "hi": "बड़े जानवर का शव",
+      "en": "Dead animal disposal (large)"
+    },
+    "icon": "alert-triangle",
+    "default_severity": 55,
+    "safety_hazards": [
+      "biohazard"
+    ],
+    "dedup_radius_m": 50,
+    "dedup_window_h": 24,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "ANIMAL_ILLEGAL_SLAUGHTER",
+    "l1": "ANIMAL_CONTROL",
+    "names": {
+      "hi": "अवैध कसाईखाना",
+      "en": "Illegal slaughterhouse"
+    },
+    "icon": "alert-triangle",
+    "default_severity": 30,
+    "safety_hazards": [
+      "hygiene"
+    ],
+    "dedup_radius_m": 30,
+    "dedup_window_h": 336,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "ANIMAL_MONKEY_MENACE",
+    "l1": "ANIMAL_CONTROL",
+    "names": {
+      "hi": "बंदरों का उपद्रव",
+      "en": "Monkey menace"
+    },
+    "icon": "bug",
+    "default_severity": 25,
+    "safety_hazards": [],
+    "dedup_radius_m": 150,
+    "dedup_window_h": 168,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "ANIMAL_CRUELTY",
+    "l1": "ANIMAL_CONTROL",
+    "names": {
+      "hi": "पशु क्रूरता",
+      "en": "Cruelty to street animals"
+    },
+    "icon": "alert-triangle",
+    "default_severity": 40,
+    "safety_hazards": [],
+    "dedup_radius_m": 50,
+    "dedup_window_h": 72,
+    "seasonal": {},
+    "mappings": {}
+  },
+  {
+    "code": "OTHER_CIVIC",
+    "l1": "OTHER",
+    "names": {
+      "hi": "अन्य नागरिक समस्या",
+      "en": "Other civic issue"
+    },
+    "icon": "help-circle",
+    "default_severity": 20,
+    "safety_hazards": [],
+    "dedup_radius_m": 100,
+    "dedup_window_h": 72,
+    "seasonal": {},
+    "mappings": {}
+  }
+]

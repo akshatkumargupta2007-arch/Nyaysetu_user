@@ -1,0 +1,30 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "kind": "school", "name": "Govt. Primary School, Supela" },
+      "geometry": { "type": "Point", "coordinates": [81.3300, 21.1850] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "kind": "hospital", "name": "Civil Hospital, Nehru Nagar" },
+      "geometry": { "type": "Point", "coordinates": [81.3480, 21.1990] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "kind": "bus_stand", "name": "Supela Bus Stand" },
+      "geometry": { "type": "Point", "coordinates": [81.3290, 21.1830] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "kind": "school", "name": "Maitri Bagh Public School" },
+      "geometry": { "type": "Point", "coordinates": [81.3650, 21.2130] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "kind": "market", "name": "Supela Market" },
+      "geometry": { "type": "Point", "coordinates": [81.3295, 21.1845] }
+    }
+  ]
+}

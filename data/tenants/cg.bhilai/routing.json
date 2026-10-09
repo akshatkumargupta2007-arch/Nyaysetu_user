@@ -1,0 +1,2114 @@
+[
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_UNCOLLECTED",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "स्वास्थ्य/सफाई विभाग",
+      "en": "Sanitation Dept."
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_UNCOLLECTED",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_UNCOLLECTED",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_DEAD_ANIMAL",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "स्वास्थ्य/सफाई विभाग",
+      "en": "Sanitation Dept."
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_DEAD_ANIMAL",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_DEAD_ANIMAL",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_BURNING",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "स्वास्थ्य/सफाई विभाग",
+      "en": "Sanitation Dept."
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_BURNING",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_BURNING",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_DUSTBIN_OVERFLOW",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "स्वास्थ्य/सफाई विभाग",
+      "en": "Sanitation Dept."
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_DUSTBIN_OVERFLOW",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_DUSTBIN_OVERFLOW",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_SWEEPER_ABSENT",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "स्वास्थ्य/सफाई विभाग",
+      "en": "Sanitation Dept."
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_SWEEPER_ABSENT",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "SW_SWEEPER_ABSENT",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_NO_SUPPLY",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "जल विभाग",
+      "en": "Water Dept."
+    },
+    "first_role": "WATER_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_NO_SUPPLY",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_NO_SUPPLY",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_CONTAMINATED",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "जल विभाग",
+      "en": "Water Dept."
+    },
+    "first_role": "WATER_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_CONTAMINATED",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_CONTAMINATED",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_PIPELINE_LEAK",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "जल विभाग",
+      "en": "Water Dept."
+    },
+    "first_role": "WATER_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_PIPELINE_LEAK",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_PIPELINE_LEAK",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_LOW_PRESSURE",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "जल विभाग",
+      "en": "Water Dept."
+    },
+    "first_role": "WATER_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_LOW_PRESSURE",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_LOW_PRESSURE",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_ILLEGAL_CONNECTION",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "जल विभाग",
+      "en": "Water Dept."
+    },
+    "first_role": "WATER_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_ILLEGAL_CONNECTION",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "WATER_ILLEGAL_CONNECTION",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_OPEN_MANHOLE",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "जल/सीवरेज विभाग",
+      "en": "Water & Sewerage Dept."
+    },
+    "first_role": "JE_CIVIL",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_OPEN_MANHOLE",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_OPEN_MANHOLE",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_BLOCKED",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "जल/सीवरेज विभाग",
+      "en": "Water & Sewerage Dept."
+    },
+    "first_role": "JE_CIVIL",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_BLOCKED",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_BLOCKED",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_SEWAGE_OVERFLOW",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "जल/सीवरेज विभाग",
+      "en": "Water & Sewerage Dept."
+    },
+    "first_role": "JE_CIVIL",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_SEWAGE_OVERFLOW",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_SEWAGE_OVERFLOW",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_SEWAGE_IN_DRINKING_WATER",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "जल/सीवरेज विभाग",
+      "en": "Water & Sewerage Dept."
+    },
+    "first_role": "JE_CIVIL",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_SEWAGE_IN_DRINKING_WATER",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_SEWAGE_IN_DRINKING_WATER",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_ILLEGAL_DISCHARGE",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "जल/सीवरेज विभाग",
+      "en": "Water & Sewerage Dept."
+    },
+    "first_role": "JE_CIVIL",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_ILLEGAL_DISCHARGE",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "DRAIN_ILLEGAL_DISCHARGE",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_POTHOLE",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "लोक निर्माण विभाग",
+      "en": "Public Works Dept."
+    },
+    "first_role": "JE_PWD",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_POTHOLE",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_POTHOLE",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_POTHOLE",
+    "boundary_id": "nh53.bhilai",
+    "agency_id": "nhai",
+    "department": {
+      "hi": "एनएचएआई",
+      "en": "NHAI"
+    },
+    "first_role": "NHAI_ENGINEER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_CAVED_IN",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "लोक निर्माण विभाग",
+      "en": "Public Works Dept."
+    },
+    "first_role": "JE_PWD",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_CAVED_IN",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_CAVED_IN",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_CAVED_IN",
+    "boundary_id": "nh53.bhilai",
+    "agency_id": "nhai",
+    "department": {
+      "hi": "एनएचएआई",
+      "en": "NHAI"
+    },
+    "first_role": "NHAI_ENGINEER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_BROKEN_FOOTPATH",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "लोक निर्माण विभाग",
+      "en": "Public Works Dept."
+    },
+    "first_role": "JE_PWD",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_BROKEN_FOOTPATH",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_BROKEN_FOOTPATH",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_BROKEN_FOOTPATH",
+    "boundary_id": "nh53.bhilai",
+    "agency_id": "nhai",
+    "department": {
+      "hi": "एनएचएआई",
+      "en": "NHAI"
+    },
+    "first_role": "NHAI_ENGINEER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_WATERLOGGING",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "लोक निर्माण विभाग",
+      "en": "Public Works Dept."
+    },
+    "first_role": "JE_PWD",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_WATERLOGGING",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_WATERLOGGING",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_WATERLOGGING",
+    "boundary_id": "nh53.bhilai",
+    "agency_id": "nhai",
+    "department": {
+      "hi": "एनएचएआई",
+      "en": "NHAI"
+    },
+    "first_role": "NHAI_ENGINEER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_DEBRIS",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "लोक निर्माण विभाग",
+      "en": "Public Works Dept."
+    },
+    "first_role": "JE_PWD",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_DEBRIS",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_DEBRIS",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ROAD_DEBRIS",
+    "boundary_id": "nh53.bhilai",
+    "agency_id": "nhai",
+    "department": {
+      "hi": "एनएचएआई",
+      "en": "NHAI"
+    },
+    "first_role": "NHAI_ENGINEER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_SINGLE_OUT",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "विद्युत/प्रकाश विभाग",
+      "en": "Electrical/Lighting Dept."
+    },
+    "first_role": "JE_ELEC",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_SINGLE_OUT",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_SINGLE_OUT",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_AREA_DARK",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "विद्युत/प्रकाश विभाग",
+      "en": "Electrical/Lighting Dept."
+    },
+    "first_role": "JE_ELEC",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_AREA_DARK",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_AREA_DARK",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_DAYTIME_ON",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "विद्युत/प्रकाश विभाग",
+      "en": "Electrical/Lighting Dept."
+    },
+    "first_role": "JE_ELEC",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_DAYTIME_ON",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_DAYTIME_ON",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_POLE_DAMAGED",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "विद्युत/प्रकाश विभाग",
+      "en": "Electrical/Lighting Dept."
+    },
+    "first_role": "JE_ELEC",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_POLE_DAMAGED",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_POLE_DAMAGED",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_HIGH_MAST_BROKEN",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "विद्युत/प्रकाश विभाग",
+      "en": "Electrical/Lighting Dept."
+    },
+    "first_role": "JE_ELEC",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_HIGH_MAST_BROKEN",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "LIGHT_HIGH_MAST_BROKEN",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ELEC_OUTAGE",
+    "boundary_id": null,
+    "agency_id": "cg.cspdcl",
+    "department": {
+      "hi": "सीएसपीडीसीएल",
+      "en": "CSPDCL"
+    },
+    "first_role": "LINEMAN_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ELEC_LIVE_WIRE",
+    "boundary_id": null,
+    "agency_id": "cg.cspdcl",
+    "department": {
+      "hi": "सीएसपीडीसीएल",
+      "en": "CSPDCL"
+    },
+    "first_role": "LINEMAN_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ELEC_TRANSFORMER_SPARK",
+    "boundary_id": null,
+    "agency_id": "cg.cspdcl",
+    "department": {
+      "hi": "सीएसपीडीसीएल",
+      "en": "CSPDCL"
+    },
+    "first_role": "LINEMAN_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ELEC_VOLTAGE_FLUCTUATION",
+    "boundary_id": null,
+    "agency_id": "cg.cspdcl",
+    "department": {
+      "hi": "सीएसपीडीसीएल",
+      "en": "CSPDCL"
+    },
+    "first_role": "LINEMAN_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ELEC_BILLING",
+    "boundary_id": null,
+    "agency_id": "cg.cspdcl",
+    "department": {
+      "hi": "सीएसपीडीसीएल",
+      "en": "CSPDCL"
+    },
+    "first_role": "LINEMAN_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_MOSQUITO_FOGGING",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "स्वास्थ्य विभाग",
+      "en": "Public Health Dept."
+    },
+    "first_role": "SANITARY_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_MOSQUITO_FOGGING",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_MOSQUITO_FOGGING",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_UNCLEAN_TOILET",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "स्वास्थ्य विभाग",
+      "en": "Public Health Dept."
+    },
+    "first_role": "SANITARY_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_UNCLEAN_TOILET",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_UNCLEAN_TOILET",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_MEDICAL_WASTE",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "स्वास्थ्य विभाग",
+      "en": "Public Health Dept."
+    },
+    "first_role": "SANITARY_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_MEDICAL_WASTE",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_MEDICAL_WASTE",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_PUBLIC_URINATION",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "स्वास्थ्य विभाग",
+      "en": "Public Health Dept."
+    },
+    "first_role": "SANITARY_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_PUBLIC_URINATION",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_PUBLIC_URINATION",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_UNHYGIENIC_VENDOR",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "स्वास्थ्य विभाग",
+      "en": "Public Health Dept."
+    },
+    "first_role": "SANITARY_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_UNHYGIENIC_VENDOR",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "HEALTH_UNHYGIENIC_VENDOR",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_SIGNAL_DOWN",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "यातायात/सिविक विभाग",
+      "en": "Traffic/Civic Dept."
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_SIGNAL_DOWN",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_SIGNAL_DOWN",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_ABANDONED_VEHICLE",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "यातायात/सिविक विभाग",
+      "en": "Traffic/Civic Dept."
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_ABANDONED_VEHICLE",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_ABANDONED_VEHICLE",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_UNAUTHORIZED_PARKING",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "यातायात/सिविक विभाग",
+      "en": "Traffic/Civic Dept."
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_UNAUTHORIZED_PARKING",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_UNAUTHORIZED_PARKING",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_BUS_SHELTER_DAMAGED",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "यातायात/सिविक विभाग",
+      "en": "Traffic/Civic Dept."
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_BUS_SHELTER_DAMAGED",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_BUS_SHELTER_DAMAGED",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_MISSING_SIGNAGE",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "यातायात/सिविक विभाग",
+      "en": "Traffic/Civic Dept."
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_MISSING_SIGNAGE",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "TRAFFIC_MISSING_SIGNAGE",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_BROKEN_EQUIPMENT",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "उद्यान विभाग",
+      "en": "Parks Dept."
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_BROKEN_EQUIPMENT",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_BROKEN_EQUIPMENT",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_UNKEMPT",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "उद्यान विभाग",
+      "en": "Parks Dept."
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_UNKEMPT",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_UNKEMPT",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_TREE_FALLEN",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "उद्यान विभाग",
+      "en": "Parks Dept."
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_TREE_FALLEN",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_TREE_FALLEN",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_TREE_PRUNING",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "उद्यान विभाग",
+      "en": "Parks Dept."
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_TREE_PRUNING",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_TREE_PRUNING",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_ENCROACHMENT",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "उद्यान विभाग",
+      "en": "Parks Dept."
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_ENCROACHMENT",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PARK_ENCROACHMENT",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_UNAUTHORIZED_CONSTRUCTION",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "नगर नियोजन विभाग",
+      "en": "Town Planning Dept."
+    },
+    "first_role": "BUILDING_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_UNAUTHORIZED_CONSTRUCTION",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_UNAUTHORIZED_CONSTRUCTION",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_DANGEROUS_BUILDING",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "नगर नियोजन विभाग",
+      "en": "Town Planning Dept."
+    },
+    "first_role": "BUILDING_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_DANGEROUS_BUILDING",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_DANGEROUS_BUILDING",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_COMMERCIAL_IN_RESIDENTIAL",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "नगर नियोजन विभाग",
+      "en": "Town Planning Dept."
+    },
+    "first_role": "BUILDING_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_COMMERCIAL_IN_RESIDENTIAL",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_COMMERCIAL_IN_RESIDENTIAL",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_ILLEGAL_HOARDING",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "नगर नियोजन विभाग",
+      "en": "Town Planning Dept."
+    },
+    "first_role": "BUILDING_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_ILLEGAL_HOARDING",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_ILLEGAL_HOARDING",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_CELL_TOWER",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "नगर नियोजन विभाग",
+      "en": "Town Planning Dept."
+    },
+    "first_role": "BUILDING_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_CELL_TOWER",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "PLAN_CELL_TOWER",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_CREMATORIUM",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "सामान्य प्रशासन विभाग",
+      "en": "General Administration"
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_CREMATORIUM",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_CREMATORIUM",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_PUBLIC_TAP_BROKEN",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "सामान्य प्रशासन विभाग",
+      "en": "General Administration"
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_PUBLIC_TAP_BROKEN",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_PUBLIC_TAP_BROKEN",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_UNHYGIENIC_MARKET",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "सामान्य प्रशासन विभाग",
+      "en": "General Administration"
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_UNHYGIENIC_MARKET",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_UNHYGIENIC_MARKET",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_STRAY_CATTLE",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "सामान्य प्रशासन विभाग",
+      "en": "General Administration"
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_STRAY_CATTLE",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_STRAY_CATTLE",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_COMMUNITY_HALL",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "सामान्य प्रशासन विभाग",
+      "en": "General Administration"
+    },
+    "first_role": "WARD_SUPERVISOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_COMMUNITY_HALL",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "AMENITY_COMMUNITY_HALL",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_STRAY_DOG",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "स्वास्थ्य विभाग",
+      "en": "Public Health Dept."
+    },
+    "first_role": "SANITARY_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_STRAY_DOG",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_STRAY_DOG",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_DEAD_LARGE",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "स्वास्थ्य विभाग",
+      "en": "Public Health Dept."
+    },
+    "first_role": "SANITARY_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_DEAD_LARGE",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_DEAD_LARGE",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_ILLEGAL_SLAUGHTER",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "स्वास्थ्य विभाग",
+      "en": "Public Health Dept."
+    },
+    "first_role": "SANITARY_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_ILLEGAL_SLAUGHTER",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_ILLEGAL_SLAUGHTER",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_MONKEY_MENACE",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "स्वास्थ्य विभाग",
+      "en": "Public Health Dept."
+    },
+    "first_role": "SANITARY_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_MONKEY_MENACE",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_MONKEY_MENACE",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_CRUELTY",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.bmc",
+    "department": {
+      "hi": "स्वास्थ्य विभाग",
+      "en": "Public Health Dept."
+    },
+    "first_role": "SANITARY_INSPECTOR",
+    "precedence": 0
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_CRUELTY",
+    "boundary_id": "cg.bhilai.sector.7",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "ANIMAL_CRUELTY",
+    "boundary_id": "cg.bhilai.sector.9",
+    "agency_id": "cg.bhilai.bsp_town",
+    "department": {
+      "hi": "नगर सेवा विभाग (बीएसपी)",
+      "en": "Town Services Dept. (BSP)"
+    },
+    "first_role": "TOWN_SERVICES_OFFICER",
+    "precedence": 10
+  },
+  {
+    "tenant_id": "cg.bhilai",
+    "category_code": "OTHER_CIVIC",
+    "boundary_id": null,
+    "agency_id": "cg.bhilai.triage",
+    "department": {
+      "hi": "सामान्य शिकायत डेस्क",
+      "en": "General Triage Desk"
+    },
+    "first_role": "TRIAGE_OFFICER",
+    "precedence": 0
+  }
+]

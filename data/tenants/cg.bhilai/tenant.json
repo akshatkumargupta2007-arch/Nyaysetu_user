@@ -1,0 +1,10 @@
+{
+  "id": "cg.bhilai",
+  "name": { "hi": "भिलाई", "en": "Bhilai" },
+  "state_code": "CG",
+  "lgd_code": null,
+  "config": {
+    "priority_weights": { "S": 0.45, "C": 0.20, "R": 0.15, "P": 0.10, "E": 0.10 },
+    "languages": ["hi", "en"]
+  }
+}

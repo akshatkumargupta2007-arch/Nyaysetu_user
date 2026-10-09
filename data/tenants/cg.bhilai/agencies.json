@@ -1,0 +1,9 @@
+[
+  { "id": "cg.bhilai.bmc", "tenant_id": "cg.bhilai", "name": { "hi": "नगर निगम भिलाई", "en": "Bhilai Municipal Corporation" }, "kind": "ULB" },
+  { "id": "cg.bhilai.bsp_town", "tenant_id": "cg.bhilai", "name": { "hi": "भिलाई इस्पात संयंत्र — नगर सेवा विभाग", "en": "Bhilai Steel Plant — Town Services" }, "kind": "TOWNSHIP" },
+  { "id": "cg.cspdcl", "tenant_id": null, "name": { "hi": "छत्तीसगढ़ राज्य विद्युत वितरण कंपनी", "en": "CSPDCL (Electricity Distribution)" }, "kind": "PARASTATAL" },
+  { "id": "cg.phed", "tenant_id": null, "name": { "hi": "लोक स्वास्थ्य यांत्रिकी विभाग", "en": "PHED (Public Health Engineering Dept.)" }, "kind": "STATE_DEPT" },
+  { "id": "cg.pwd", "tenant_id": null, "name": { "hi": "लोक निर्माण विभाग", "en": "PWD (Public Works Department)" }, "kind": "STATE_DEPT" },
+  { "id": "nhai", "tenant_id": null, "name": { "hi": "भारतीय राष्ट्रीय राजमार्ग प्राधिकरण", "en": "NHAI" }, "kind": "NATIONAL" },
+  { "id": "cg.bhilai.triage", "tenant_id": "cg.bhilai", "name": { "hi": "सामान्य शिकायत डेस्क", "en": "General Triage Desk" }, "kind": "ULB" }
+]
