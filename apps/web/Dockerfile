@@ -8,6 +8,8 @@ RUN --mount=type=cache,target=/root/.npm npm install --workspace apps/web --incl
 COPY apps/web apps/web
 ARG VITE_API_URL
 ENV VITE_API_URL=$VITE_API_URL
+ARG VITE_GOOGLE_MAPS_API_KEY
+ENV VITE_GOOGLE_MAPS_API_KEY=$VITE_GOOGLE_MAPS_API_KEY
 RUN npm run build -w apps/web
 
 FROM nginx:1.27-alpine

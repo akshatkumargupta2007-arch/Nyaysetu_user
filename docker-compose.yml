@@ -42,6 +42,7 @@ services:
       dockerfile: ./apps/web/Dockerfile.dev
     environment:
       VITE_API_URL: http://localhost:8080
+      VITE_GOOGLE_MAPS_API_KEY: ${VITE_GOOGLE_MAPS_API_KEY:-}
     depends_on:
       - api
     ports:
