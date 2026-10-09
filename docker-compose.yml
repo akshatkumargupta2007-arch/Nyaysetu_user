@@ -1,0 +1,54 @@
+# Build map #A3 — local dev stack. Uses the hot-reload Dockerfile.dev images;
+# production images (apps/api/Dockerfile, apps/web/Dockerfile) are for
+# Railway/Cloudflare, built in Phase H.
+services:
+  db:
+    build: ./infra/db
+    environment:
+      POSTGRES_PASSWORD: dev
+      POSTGRES_DB: nyaysetu
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile.dev
+    env_file: .env
+    environment:
+      DATABASE_URL: postgres://postgres:dev@db:5432/nyaysetu
+      PUBLIC_WEB_ORIGIN: http://localhost:5173
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./apps/api/src:/app/apps/api/src
+      - ./eval:/app/eval
+      - ./data:/app/data
+
+  web:
+    build:
+      context: .
+      dockerfile: ./apps/web/Dockerfile.dev
+    environment:
+      VITE_API_URL: http://localhost:8080
+    depends_on:
+      - api
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./apps/web/src:/app/apps/web/src
+      - ./apps/web/public:/app/apps/web/public
+
+volumes:
+  dbdata: {}
