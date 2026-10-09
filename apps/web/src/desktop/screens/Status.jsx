@@ -5,6 +5,7 @@ import { TLink } from '../components/TLink.jsx';
 import { say, auto, stopVoice, useScreenVoice, setLang, setVoiceOn, isVoiceOn, getLang } from '../lib/voice.js';
 import { useGo } from '../components/Transition.jsx';
 import mapImg from '../assets/sector6.png';
+import GoogleMap from '../../shared/GoogleMap.jsx';
 import './Status.css';
 import { api } from '../../shared/api.js';
 import { store, auth } from '../../shared/store.js';
@@ -14,6 +15,7 @@ import { useGo as _useGoX } from '../components/Transition.jsx';
 export default function Status() {
   const goX = _useGoX();
   const [t, setT] = useState(null);
+  const [mapOn, setMapOn] = useState(false);
   useEffect(() => {
     const id = store.selected();
     if (!id || !auth.isLoggedIn()) { goX('/problems'); return; }
@@ -51,6 +53,9 @@ export default function Status() {
       </header>
       <main style={{ flex: "1 1 auto", width: "100%", maxWidth: "1360px", margin: "0 auto", boxSizing: "border-box", padding: "20px 40px 32px", display: "flex", flexWrap: "wrap", alignItems: "stretch", gap: "48px" }}>
         <section className="r1" aria-label={T("Where the team is")} style={{ position: "relative", flex: "1.25 1 560px", minHeight: "560px", borderRadius: "40px", overflow: "hidden", background: "#FFFFFF", border: "2px solid #DDE6D8" }}>
+          {t && t.lat != null && t.lng != null ? (
+            <GoogleMap pin={{ lat: t.lat, lng: t.lng }} team={{ lat: t.lat - 0.0045, lng: t.lng - 0.006 }} lang={getLang()} label={T("Where the team is")} onStatus={(x) => setMapOn(x === 'ready')}
+              fallback={<>
           <img src={mapImg} alt="" style={{ position: "absolute", inset: "0", display: "block", width: "100%", height: "100%", objectFit: "cover" }} />
           <svg viewBox="0 0 768 512" preserveAspectRatio="xMidYMid slice" style={{ position: "absolute", inset: "0", width: "100%", height: "100%" }} aria-hidden="true">
             <path d="M150 400L230 360L400 294L362 196" fill="none" stroke="#FFFFFF" strokeWidth="18" strokeLinecap="round" strokeLinejoin="round" />
@@ -75,9 +80,38 @@ export default function Status() {
               </g>
             </g>
           </svg>
+              </>} />
+          ) : (<>
+          <img src={mapImg} alt="" style={{ position: "absolute", inset: "0", display: "block", width: "100%", height: "100%", objectFit: "cover" }} />
+          <svg viewBox="0 0 768 512" preserveAspectRatio="xMidYMid slice" style={{ position: "absolute", inset: "0", width: "100%", height: "100%" }} aria-hidden="true">
+            <path d="M150 400L230 360L400 294L362 196" fill="none" stroke="#FFFFFF" strokeWidth="18" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M150 400L230 360L400 294L362 196" fill="none" stroke="#1F6B3A" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="1 20">
+              <animate attributeName="stroke-dashoffset" from="0" to="-42" dur="1.4s" repeatCount="indefinite" />
+            </path>
+            <circle cx="362" cy="196" r="12" fill="none" stroke="#E0A526" strokeWidth="5">
+              <animate attributeName="r" values="12;46" dur="2.2s" repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0.8;0" dur="2.2s" repeatCount="indefinite" />
+            </circle>
+            <g transform="translate(362 196)">
+              <path d="M0 0c-14-16-22-24-22-36a22 22 0 0 1 44 0c0 12-8 20-22 36z" fill="#E0A526" stroke="#FFFFFF" strokeWidth="4" />
+              <circle cy="-36" r="8" fill="#FFFFFF" />
+            </g>
+            <g>
+              <animateMotion dur="20s" repeatCount="indefinite" path="M150 400L230 360L400 294L362 196" />
+              <circle r="34" fill="#1F6B3A" stroke="#FFFFFF" strokeWidth="6" />
+              <g transform="translate(-22 -22) scale(1.85)" fill="none" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M2 6h11v10H2zM13 9h4l4 4v3h-8" />
+                <circle cx="7" cy="17.5" r="1.5" />
+                <circle cx="17" cy="17.5" r="1.5" />
+              </g>
+            </g>
+          </svg>
+          </>)}
+          {!mapOn && (
           <span style={{ position: "absolute", right: "14px", bottom: "8px", padding: "1px 8px", borderRadius: "6px", background: "rgba(255,255,255,0.85)", fontSize: "13px", color: "#4A5A4F" }}>
             © OpenStreetMap
           </span>
+          )}
           <span style={{ position: "absolute", right: "16px", top: "16px", padding: "10px 22px", borderRadius: "999px", background: "#FFFFFF", border: "2px solid #DDE6D8", fontSize: "26px", fontWeight: "700" }}>{place}</span>
         </section>
         <div className="r2" style={{ flex: "1 1 480px", maxWidth: "640px", display: "flex", flexDirection: "column", justifyContent: "center", gap: "20px" }}>

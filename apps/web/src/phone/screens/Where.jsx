@@ -6,6 +6,7 @@ import { css } from '../lib/css.js';
 import { say, auto, stopVoice, useScreenVoice, setLang, setVoiceOn, isVoiceOn, getLang } from '../lib/voice.js';
 import { useGo } from '../components/Transition.jsx';
 import mapImg from '../assets/sector6.png';
+import GoogleMap from '../../shared/GoogleMap.jsx';
 import './Where.css';
 import { api, fileComplaint } from '../../shared/api.js';
 import { store, auth } from '../../shared/store.js';
@@ -24,6 +25,9 @@ export default function Where() {
   const SAMPLE = 'Near Shiv Mandir, Sector 6, Bhilai';
   const onAddress = (e) => { const v = e.target.value; setAddress(v); save(v); };
   const [locMsg, setLocMsg] = useState('');
+  const [pin, setPin] = useState(() => store.coords() || FALLBACK_COORDS);
+  const [mapOn, setMapOn] = useState(false);
+  const [dropKey, setDropKey] = useState(0);
   const locate = () => {
     setLocMsg('');
     if (!navigator.geolocation) { setLocMsg(T("Location is not available. Type or say the place.")); return; }
@@ -31,6 +35,7 @@ export default function Where() {
       async (pos) => {
         const c = { lat: pos.coords.latitude, lng: pos.coords.longitude, accuracy: pos.coords.accuracy };
         store.setCoords(c);
+        setPin({ lat: c.lat, lng: c.lng }); setDropKey((k) => k + 1);
         let a = c.lat.toFixed(4) + ', ' + c.lng.toFixed(4);
         try { const j = await api.resolveLocation(c.lat, c.lng); a = (j.label && (j.label[_gl()] || j.label.en)) || a; } catch {}
         setAddress(a); save(a); setLocated(true); setDropping(true);
@@ -39,6 +44,14 @@ export default function Where() {
       () => setLocMsg(T("Location is off. Turn it on, or type the place.")),
       { enableHighAccuracy: true, timeout: 8000 }
     );
+  };
+  // The person tapped the map or dragged the pin: that exact spot becomes the complaint place.
+  const pick = async (lat, lng) => {
+    store.setCoords({ lat, lng, accuracy: 0 });
+    setPin({ lat, lng });
+    let a = lat.toFixed(4) + ', ' + lng.toFixed(4);
+    try { const j = await api.resolveLocation(lat, lng); a = (j.label && (j.label[_gl()] || j.label.en)) || a; } catch {}
+    setAddress(a); save(a); setLocated(true);
   };
   useEffect(() => { locate(); }, []); // shows the browser's "allow location?" pop-up on arrival
   const speak = () => {
@@ -111,6 +124,8 @@ export default function Where() {
       </main>
       <div className="mapwrap" style={{ flex: "1 1 0", minHeight: "0", display: "flex", alignItems: "center", padding: "0 20px" }}>
         <div style={{ position: "relative", width: "100%", height: "410px", borderRadius: "28px", overflow: "hidden", border: "2px solid #DDE6D8", background: "#E6F2E8" }}>
+          <GoogleMap pin={pin} draggable onPick={pick} dropKey={dropKey} lang={getLang()} label={T("Map")} onStatus={(x) => setMapOn(x === 'ready')}
+            fallback={<>
           <img src={mapImg} alt="Map of Sector 6, Bhilai" style={{ position: "absolute", inset: "0", display: "block", width: "100%", height: "100%", objectFit: "cover", objectPosition: "38% 50%" }} />
           <span className="pinshadow">
           </span>
@@ -118,15 +133,18 @@ export default function Where() {
             <path d="M0 0c-14-16-22-24-22-36a22 22 0 0 1 44 0c0 12-8 20-22 36z" fill="#E0A526" stroke="#FFFFFF" strokeWidth="4" />
             <circle cy="-36" r="8" fill="#FFFFFF" />
           </svg>
+          </>} />
           <button type="button" aria-pressed={located} onClick={locate} style={css(locateStyle)}>
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.200" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <circle cx="12" cy="12" r="4" />
               <circle cx="12" cy="12" r="9" />
               <path d="M12 1v4M12 19v4M1 12h4M19 12h4" />
             </svg> {T("I am here")} </button>
+          {!mapOn && (
           <span style={{ position: "absolute", right: "10px", top: "8px", padding: "1px 6px", borderRadius: "6px", background: "rgba(255,255,255,0.85)", fontSize: "12px", color: "#4A5A4F" }}>
             © OpenStreetMap
           </span>
+          )}
         </div>
       </div>
       <div style={{ padding: "0 20px 24px" }}>
