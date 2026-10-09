@@ -4,12 +4,14 @@ import { startBoss } from "./db/boss.js";
 import { registerCronJobs } from "./modules/lifecycle/worker.js";
 import { buildBridgeApp } from "./modules/gov/bridge.js";
 import { registerGovSync } from "./modules/gov/syncTrigger.js";
+import { checkGeminiModels } from "./lib/gemini.js";
 
 async function main() {
   const app = await buildApp();
   await startBoss();
   await registerCronJobs();
   await registerGovSync(); // pushes tickets to the gov portal when its keys are configured
+  void checkGeminiModels((m) => app.log.warn(m)); // warns if a configured model is gone; never blocks start-up
   await app.listen({ port: env.PORT, host: "0.0.0.0" });
 
   // Bridge to the separate government portal: its own listener on an internal port that is NOT published

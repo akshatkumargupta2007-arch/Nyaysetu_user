@@ -16,7 +16,6 @@
 // production upgrade).
 
 import { env } from "../../env.js";
-import { geminiFetch, hasGeminiKey } from "../../lib/geminiKeys.js";
 import { db } from "../../db/client.js";
 import { aiCalls } from "../../db/schema.js";
 
@@ -75,7 +74,7 @@ async function transcribeWithGemini(
   audioBuffer: Buffer,
   mimeType: string,
 ): Promise<{ text: string; lang: string }> {
-  if (!hasGeminiKey) {
+  if (!env.GEMINI_API_KEY) {
     // MOCK MODE: return a predictable stub so tests without a key still run
     // the full route end to end.
     return { text: "(mock transcript — no GEMINI_API_KEY)", lang: "hi" };
@@ -101,8 +100,8 @@ async function transcribeWithGemini(
     generationConfig: { temperature: 0 },
   };
 
-  const res = await geminiFetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
+  const res = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${env.GEMINI_API_KEY}`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
