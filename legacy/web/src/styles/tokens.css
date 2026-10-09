@@ -1,0 +1,135 @@
+/* Build map #D1 — design tokens. A warm, consumer-app palette (not
+   tricolour, not government blue), a large type scale (body >= 18px,
+   heading >= 32px per the ticket), 56px minimum tap targets, and exactly
+   the status colours the Bible specifies: amber/blue/green + a red
+   outline for "reopened". */
+
+:root {
+  /* ── colour: brand ───────────────────────────────────────────── */
+  --color-brand: #1a6b5c; /* a warm teal-green — calm, not government blue */
+  --color-brand-dark: #0f4a3f;
+  --color-brand-light: #e4f3ef;
+
+  /* ── colour: surface + text ──────────────────────────────────── */
+  --color-bg: #fffaf3; /* warm off-white, not clinical white */
+  --color-surface: #ffffff;
+  --color-text: #1c1c1c;
+  --color-text-muted: #6b6b6b;
+  --color-border: #e8e2d8;
+
+  /* ── colour: status (Bible §9 citizen stages — exactly these 4) ─ */
+  --color-status-amber: #c9790b; /* being handled */
+  --color-status-amber-bg: #fdf1df;
+  --color-status-blue: #1d5fb8; /* team on the way */
+  --color-status-blue-bg: #e7f0fd;
+  --color-status-green: #1a7a3c; /* fixed */
+  --color-status-green-bg: #e7f6ec;
+  --color-status-red: #c0392b; /* reopened — outline only, never a fill */
+  --color-status-red-bg: #fbeceb;
+
+  /* ── colour: priority (shown to citizens as "urgent" only) ──── */
+  --color-urgent: #c0392b;
+  --color-urgent-bg: #fbeceb;
+
+  /* ── colour: action ──────────────────────────────────────────── */
+  --color-action: var(--color-brand);
+  --color-action-text: #ffffff;
+  --color-danger: #c0392b;
+  --color-success: #1a7a3c;
+
+  /* ── typography ──────────────────────────────────────────────── */
+  --font-devanagari: "Mukta", "Noto Sans Devanagari", sans-serif;
+  --font-latin: "Inter", system-ui, sans-serif;
+  /* The active <html lang> picks which stack leads; both are loaded
+     either way so mixed Hindi/English text in one string still renders. */
+  --font-body: var(--font-devanagari), var(--font-latin);
+
+  --text-body: 1.125rem; /* 18px minimum per the ticket */
+  --text-body-lg: 1.25rem;
+  --text-heading: 2rem; /* 32px minimum per the ticket */
+  --text-heading-lg: 2.5rem;
+  --text-small: 0.95rem;
+
+  --line-height-body: 1.5;
+  --line-height-heading: 1.25;
+
+  /* ── spacing + shape ─────────────────────────────────────────── */
+  --space-1: 0.5rem;
+  --space-2: 0.75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-full: 999px;
+
+  /* ── tap targets (Bible §2.3: >= 56px, one-handed, in sunlight) ─ */
+  --tap-target-min: 56px;
+  --tap-target-primary: 72px;
+
+  --shadow-card: 0 2px 10px rgba(28, 28, 28, 0.08);
+  --shadow-elevated: 0 6px 24px rgba(28, 28, 28, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--line-height-body);
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: var(--line-height-heading);
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* A citizen on a 5.5" phone in sunlight needs the body text readable at
+   arm's length — never let anything shrink below this without a reason. */
+body {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ── animations ──────────────────────────────────────────────────── */
+
+/* Mic button ripple: an expanding ring that fades out while recording */
+@keyframes mic-ripple {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* Mic button inner pulse: a gentle breathe on the button itself */
+@keyframes mic-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.06); }
+}
+
+/* Subtle fade + slide-down when the textarea expands */
+@keyframes expand-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide up for the bottom submit bar */
+@keyframes slide-up {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
