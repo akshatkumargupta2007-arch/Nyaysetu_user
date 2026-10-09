@@ -1,0 +1,64 @@
+.sc-home a, .sc-home button, .sc-home input, .sc-home textarea { transition:background-color .35s cubic-bezier(.32,.72,0,1),border-color .35s cubic-bezier(.32,.72,0,1),color .35s cubic-bezier(.32,.72,0,1),box-shadow .45s cubic-bezier(.32,.72,0,1),transform .45s cubic-bezier(.32,.72,0,1),opacity .45s cubic-bezier(.32,.72,0,1) }
+.sc-home a:active, .sc-home button:active { transform:scale(.97) }
+.sc-home a:focus-visible, .sc-home button:focus-visible, .sc-home input:focus-visible, .sc-home textarea:focus-visible { outline:3px solid #E0A526; outline-offset:3px }
+.sc-home input::placeholder, .sc-home textarea::placeholder { color:#566657; opacity:1 }
+.sc-home input:focus { box-shadow:0 0 0 5px rgba(31,107,58,.16) }
+.sc-home button.pill:hover, .sc-home a.plain:hover, .sc-home a.text:hover { background:#E3F1E6 }
+.sc-home a.solid:hover, .sc-home .big:hover, .sc-home button.speak:hover, .sc-home button.on:hover { background:#14502B }
+.sc-home .alt:hover, .sc-home button.off:hover, .sc-home a.cream:hover { background:#E2EDB5 }
+.sc-home a.card:hover { border-color:#1F6B3A; box-shadow:0 12px 28px rgba(31,107,58,.14); transform:translateY(-3px) }
+.sc-home a.link svg, .sc-home a.solid svg { transition:transform .4s cubic-bezier(.32,.72,0,1) }
+.sc-home a.link:hover svg, .sc-home a.solid:hover svg { transform:translateX(6px) }
+@keyframes home-rise {from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.sc-home header { animation:home-rise .6s cubic-bezier(.22,1,.36,1) backwards }
+.sc-home .r1 { animation:home-rise .8s cubic-bezier(.22,1,.36,1) backwards }
+.sc-home .r2 { animation:home-rise .8s cubic-bezier(.22,1,.36,1) .1s backwards }
+.sc-home .r3 { animation:home-rise .8s cubic-bezier(.22,1,.36,1) .2s backwards }
+.sc-home .r4 { animation:home-rise .8s cubic-bezier(.22,1,.36,1) .3s backwards }
+.sc-home .enter { animation:home-rise .55s cubic-bezier(.22,1,.36,1) backwards }
+@keyframes home-tapburst {0%{box-shadow:0 0 0 0 rgba(31,107,58,.45)}100%{box-shadow:0 0 0 22px rgba(31,107,58,0)}}
+.sc-home .tapped { animation:home-tapburst .4s ease-out !important }
+@keyframes home-micring {0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}100%{box-shadow:0 0 0 18px rgba(255,255,255,0)}}
+.sc-home .micdot { animation:home-micring 2.4s ease-out infinite }
+@keyframes home-cellpop {0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.sc-home .cellpop { animation:home-cellpop .3s cubic-bezier(.34,1.56,.64,1) }
+@keyframes home-cloudmove {from{transform:translateX(-220px)}to{transform:translateX(1700px)}}
+.sc-home .cloud { animation:home-cloudmove 80s linear infinite }
+.sc-home .cloud.c2 { animation-duration:110s; animation-delay:-45s }
+@keyframes home-drift {0%{transform:translateY(0) scale(1);opacity:.95}100%{transform:translateY(-16px) scale(1.25);opacity:0}}
+.sc-home .smoke ellipse { transform-box:fill-box; transform-origin:center; animation:home-drift 5s ease-out infinite }
+.sc-home .smoke ellipse:nth-child(2) { animation-delay:1.6s }
+.sc-home .smoke ellipse:nth-child(3) { animation-delay:3.2s }
+@keyframes home-spin {to{transform:rotate(360deg)}}
+.sc-home .spin { transform-box:fill-box; transform-origin:center; animation:home-spin 7s linear infinite }
+.sc-home .spin.s2 { animation-duration:5s }
+@keyframes home-drivewide {from{transform:translateX(-80px)}to{transform:translateX(1640px)}}
+.sc-home .bus { animation:home-drivewide 34s linear infinite }
+@keyframes home-fly {from{transform:translate(-50px,0)}50%{transform:translate(780px,-10px)}to{transform:translate(1600px,4px)}}
+.sc-home .bird { animation:home-fly 40s linear infinite }
+.sc-home .bird.b2 { animation-duration:55s; animation-delay:-20s }
+@keyframes home-tw {0%,100%{opacity:1}50%{opacity:.3}}
+.sc-home .tw { animation:home-tw 3s ease-in-out infinite }
+.sc-home .tw.t2 { animation-delay:-1s }
+.sc-home .tw.t3 { animation-delay:-2s }
+@keyframes home-ping {0%{transform:scale(.6);opacity:.9}100%{transform:scale(3);opacity:0}}
+.sc-home .ping { transform-box:fill-box; transform-origin:center; animation:home-ping 2.2s ease-out infinite }
+@keyframes home-flutter {from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
+.sc-home .flut { transform-box:fill-box; transform-origin:0% 50%; animation:home-flutter 3.6s ease-in-out infinite alternate }
+.sc-home .flut.f2 { animation-duration:4.6s; animation-delay:-1.4s }
+.sc-home .flut.f3 { animation-duration:3.1s; animation-delay:-2.2s }
+@keyframes home-swayanim {from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+.sc-home .sway { animation:home-swayanim 6s ease-in-out infinite alternate }
+.sc-home .sway.s2 { animation-duration:7.5s; animation-direction:alternate-reverse }
+@keyframes home-wave {0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+.sc-home .bar { transform-box:fill-box; transform-origin:center; animation:home-wave 1.1s ease-in-out infinite }
+.sc-home .bar.b2 { animation-delay:.15s }
+.sc-home .bar.b3 { animation-delay:.3s }
+.sc-home .bar.b4 { animation-delay:.45s }
+.sc-home .bar.b5 { animation-delay:.6s }
+@keyframes home-soundring {0%{transform:scale(.7);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+.sc-home .sring { transform-box:fill-box; transform-origin:center; animation:home-soundring 2.4s ease-out infinite }
+.sc-home .sring.r2 { animation-delay:1.2s }
+@media (prefers-reduced-motion:reduce) {
+.sc-home * { animation:none!important; transition:none!important }
+}

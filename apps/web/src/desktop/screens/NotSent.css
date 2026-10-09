@@ -1,0 +1,72 @@
+.sc-notsent a, .sc-notsent button, .sc-notsent input, .sc-notsent textarea { transition:background-color .35s cubic-bezier(.32,.72,0,1),border-color .35s cubic-bezier(.32,.72,0,1),color .35s cubic-bezier(.32,.72,0,1),box-shadow .45s cubic-bezier(.32,.72,0,1),transform .45s cubic-bezier(.32,.72,0,1),opacity .45s cubic-bezier(.32,.72,0,1) }
+.sc-notsent a:active, .sc-notsent button:active { transform:scale(.97) }
+.sc-notsent a:focus-visible, .sc-notsent button:focus-visible, .sc-notsent input:focus-visible, .sc-notsent textarea:focus-visible { outline:3px solid #E0A526; outline-offset:3px }
+.sc-notsent input::placeholder, .sc-notsent textarea::placeholder { color:#566657; opacity:1 }
+.sc-notsent input:focus { box-shadow:0 0 0 5px rgba(31,107,58,.16) }
+.sc-notsent button.pill:hover, .sc-notsent a.plain:hover, .sc-notsent a.text:hover { background:#E3F1E6 }
+.sc-notsent a.solid:hover, .sc-notsent .big:hover, .sc-notsent button.speak:hover, .sc-notsent button.on:hover { background:#14502B }
+.sc-notsent .alt:hover, .sc-notsent button.off:hover, .sc-notsent a.cream:hover { background:#E2EDB5 }
+.sc-notsent a.card:hover { border-color:#1F6B3A; box-shadow:0 12px 28px rgba(31,107,58,.14); transform:translateY(-3px) }
+.sc-notsent a.link svg, .sc-notsent a.solid svg { transition:transform .4s cubic-bezier(.32,.72,0,1) }
+.sc-notsent a.link:hover svg, .sc-notsent a.solid:hover svg { transform:translateX(6px) }
+@keyframes notsent-rise {from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.sc-notsent header { animation:notsent-rise .6s cubic-bezier(.22,1,.36,1) backwards }
+.sc-notsent .r1 { animation:notsent-rise .8s cubic-bezier(.22,1,.36,1) backwards }
+.sc-notsent .r2 { animation:notsent-rise .8s cubic-bezier(.22,1,.36,1) .1s backwards }
+.sc-notsent .r3 { animation:notsent-rise .8s cubic-bezier(.22,1,.36,1) .2s backwards }
+.sc-notsent .r4 { animation:notsent-rise .8s cubic-bezier(.22,1,.36,1) .3s backwards }
+.sc-notsent .enter { animation:notsent-rise .55s cubic-bezier(.22,1,.36,1) backwards }
+@keyframes notsent-tapburst {0%{box-shadow:0 0 0 0 rgba(31,107,58,.45)}100%{box-shadow:0 0 0 22px rgba(31,107,58,0)}}
+.sc-notsent .tapped { animation:notsent-tapburst .4s ease-out !important }
+@keyframes notsent-micring {0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}100%{box-shadow:0 0 0 18px rgba(255,255,255,0)}}
+.sc-notsent .micdot { animation:notsent-micring 2.4s ease-out infinite }
+@keyframes notsent-cellpop {0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.sc-notsent .cellpop { animation:notsent-cellpop .3s cubic-bezier(.34,1.56,.64,1) }
+@keyframes notsent-cloudmove {from{transform:translateX(-220px)}to{transform:translateX(1700px)}}
+.sc-notsent .cloud { animation:notsent-cloudmove 80s linear infinite }
+.sc-notsent .cloud.c2 { animation-duration:110s; animation-delay:-45s }
+@keyframes notsent-drift {0%{transform:translateY(0) scale(1);opacity:.95}100%{transform:translateY(-16px) scale(1.25);opacity:0}}
+.sc-notsent .smoke ellipse { transform-box:fill-box; transform-origin:center; animation:notsent-drift 5s ease-out infinite }
+.sc-notsent .smoke ellipse:nth-child(2) { animation-delay:1.6s }
+.sc-notsent .smoke ellipse:nth-child(3) { animation-delay:3.2s }
+@keyframes notsent-spin {to{transform:rotate(360deg)}}
+.sc-notsent .spin { transform-box:fill-box; transform-origin:center; animation:notsent-spin 7s linear infinite }
+.sc-notsent .spin.s2 { animation-duration:5s }
+@keyframes notsent-drivewide {from{transform:translateX(-80px)}to{transform:translateX(1640px)}}
+.sc-notsent .bus { animation:notsent-drivewide 34s linear infinite }
+@keyframes notsent-fly {from{transform:translate(-50px,0)}50%{transform:translate(780px,-10px)}to{transform:translate(1600px,4px)}}
+.sc-notsent .bird { animation:notsent-fly 40s linear infinite }
+.sc-notsent .bird.b2 { animation-duration:55s; animation-delay:-20s }
+@keyframes notsent-tw {0%,100%{opacity:1}50%{opacity:.3}}
+.sc-notsent .tw { animation:notsent-tw 3s ease-in-out infinite }
+.sc-notsent .tw.t2 { animation-delay:-1s }
+.sc-notsent .tw.t3 { animation-delay:-2s }
+@keyframes notsent-ping {0%{transform:scale(.6);opacity:.9}100%{transform:scale(3);opacity:0}}
+.sc-notsent .ping { transform-box:fill-box; transform-origin:center; animation:notsent-ping 2.2s ease-out infinite }
+@keyframes notsent-flutter {from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
+.sc-notsent .flut { transform-box:fill-box; transform-origin:0% 50%; animation:notsent-flutter 3.6s ease-in-out infinite alternate }
+.sc-notsent .flut.f2 { animation-duration:4.6s; animation-delay:-1.4s }
+.sc-notsent .flut.f3 { animation-duration:3.1s; animation-delay:-2.2s }
+@keyframes notsent-swayanim {from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+.sc-notsent .sway { animation:notsent-swayanim 6s ease-in-out infinite alternate }
+.sc-notsent .sway.s2 { animation-duration:7.5s; animation-direction:alternate-reverse }
+@keyframes notsent-wave {0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+.sc-notsent .bar { transform-box:fill-box; transform-origin:center; animation:notsent-wave 1.1s ease-in-out infinite }
+.sc-notsent .bar.b2 { animation-delay:.15s }
+.sc-notsent .bar.b3 { animation-delay:.3s }
+.sc-notsent .bar.b4 { animation-delay:.45s }
+.sc-notsent .bar.b5 { animation-delay:.6s }
+@keyframes notsent-soundring {0%{transform:scale(.7);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+.sc-notsent .sring { transform-box:fill-box; transform-origin:center; animation:notsent-soundring 2.4s ease-out infinite }
+.sc-notsent .sring.r2 { animation-delay:1.2s }
+@media (prefers-reduced-motion:reduce) {
+.sc-notsent * { animation:none!important; transition:none!important }
+}
+@keyframes notsent-shake {0%,100%{transform:rotate(-6deg)}20%{transform:rotate(-9deg)}40%{transform:rotate(-3deg)}60%{transform:rotate(-8deg)}80%{transform:rotate(-5deg)}}
+@keyframes notsent-badge {0%{transform:scale(.3);opacity:0}60%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
+@keyframes notsent-wavef {0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
+@keyframes notsent-blink {0%,100%{opacity:1}50%{opacity:.25}}
+.sc-notsent .frame { transform-origin:center; animation:notsent-shake .9s ease-in-out .5s 1 both }
+.sc-notsent .warn { transform-box:fill-box; transform-origin:center; animation:notsent-badge .7s cubic-bezier(.22,1,.36,1) .3s backwards }
+.sc-notsent .flag { transform-box:fill-box; transform-origin:50% 100%; animation:notsent-wavef 1.6s ease-in-out .6s 2 }
+.sc-notsent .slash { animation:notsent-blink 2s ease-in-out infinite }

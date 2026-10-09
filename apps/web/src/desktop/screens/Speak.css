@@ -1,0 +1,78 @@
+.sc-speak a, .sc-speak button, .sc-speak input, .sc-speak textarea { transition:background-color .35s cubic-bezier(.32,.72,0,1),border-color .35s cubic-bezier(.32,.72,0,1),color .35s cubic-bezier(.32,.72,0,1),box-shadow .45s cubic-bezier(.32,.72,0,1),transform .45s cubic-bezier(.32,.72,0,1),opacity .45s cubic-bezier(.32,.72,0,1) }
+.sc-speak a:active, .sc-speak button:active { transform:scale(.97) }
+.sc-speak a:focus-visible, .sc-speak button:focus-visible, .sc-speak input:focus-visible, .sc-speak textarea:focus-visible { outline:3px solid #E0A526; outline-offset:3px }
+.sc-speak input::placeholder, .sc-speak textarea::placeholder { color:#566657; opacity:1 }
+.sc-speak input:focus { box-shadow:0 0 0 5px rgba(31,107,58,.16) }
+.sc-speak button.pill:hover, .sc-speak a.plain:hover, .sc-speak a.text:hover { background:#E3F1E6 }
+.sc-speak a.solid:hover, .sc-speak .big:hover, .sc-speak button.speak:hover, .sc-speak button.on:hover { background:#14502B }
+.sc-speak .alt:hover, .sc-speak button.off:hover, .sc-speak a.cream:hover { background:#E2EDB5 }
+.sc-speak a.card:hover { border-color:#1F6B3A; box-shadow:0 12px 28px rgba(31,107,58,.14); transform:translateY(-3px) }
+.sc-speak a.link svg, .sc-speak a.solid svg { transition:transform .4s cubic-bezier(.32,.72,0,1) }
+.sc-speak a.link:hover svg, .sc-speak a.solid:hover svg { transform:translateX(6px) }
+@keyframes speak-rise {from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.sc-speak header { animation:speak-rise .6s cubic-bezier(.22,1,.36,1) backwards }
+.sc-speak .r1 { animation:speak-rise .8s cubic-bezier(.22,1,.36,1) backwards }
+.sc-speak .r2 { animation:speak-rise .8s cubic-bezier(.22,1,.36,1) .1s backwards }
+.sc-speak .r3 { animation:speak-rise .8s cubic-bezier(.22,1,.36,1) .2s backwards }
+.sc-speak .r4 { animation:speak-rise .8s cubic-bezier(.22,1,.36,1) .3s backwards }
+.sc-speak .enter { animation:speak-rise .55s cubic-bezier(.22,1,.36,1) backwards }
+@keyframes speak-tapburst {0%{box-shadow:0 0 0 0 rgba(31,107,58,.45)}100%{box-shadow:0 0 0 22px rgba(31,107,58,0)}}
+.sc-speak .tapped { animation:speak-tapburst .4s ease-out !important }
+@keyframes speak-micring {0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}100%{box-shadow:0 0 0 18px rgba(255,255,255,0)}}
+.sc-speak .micdot { animation:speak-micring 2.4s ease-out infinite }
+@keyframes speak-cellpop {0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.sc-speak .cellpop { animation:speak-cellpop .3s cubic-bezier(.34,1.56,.64,1) }
+@keyframes speak-cloudmove {from{transform:translateX(-220px)}to{transform:translateX(1700px)}}
+.sc-speak .cloud { animation:speak-cloudmove 80s linear infinite }
+.sc-speak .cloud.c2 { animation-duration:110s; animation-delay:-45s }
+@keyframes speak-drift {0%{transform:translateY(0) scale(1);opacity:.95}100%{transform:translateY(-16px) scale(1.25);opacity:0}}
+.sc-speak .smoke ellipse { transform-box:fill-box; transform-origin:center; animation:speak-drift 5s ease-out infinite }
+.sc-speak .smoke ellipse:nth-child(2) { animation-delay:1.6s }
+.sc-speak .smoke ellipse:nth-child(3) { animation-delay:3.2s }
+@keyframes speak-spin {to{transform:rotate(360deg)}}
+.sc-speak .spin { transform-box:fill-box; transform-origin:center; animation:speak-spin 7s linear infinite }
+.sc-speak .spin.s2 { animation-duration:5s }
+@keyframes speak-drivewide {from{transform:translateX(-80px)}to{transform:translateX(1640px)}}
+.sc-speak .bus { animation:speak-drivewide 34s linear infinite }
+@keyframes speak-fly {from{transform:translate(-50px,0)}50%{transform:translate(780px,-10px)}to{transform:translate(1600px,4px)}}
+.sc-speak .bird { animation:speak-fly 40s linear infinite }
+.sc-speak .bird.b2 { animation-duration:55s; animation-delay:-20s }
+@keyframes speak-tw {0%,100%{opacity:1}50%{opacity:.3}}
+.sc-speak .tw { animation:speak-tw 3s ease-in-out infinite }
+.sc-speak .tw.t2 { animation-delay:-1s }
+.sc-speak .tw.t3 { animation-delay:-2s }
+@keyframes speak-ping {0%{transform:scale(.6);opacity:.9}100%{transform:scale(3);opacity:0}}
+.sc-speak .ping { transform-box:fill-box; transform-origin:center; animation:speak-ping 2.2s ease-out infinite }
+@keyframes speak-flutter {from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
+.sc-speak .flut { transform-box:fill-box; transform-origin:0% 50%; animation:speak-flutter 3.6s ease-in-out infinite alternate }
+.sc-speak .flut.f2 { animation-duration:4.6s; animation-delay:-1.4s }
+.sc-speak .flut.f3 { animation-duration:3.1s; animation-delay:-2.2s }
+@keyframes speak-swayanim {from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+.sc-speak .sway { animation:speak-swayanim 6s ease-in-out infinite alternate }
+.sc-speak .sway.s2 { animation-duration:7.5s; animation-direction:alternate-reverse }
+@keyframes speak-wave {0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+.sc-speak .bar { transform-box:fill-box; transform-origin:center; animation:speak-wave 1.1s ease-in-out infinite }
+.sc-speak .bar.b2 { animation-delay:.15s }
+.sc-speak .bar.b3 { animation-delay:.3s }
+.sc-speak .bar.b4 { animation-delay:.45s }
+.sc-speak .bar.b5 { animation-delay:.6s }
+@keyframes speak-soundring {0%{transform:scale(.7);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+.sc-speak .sring { transform-box:fill-box; transform-origin:center; animation:speak-soundring 2.4s ease-out infinite }
+.sc-speak .sring.r2 { animation-delay:1.2s }
+@media (prefers-reduced-motion:reduce) {
+.sc-speak * { animation:none!important; transition:none!important }
+}
+@keyframes speak-pulse {0%{transform:scale(1);opacity:.4}100%{transform:scale(1.9);opacity:0}}
+@keyframes speak-bar {0%,100%{height:12px}50%{height:50px}}
+@keyframes speak-blink {0%,100%{opacity:1}50%{opacity:0}}
+.sc-speak .ring { position:absolute; left:50px; top:50px; width:260px; height:260px; border-radius:50%; background:#1F6B3A; animation:speak-pulse 2.4s cubic-bezier(.22,1,.36,1) infinite }
+.sc-speak .ring.two { animation-delay:1.2s }
+.sc-speak .wave { display:flex; align-items:center; gap:8px; height:54px }
+.sc-speak .wave i { display:block; width:9px; height:12px; border-radius:5px; background:#1F6B3A; animation:speak-bar 1.1s ease-in-out infinite }
+.sc-speak .wave i:nth-child(2) { animation-delay:.12s }
+.sc-speak .wave i:nth-child(3) { animation-delay:.24s }
+.sc-speak .wave i:nth-child(4) { animation-delay:.36s }
+.sc-speak .wave i:nth-child(5) { animation-delay:.48s }
+.sc-speak .wave i:nth-child(6) { animation-delay:.6s }
+.sc-speak .wave i:nth-child(7) { animation-delay:.72s }
+.sc-speak .caret { display:inline-block; width:4px; height:42px; margin-left:3px; vertical-align:-7px; background:#1F6B3A; animation:speak-blink 1s steps(1) infinite }

@@ -1,0 +1,33 @@
+home | [warm] Hello! Is there a problem in your area? Tell us about it.
+speak | [warm] Go ahead. What seems to be the problem?
+photo | [warm] If you can, please take a photo.
+where | [warm] Where is the problem? Tap “I’m here.”
+send | [warm] Take a quick look. If everything is right, tap “Send.”
+fixed_ask | [warm] Has your problem been fixed? Let us know.
+fixed_yes | [happy] Great! Thank you.
+fixed_no | [warm] That’s okay. We’ll look into it again.
+digit_0 | Zero
+digit_1 | One
+letter_B | B
+voice_ask | [warm] Would you like to hear the AI voice?
+voice_on | [warm] Okay, the voice is on.
+phone | [warm] Please type your phone number, then tap “OK.”
+code | [warm] We’ve sent you a code. Type it in, then tap “OK.”
+my_problems | [warm] These are your complaints. Tap Waiting, Fixed, or Needs fix.
+not_sent | [warm] Sorry, we couldn’t send it. Check your internet and tap “Again.”
+privacy | [warm] Your privacy matters to us. Your phone number is only used to send you updates. Your photo and place help the team find the problem. Only the people who fix problems can see them.
+reject_ai | [warm] This photo looks like it was made by AI. Please take a real photo.
+flag_mismatch | [warm] This problem still needs a fix. The photo and the place don’t match.
+sent_intro | [warm] Sent! Your number is
+status_intro | [warm] Here’s the latest on your complaint.
+digit_2 | Two
+digit_3 | Three
+digit_4 | Four
+digit_5 | Five
+digit_6 | Six
+digit_7 | Seven
+digit_8 | Eight
+digit_9 | Nine
+letter_H | H
+letter_I | I
+dash | Dash

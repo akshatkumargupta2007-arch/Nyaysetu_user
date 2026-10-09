@@ -1,0 +1,21 @@
+// Every screen and its URL. The page-to-page flow is documented in docs/FLOW.md.
+export const ROUTES = {
+  language: '/',
+  voice: '/voice',
+  home: '/home',
+  speak: '/speak',
+  photo: '/photo',
+  where: '/where',
+  send: '/send',
+  phone: '/phone',
+  code: '/code',
+  sent: '/sent',
+  problems: '/problems',
+  status: '/status',
+  fixed: '/fixed',
+  reReport: '/re-report',
+  needsFix: '/needs-fix',
+  photoRejected: '/photo-rejected',
+  notSent: '/not-sent',
+  privacy: '/privacy',
+};

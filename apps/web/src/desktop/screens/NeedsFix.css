@@ -1,0 +1,72 @@
+.sc-needsfix a, .sc-needsfix button, .sc-needsfix input, .sc-needsfix textarea { transition:background-color .35s cubic-bezier(.32,.72,0,1),border-color .35s cubic-bezier(.32,.72,0,1),color .35s cubic-bezier(.32,.72,0,1),box-shadow .45s cubic-bezier(.32,.72,0,1),transform .45s cubic-bezier(.32,.72,0,1),opacity .45s cubic-bezier(.32,.72,0,1) }
+.sc-needsfix a:active, .sc-needsfix button:active { transform:scale(.97) }
+.sc-needsfix a:focus-visible, .sc-needsfix button:focus-visible, .sc-needsfix input:focus-visible, .sc-needsfix textarea:focus-visible { outline:3px solid #E0A526; outline-offset:3px }
+.sc-needsfix input::placeholder, .sc-needsfix textarea::placeholder { color:#566657; opacity:1 }
+.sc-needsfix input:focus { box-shadow:0 0 0 5px rgba(31,107,58,.16) }
+.sc-needsfix button.pill:hover, .sc-needsfix a.plain:hover, .sc-needsfix a.text:hover { background:#E3F1E6 }
+.sc-needsfix a.solid:hover, .sc-needsfix .big:hover, .sc-needsfix button.speak:hover, .sc-needsfix button.on:hover { background:#14502B }
+.sc-needsfix .alt:hover, .sc-needsfix button.off:hover, .sc-needsfix a.cream:hover { background:#E2EDB5 }
+.sc-needsfix a.card:hover { border-color:#1F6B3A; box-shadow:0 12px 28px rgba(31,107,58,.14); transform:translateY(-3px) }
+.sc-needsfix a.link svg, .sc-needsfix a.solid svg { transition:transform .4s cubic-bezier(.32,.72,0,1) }
+.sc-needsfix a.link:hover svg, .sc-needsfix a.solid:hover svg { transform:translateX(6px) }
+@keyframes needsfix-rise {from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.sc-needsfix header { animation:needsfix-rise .6s cubic-bezier(.22,1,.36,1) backwards }
+.sc-needsfix .r1 { animation:needsfix-rise .8s cubic-bezier(.22,1,.36,1) backwards }
+.sc-needsfix .r2 { animation:needsfix-rise .8s cubic-bezier(.22,1,.36,1) .1s backwards }
+.sc-needsfix .r3 { animation:needsfix-rise .8s cubic-bezier(.22,1,.36,1) .2s backwards }
+.sc-needsfix .r4 { animation:needsfix-rise .8s cubic-bezier(.22,1,.36,1) .3s backwards }
+.sc-needsfix .enter { animation:needsfix-rise .55s cubic-bezier(.22,1,.36,1) backwards }
+@keyframes needsfix-tapburst {0%{box-shadow:0 0 0 0 rgba(31,107,58,.45)}100%{box-shadow:0 0 0 22px rgba(31,107,58,0)}}
+.sc-needsfix .tapped { animation:needsfix-tapburst .4s ease-out !important }
+@keyframes needsfix-micring {0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}100%{box-shadow:0 0 0 18px rgba(255,255,255,0)}}
+.sc-needsfix .micdot { animation:needsfix-micring 2.4s ease-out infinite }
+@keyframes needsfix-cellpop {0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.sc-needsfix .cellpop { animation:needsfix-cellpop .3s cubic-bezier(.34,1.56,.64,1) }
+@keyframes needsfix-cloudmove {from{transform:translateX(-220px)}to{transform:translateX(1700px)}}
+.sc-needsfix .cloud { animation:needsfix-cloudmove 80s linear infinite }
+.sc-needsfix .cloud.c2 { animation-duration:110s; animation-delay:-45s }
+@keyframes needsfix-drift {0%{transform:translateY(0) scale(1);opacity:.95}100%{transform:translateY(-16px) scale(1.25);opacity:0}}
+.sc-needsfix .smoke ellipse { transform-box:fill-box; transform-origin:center; animation:needsfix-drift 5s ease-out infinite }
+.sc-needsfix .smoke ellipse:nth-child(2) { animation-delay:1.6s }
+.sc-needsfix .smoke ellipse:nth-child(3) { animation-delay:3.2s }
+@keyframes needsfix-spin {to{transform:rotate(360deg)}}
+.sc-needsfix .spin { transform-box:fill-box; transform-origin:center; animation:needsfix-spin 7s linear infinite }
+.sc-needsfix .spin.s2 { animation-duration:5s }
+@keyframes needsfix-drivewide {from{transform:translateX(-80px)}to{transform:translateX(1640px)}}
+.sc-needsfix .bus { animation:needsfix-drivewide 34s linear infinite }
+@keyframes needsfix-fly {from{transform:translate(-50px,0)}50%{transform:translate(780px,-10px)}to{transform:translate(1600px,4px)}}
+.sc-needsfix .bird { animation:needsfix-fly 40s linear infinite }
+.sc-needsfix .bird.b2 { animation-duration:55s; animation-delay:-20s }
+@keyframes needsfix-tw {0%,100%{opacity:1}50%{opacity:.3}}
+.sc-needsfix .tw { animation:needsfix-tw 3s ease-in-out infinite }
+.sc-needsfix .tw.t2 { animation-delay:-1s }
+.sc-needsfix .tw.t3 { animation-delay:-2s }
+@keyframes needsfix-ping {0%{transform:scale(.6);opacity:.9}100%{transform:scale(3);opacity:0}}
+.sc-needsfix .ping { transform-box:fill-box; transform-origin:center; animation:needsfix-ping 2.2s ease-out infinite }
+@keyframes needsfix-flutter {from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
+.sc-needsfix .flut { transform-box:fill-box; transform-origin:0% 50%; animation:needsfix-flutter 3.6s ease-in-out infinite alternate }
+.sc-needsfix .flut.f2 { animation-duration:4.6s; animation-delay:-1.4s }
+.sc-needsfix .flut.f3 { animation-duration:3.1s; animation-delay:-2.2s }
+@keyframes needsfix-swayanim {from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+.sc-needsfix .sway { animation:needsfix-swayanim 6s ease-in-out infinite alternate }
+.sc-needsfix .sway.s2 { animation-duration:7.5s; animation-direction:alternate-reverse }
+@keyframes needsfix-wave {0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+.sc-needsfix .bar { transform-box:fill-box; transform-origin:center; animation:needsfix-wave 1.1s ease-in-out infinite }
+.sc-needsfix .bar.b2 { animation-delay:.15s }
+.sc-needsfix .bar.b3 { animation-delay:.3s }
+.sc-needsfix .bar.b4 { animation-delay:.45s }
+.sc-needsfix .bar.b5 { animation-delay:.6s }
+@keyframes needsfix-soundring {0%{transform:scale(.7);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+.sc-needsfix .sring { transform-box:fill-box; transform-origin:center; animation:needsfix-soundring 2.4s ease-out infinite }
+.sc-needsfix .sring.r2 { animation-delay:1.2s }
+@media (prefers-reduced-motion:reduce) {
+.sc-needsfix * { animation:none!important; transition:none!important }
+}
+@keyframes needsfix-shake {0%,100%{transform:rotate(-6deg)}20%{transform:rotate(-9deg)}40%{transform:rotate(-3deg)}60%{transform:rotate(-8deg)}80%{transform:rotate(-5deg)}}
+@keyframes needsfix-badge {0%{transform:scale(.3);opacity:0}60%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
+@keyframes needsfix-wavef {0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
+@keyframes needsfix-blink {0%,100%{opacity:1}50%{opacity:.25}}
+.sc-needsfix .frame { transform-origin:center; animation:needsfix-shake .9s ease-in-out .5s 1 both }
+.sc-needsfix .warn { transform-box:fill-box; transform-origin:center; animation:needsfix-badge .7s cubic-bezier(.22,1,.36,1) .3s backwards }
+.sc-needsfix .flag { transform-box:fill-box; transform-origin:50% 100%; animation:needsfix-wavef 1.6s ease-in-out .6s 2 }
+.sc-needsfix .slash { animation:needsfix-blink 2s ease-in-out infinite }

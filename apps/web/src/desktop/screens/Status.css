@@ -1,0 +1,86 @@
+.sc-status a, .sc-status button, .sc-status input, .sc-status textarea { transition:background-color .35s cubic-bezier(.32,.72,0,1),border-color .35s cubic-bezier(.32,.72,0,1),color .35s cubic-bezier(.32,.72,0,1),box-shadow .45s cubic-bezier(.32,.72,0,1),transform .45s cubic-bezier(.32,.72,0,1),opacity .45s cubic-bezier(.32,.72,0,1) }
+.sc-status a:active, .sc-status button:active { transform:scale(.97) }
+.sc-status a:focus-visible, .sc-status button:focus-visible, .sc-status input:focus-visible, .sc-status textarea:focus-visible { outline:3px solid #E0A526; outline-offset:3px }
+.sc-status input::placeholder, .sc-status textarea::placeholder { color:#566657; opacity:1 }
+.sc-status input:focus { box-shadow:0 0 0 5px rgba(31,107,58,.16) }
+.sc-status button.pill:hover, .sc-status a.plain:hover, .sc-status a.text:hover { background:#E3F1E6 }
+.sc-status a.solid:hover, .sc-status .big:hover, .sc-status button.speak:hover, .sc-status button.on:hover { background:#14502B }
+.sc-status .alt:hover, .sc-status button.off:hover, .sc-status a.cream:hover { background:#E2EDB5 }
+.sc-status a.card:hover { border-color:#1F6B3A; box-shadow:0 12px 28px rgba(31,107,58,.14); transform:translateY(-3px) }
+.sc-status a.link svg, .sc-status a.solid svg { transition:transform .4s cubic-bezier(.32,.72,0,1) }
+.sc-status a.link:hover svg, .sc-status a.solid:hover svg { transform:translateX(6px) }
+@keyframes status-rise {from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.sc-status header { animation:status-rise .6s cubic-bezier(.22,1,.36,1) backwards }
+.sc-status .r1 { animation:status-rise .8s cubic-bezier(.22,1,.36,1) backwards }
+.sc-status .r2 { animation:status-rise .8s cubic-bezier(.22,1,.36,1) .1s backwards }
+.sc-status .r3 { animation:status-rise .8s cubic-bezier(.22,1,.36,1) .2s backwards }
+.sc-status .r4 { animation:status-rise .8s cubic-bezier(.22,1,.36,1) .3s backwards }
+.sc-status .enter { animation:status-rise .55s cubic-bezier(.22,1,.36,1) backwards }
+@keyframes status-tapburst {0%{box-shadow:0 0 0 0 rgba(31,107,58,.45)}100%{box-shadow:0 0 0 22px rgba(31,107,58,0)}}
+.sc-status .tapped { animation:status-tapburst .4s ease-out !important }
+@keyframes status-micring {0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}100%{box-shadow:0 0 0 18px rgba(255,255,255,0)}}
+.sc-status .micdot { animation:status-micring 2.4s ease-out infinite }
+@keyframes status-cellpop {0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.sc-status .cellpop { animation:status-cellpop .3s cubic-bezier(.34,1.56,.64,1) }
+@keyframes status-cloudmove {from{transform:translateX(-220px)}to{transform:translateX(1700px)}}
+.sc-status .cloud { animation:status-cloudmove 80s linear infinite }
+.sc-status .cloud.c2 { animation-duration:110s; animation-delay:-45s }
+@keyframes status-drift {0%{transform:translateY(0) scale(1);opacity:.95}100%{transform:translateY(-16px) scale(1.25);opacity:0}}
+.sc-status .smoke ellipse { transform-box:fill-box; transform-origin:center; animation:status-drift 5s ease-out infinite }
+.sc-status .smoke ellipse:nth-child(2) { animation-delay:1.6s }
+.sc-status .smoke ellipse:nth-child(3) { animation-delay:3.2s }
+@keyframes status-spin {to{transform:rotate(360deg)}}
+.sc-status .spin { transform-box:fill-box; transform-origin:center; animation:status-spin 7s linear infinite }
+.sc-status .spin.s2 { animation-duration:5s }
+@keyframes status-drivewide {from{transform:translateX(-80px)}to{transform:translateX(1640px)}}
+.sc-status .bus { animation:status-drivewide 34s linear infinite }
+@keyframes status-fly {from{transform:translate(-50px,0)}50%{transform:translate(780px,-10px)}to{transform:translate(1600px,4px)}}
+.sc-status .bird { animation:status-fly 40s linear infinite }
+.sc-status .bird.b2 { animation-duration:55s; animation-delay:-20s }
+@keyframes status-tw {0%,100%{opacity:1}50%{opacity:.3}}
+.sc-status .tw { animation:status-tw 3s ease-in-out infinite }
+.sc-status .tw.t2 { animation-delay:-1s }
+.sc-status .tw.t3 { animation-delay:-2s }
+@keyframes status-ping {0%{transform:scale(.6);opacity:.9}100%{transform:scale(3);opacity:0}}
+.sc-status .ping { transform-box:fill-box; transform-origin:center; animation:status-ping 2.2s ease-out infinite }
+@keyframes status-flutter {from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
+.sc-status .flut { transform-box:fill-box; transform-origin:0% 50%; animation:status-flutter 3.6s ease-in-out infinite alternate }
+.sc-status .flut.f2 { animation-duration:4.6s; animation-delay:-1.4s }
+.sc-status .flut.f3 { animation-duration:3.1s; animation-delay:-2.2s }
+@keyframes status-swayanim {from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+.sc-status .sway { animation:status-swayanim 6s ease-in-out infinite alternate }
+.sc-status .sway.s2 { animation-duration:7.5s; animation-direction:alternate-reverse }
+@keyframes status-wave {0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+.sc-status .bar { transform-box:fill-box; transform-origin:center; animation:status-wave 1.1s ease-in-out infinite }
+.sc-status .bar.b2 { animation-delay:.15s }
+.sc-status .bar.b3 { animation-delay:.3s }
+.sc-status .bar.b4 { animation-delay:.45s }
+.sc-status .bar.b5 { animation-delay:.6s }
+@keyframes status-soundring {0%{transform:scale(.7);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+.sc-status .sring { transform-box:fill-box; transform-origin:center; animation:status-soundring 2.4s ease-out infinite }
+.sc-status .sring.r2 { animation-delay:1.2s }
+@media (prefers-reduced-motion:reduce) {
+.sc-status * { animation:none!important; transition:none!important }
+}
+@keyframes status-ring {0%,100%{box-shadow:0 0 0 6px #CBE5D0}50%{box-shadow:0 0 0 13px rgba(203,229,208,.3)}}
+@keyframes status-growx {from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes status-popin {0%{transform:scale(.3);opacity:0}60%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
+.sc-status .ring { animation:status-ring 2.4s ease-in-out infinite }
+.sc-status .prog>span:nth-child(odd) { animation:status-popin .55s cubic-bezier(.34,1.56,.64,1) backwards }
+.sc-status .prog>span:nth-child(even) { transform-origin:left center; animation:status-growx .5s cubic-bezier(.32,.72,0,1) backwards }
+.sc-status .prog>span:nth-child(1) { animation-delay:.3s }
+.sc-status .prog>span:nth-child(2) { animation-delay:.55s }
+.sc-status .prog>span:nth-child(3) { animation-delay:.7s }
+.sc-status .prog>span:nth-child(4) { animation-delay:.95s }
+.sc-status .prog>span:nth-child(5) { animation-delay:1.1s }
+.sc-status .prog>span:nth-child(6) { animation-delay:1.35s }
+.sc-status .prog>span:nth-child(7) { animation-delay:1.5s }
+.sc-status .prog>span:nth-child(8) { animation-delay:1.75s }
+.sc-status .prog>span:nth-child(9) { animation-delay:1.9s }
+.sc-status .prog>span.ring:nth-child(5) { animation:status-popin .55s cubic-bezier(.34,1.56,.64,1) 1.1s backwards, status-ring 2.4s ease-in-out 1.7s infinite }
+.sc-status ol>li { animation:status-rise .7s cubic-bezier(.22,1,.36,1) backwards }
+.sc-status ol>li:nth-child(1) { animation-delay:.5s }
+.sc-status ol>li:nth-child(2) { animation-delay:.6s }
+.sc-status ol>li:nth-child(3) { animation-delay:.7s }
+.sc-status ol>li:nth-child(4) { animation-delay:.8s }
+.sc-status ol>li:nth-child(5) { animation-delay:.9s }

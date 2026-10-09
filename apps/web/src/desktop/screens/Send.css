@@ -1,0 +1,64 @@
+.sc-send a, .sc-send button, .sc-send input, .sc-send textarea { transition:background-color .35s cubic-bezier(.32,.72,0,1),border-color .35s cubic-bezier(.32,.72,0,1),color .35s cubic-bezier(.32,.72,0,1),box-shadow .45s cubic-bezier(.32,.72,0,1),transform .45s cubic-bezier(.32,.72,0,1),opacity .45s cubic-bezier(.32,.72,0,1) }
+.sc-send a:active, .sc-send button:active { transform:scale(.97) }
+.sc-send a:focus-visible, .sc-send button:focus-visible, .sc-send input:focus-visible, .sc-send textarea:focus-visible { outline:3px solid #E0A526; outline-offset:3px }
+.sc-send input::placeholder, .sc-send textarea::placeholder { color:#566657; opacity:1 }
+.sc-send input:focus { box-shadow:0 0 0 5px rgba(31,107,58,.16) }
+.sc-send button.pill:hover, .sc-send a.plain:hover, .sc-send a.text:hover { background:#E3F1E6 }
+.sc-send a.solid:hover, .sc-send .big:hover, .sc-send button.speak:hover, .sc-send button.on:hover { background:#14502B }
+.sc-send .alt:hover, .sc-send button.off:hover, .sc-send a.cream:hover { background:#E2EDB5 }
+.sc-send a.card:hover { border-color:#1F6B3A; box-shadow:0 12px 28px rgba(31,107,58,.14); transform:translateY(-3px) }
+.sc-send a.link svg, .sc-send a.solid svg { transition:transform .4s cubic-bezier(.32,.72,0,1) }
+.sc-send a.link:hover svg, .sc-send a.solid:hover svg { transform:translateX(6px) }
+@keyframes send-rise {from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.sc-send header { animation:send-rise .6s cubic-bezier(.22,1,.36,1) backwards }
+.sc-send .r1 { animation:send-rise .8s cubic-bezier(.22,1,.36,1) backwards }
+.sc-send .r2 { animation:send-rise .8s cubic-bezier(.22,1,.36,1) .1s backwards }
+.sc-send .r3 { animation:send-rise .8s cubic-bezier(.22,1,.36,1) .2s backwards }
+.sc-send .r4 { animation:send-rise .8s cubic-bezier(.22,1,.36,1) .3s backwards }
+.sc-send .enter { animation:send-rise .55s cubic-bezier(.22,1,.36,1) backwards }
+@keyframes send-tapburst {0%{box-shadow:0 0 0 0 rgba(31,107,58,.45)}100%{box-shadow:0 0 0 22px rgba(31,107,58,0)}}
+.sc-send .tapped { animation:send-tapburst .4s ease-out !important }
+@keyframes send-micring {0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}100%{box-shadow:0 0 0 18px rgba(255,255,255,0)}}
+.sc-send .micdot { animation:send-micring 2.4s ease-out infinite }
+@keyframes send-cellpop {0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.sc-send .cellpop { animation:send-cellpop .3s cubic-bezier(.34,1.56,.64,1) }
+@keyframes send-cloudmove {from{transform:translateX(-220px)}to{transform:translateX(1700px)}}
+.sc-send .cloud { animation:send-cloudmove 80s linear infinite }
+.sc-send .cloud.c2 { animation-duration:110s; animation-delay:-45s }
+@keyframes send-drift {0%{transform:translateY(0) scale(1);opacity:.95}100%{transform:translateY(-16px) scale(1.25);opacity:0}}
+.sc-send .smoke ellipse { transform-box:fill-box; transform-origin:center; animation:send-drift 5s ease-out infinite }
+.sc-send .smoke ellipse:nth-child(2) { animation-delay:1.6s }
+.sc-send .smoke ellipse:nth-child(3) { animation-delay:3.2s }
+@keyframes send-spin {to{transform:rotate(360deg)}}
+.sc-send .spin { transform-box:fill-box; transform-origin:center; animation:send-spin 7s linear infinite }
+.sc-send .spin.s2 { animation-duration:5s }
+@keyframes send-drivewide {from{transform:translateX(-80px)}to{transform:translateX(1640px)}}
+.sc-send .bus { animation:send-drivewide 34s linear infinite }
+@keyframes send-fly {from{transform:translate(-50px,0)}50%{transform:translate(780px,-10px)}to{transform:translate(1600px,4px)}}
+.sc-send .bird { animation:send-fly 40s linear infinite }
+.sc-send .bird.b2 { animation-duration:55s; animation-delay:-20s }
+@keyframes send-tw {0%,100%{opacity:1}50%{opacity:.3}}
+.sc-send .tw { animation:send-tw 3s ease-in-out infinite }
+.sc-send .tw.t2 { animation-delay:-1s }
+.sc-send .tw.t3 { animation-delay:-2s }
+@keyframes send-ping {0%{transform:scale(.6);opacity:.9}100%{transform:scale(3);opacity:0}}
+.sc-send .ping { transform-box:fill-box; transform-origin:center; animation:send-ping 2.2s ease-out infinite }
+@keyframes send-flutter {from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
+.sc-send .flut { transform-box:fill-box; transform-origin:0% 50%; animation:send-flutter 3.6s ease-in-out infinite alternate }
+.sc-send .flut.f2 { animation-duration:4.6s; animation-delay:-1.4s }
+.sc-send .flut.f3 { animation-duration:3.1s; animation-delay:-2.2s }
+@keyframes send-swayanim {from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+.sc-send .sway { animation:send-swayanim 6s ease-in-out infinite alternate }
+.sc-send .sway.s2 { animation-duration:7.5s; animation-direction:alternate-reverse }
+@keyframes send-wave {0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+.sc-send .bar { transform-box:fill-box; transform-origin:center; animation:send-wave 1.1s ease-in-out infinite }
+.sc-send .bar.b2 { animation-delay:.15s }
+.sc-send .bar.b3 { animation-delay:.3s }
+.sc-send .bar.b4 { animation-delay:.45s }
+.sc-send .bar.b5 { animation-delay:.6s }
+@keyframes send-soundring {0%{transform:scale(.7);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+.sc-send .sring { transform-box:fill-box; transform-origin:center; animation:send-soundring 2.4s ease-out infinite }
+.sc-send .sring.r2 { animation-delay:1.2s }
+@media (prefers-reduced-motion:reduce) {
+.sc-send * { animation:none!important; transition:none!important }
+}

@@ -1,0 +1,20 @@
+html, body, #root { margin: 0; min-height: 100%; background: #F7F9F2; }
+body { -webkit-text-size-adjust: 100%; overscroll-behavior: none; }
+
+/* The desktop-sized stage that every screen lives in (1440 x 900 design size). */
+.viewport {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F7F9F2;
+  overflow: hidden;
+}
+.frame { position: relative; overflow: hidden; }
+@media (min-width: 1500px) {
+  .viewport { background: #E9EFE4; }
+  .frame { box-shadow: 0 24px 70px rgba(30, 43, 34, 0.18); border-radius: 0; }
+}
+.stage { transform-origin: top left; }
+.stage-inner { width: 1440px; height: 900px; }

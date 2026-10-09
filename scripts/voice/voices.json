@@ -1,0 +1,50 @@
+{
+  "model": "eleven_v4",
+  "format": "mp3_44100_128",
+  "languages": {
+    "hi": {
+      "voiceId": "Ms9OTvWb99V6DwRHZn6q",
+      "note": "Monika Sogam, normal settings (the voice's saved settings are used)"
+    },
+    "mr": {
+      "voiceId": "sEf6GZov1sbS8ffqkt03",
+      "note": "Marathi, user-chosen, default settings"
+    },
+    "en": {
+      "voiceId": "oO7sLA3dWfQXsKeSAjpA",
+      "note": "English, user-chosen, default settings"
+    },
+    "bn": {
+      "voiceId": "iuABfyf7pRoBzuPqzUCt",
+      "note": "Bengali, user-chosen, default settings"
+    },
+    "gu": {
+      "voiceId": "NZhrkS77RQpyhxv2KBbr",
+      "note": "user-chosen, default settings"
+    },
+    "te": {
+      "voiceId": "0U7pUcfIxJzwwTseQz75",
+      "note": "user-chosen, default settings"
+    },
+    "ta": {
+      "voiceId": "u7DoEF74Zzu8FP2dxDfk",
+      "note": "user-chosen, default settings"
+    },
+    "kn": {
+      "voiceId": "K9wMnqOxfnDmtKBIH8oT",
+      "note": "user-chosen, default settings"
+    },
+    "ml": {
+      "voiceId": "QddF6FE7j4ZjMcrHQ2BK",
+      "note": "user-chosen, default settings"
+    },
+    "or": {
+      "voiceId": "Zcdoxp4Mfxbmk4fIwInk",
+      "note": "user-chosen, default settings"
+    },
+    "as": {
+      "voiceId": "TukQ1ITzWEkA6YPoCkaw",
+      "note": "user-chosen, default settings"
+    }
+  }
+}

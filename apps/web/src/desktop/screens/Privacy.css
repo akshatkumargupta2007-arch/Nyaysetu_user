@@ -1,0 +1,64 @@
+.sc-privacy a, .sc-privacy button, .sc-privacy input, .sc-privacy textarea { transition:background-color .35s cubic-bezier(.32,.72,0,1),border-color .35s cubic-bezier(.32,.72,0,1),color .35s cubic-bezier(.32,.72,0,1),box-shadow .45s cubic-bezier(.32,.72,0,1),transform .45s cubic-bezier(.32,.72,0,1),opacity .45s cubic-bezier(.32,.72,0,1) }
+.sc-privacy a:active, .sc-privacy button:active { transform:scale(.97) }
+.sc-privacy a:focus-visible, .sc-privacy button:focus-visible, .sc-privacy input:focus-visible, .sc-privacy textarea:focus-visible { outline:3px solid #E0A526; outline-offset:3px }
+.sc-privacy input::placeholder, .sc-privacy textarea::placeholder { color:#566657; opacity:1 }
+.sc-privacy input:focus { box-shadow:0 0 0 5px rgba(31,107,58,.16) }
+.sc-privacy button.pill:hover, .sc-privacy a.plain:hover, .sc-privacy a.text:hover { background:#E3F1E6 }
+.sc-privacy a.solid:hover, .sc-privacy .big:hover, .sc-privacy button.speak:hover, .sc-privacy button.on:hover { background:#14502B }
+.sc-privacy .alt:hover, .sc-privacy button.off:hover, .sc-privacy a.cream:hover { background:#E2EDB5 }
+.sc-privacy a.card:hover { border-color:#1F6B3A; box-shadow:0 12px 28px rgba(31,107,58,.14); transform:translateY(-3px) }
+.sc-privacy a.link svg, .sc-privacy a.solid svg { transition:transform .4s cubic-bezier(.32,.72,0,1) }
+.sc-privacy a.link:hover svg, .sc-privacy a.solid:hover svg { transform:translateX(6px) }
+@keyframes privacy-rise {from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.sc-privacy header { animation:privacy-rise .6s cubic-bezier(.22,1,.36,1) backwards }
+.sc-privacy .r1 { animation:privacy-rise .8s cubic-bezier(.22,1,.36,1) backwards }
+.sc-privacy .r2 { animation:privacy-rise .8s cubic-bezier(.22,1,.36,1) .1s backwards }
+.sc-privacy .r3 { animation:privacy-rise .8s cubic-bezier(.22,1,.36,1) .2s backwards }
+.sc-privacy .r4 { animation:privacy-rise .8s cubic-bezier(.22,1,.36,1) .3s backwards }
+.sc-privacy .enter { animation:privacy-rise .55s cubic-bezier(.22,1,.36,1) backwards }
+@keyframes privacy-tapburst {0%{box-shadow:0 0 0 0 rgba(31,107,58,.45)}100%{box-shadow:0 0 0 22px rgba(31,107,58,0)}}
+.sc-privacy .tapped { animation:privacy-tapburst .4s ease-out !important }
+@keyframes privacy-micring {0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}100%{box-shadow:0 0 0 18px rgba(255,255,255,0)}}
+.sc-privacy .micdot { animation:privacy-micring 2.4s ease-out infinite }
+@keyframes privacy-cellpop {0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.sc-privacy .cellpop { animation:privacy-cellpop .3s cubic-bezier(.34,1.56,.64,1) }
+@keyframes privacy-cloudmove {from{transform:translateX(-220px)}to{transform:translateX(1700px)}}
+.sc-privacy .cloud { animation:privacy-cloudmove 80s linear infinite }
+.sc-privacy .cloud.c2 { animation-duration:110s; animation-delay:-45s }
+@keyframes privacy-drift {0%{transform:translateY(0) scale(1);opacity:.95}100%{transform:translateY(-16px) scale(1.25);opacity:0}}
+.sc-privacy .smoke ellipse { transform-box:fill-box; transform-origin:center; animation:privacy-drift 5s ease-out infinite }
+.sc-privacy .smoke ellipse:nth-child(2) { animation-delay:1.6s }
+.sc-privacy .smoke ellipse:nth-child(3) { animation-delay:3.2s }
+@keyframes privacy-spin {to{transform:rotate(360deg)}}
+.sc-privacy .spin { transform-box:fill-box; transform-origin:center; animation:privacy-spin 7s linear infinite }
+.sc-privacy .spin.s2 { animation-duration:5s }
+@keyframes privacy-drivewide {from{transform:translateX(-80px)}to{transform:translateX(1640px)}}
+.sc-privacy .bus { animation:privacy-drivewide 34s linear infinite }
+@keyframes privacy-fly {from{transform:translate(-50px,0)}50%{transform:translate(780px,-10px)}to{transform:translate(1600px,4px)}}
+.sc-privacy .bird { animation:privacy-fly 40s linear infinite }
+.sc-privacy .bird.b2 { animation-duration:55s; animation-delay:-20s }
+@keyframes privacy-tw {0%,100%{opacity:1}50%{opacity:.3}}
+.sc-privacy .tw { animation:privacy-tw 3s ease-in-out infinite }
+.sc-privacy .tw.t2 { animation-delay:-1s }
+.sc-privacy .tw.t3 { animation-delay:-2s }
+@keyframes privacy-ping {0%{transform:scale(.6);opacity:.9}100%{transform:scale(3);opacity:0}}
+.sc-privacy .ping { transform-box:fill-box; transform-origin:center; animation:privacy-ping 2.2s ease-out infinite }
+@keyframes privacy-flutter {from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
+.sc-privacy .flut { transform-box:fill-box; transform-origin:0% 50%; animation:privacy-flutter 3.6s ease-in-out infinite alternate }
+.sc-privacy .flut.f2 { animation-duration:4.6s; animation-delay:-1.4s }
+.sc-privacy .flut.f3 { animation-duration:3.1s; animation-delay:-2.2s }
+@keyframes privacy-swayanim {from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+.sc-privacy .sway { animation:privacy-swayanim 6s ease-in-out infinite alternate }
+.sc-privacy .sway.s2 { animation-duration:7.5s; animation-direction:alternate-reverse }
+@keyframes privacy-wave {0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+.sc-privacy .bar { transform-box:fill-box; transform-origin:center; animation:privacy-wave 1.1s ease-in-out infinite }
+.sc-privacy .bar.b2 { animation-delay:.15s }
+.sc-privacy .bar.b3 { animation-delay:.3s }
+.sc-privacy .bar.b4 { animation-delay:.45s }
+.sc-privacy .bar.b5 { animation-delay:.6s }
+@keyframes privacy-soundring {0%{transform:scale(.7);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+.sc-privacy .sring { transform-box:fill-box; transform-origin:center; animation:privacy-soundring 2.4s ease-out infinite }
+.sc-privacy .sring.r2 { animation-delay:1.2s }
+@media (prefers-reduced-motion:reduce) {
+.sc-privacy * { animation:none!important; transition:none!important }
+}

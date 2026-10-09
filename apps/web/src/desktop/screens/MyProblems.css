@@ -1,0 +1,66 @@
+.sc-problems a, .sc-problems button, .sc-problems input, .sc-problems textarea { transition:background-color .35s cubic-bezier(.32,.72,0,1),border-color .35s cubic-bezier(.32,.72,0,1),color .35s cubic-bezier(.32,.72,0,1),box-shadow .45s cubic-bezier(.32,.72,0,1),transform .45s cubic-bezier(.32,.72,0,1),opacity .45s cubic-bezier(.32,.72,0,1) }
+.sc-problems a:active, .sc-problems button:active { transform:scale(.97) }
+.sc-problems a:focus-visible, .sc-problems button:focus-visible, .sc-problems input:focus-visible, .sc-problems textarea:focus-visible { outline:3px solid #E0A526; outline-offset:3px }
+.sc-problems input::placeholder, .sc-problems textarea::placeholder { color:#566657; opacity:1 }
+.sc-problems input:focus { box-shadow:0 0 0 5px rgba(31,107,58,.16) }
+.sc-problems button.pill:hover, .sc-problems a.plain:hover, .sc-problems a.text:hover { background:#E3F1E6 }
+.sc-problems a.solid:hover, .sc-problems .big:hover, .sc-problems button.speak:hover, .sc-problems button.on:hover { background:#14502B }
+.sc-problems .alt:hover, .sc-problems button.off:hover, .sc-problems a.cream:hover { background:#E2EDB5 }
+.sc-problems a.card:hover { border-color:#1F6B3A; box-shadow:0 12px 28px rgba(31,107,58,.14); transform:translateY(-3px) }
+.sc-problems a.link svg, .sc-problems a.solid svg { transition:transform .4s cubic-bezier(.32,.72,0,1) }
+.sc-problems a.link:hover svg, .sc-problems a.solid:hover svg { transform:translateX(6px) }
+@keyframes problems-rise {from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.sc-problems header { animation:problems-rise .6s cubic-bezier(.22,1,.36,1) backwards }
+.sc-problems .r1 { animation:problems-rise .8s cubic-bezier(.22,1,.36,1) backwards }
+.sc-problems .r2 { animation:problems-rise .8s cubic-bezier(.22,1,.36,1) .1s backwards }
+.sc-problems .r3 { animation:problems-rise .8s cubic-bezier(.22,1,.36,1) .2s backwards }
+.sc-problems .r4 { animation:problems-rise .8s cubic-bezier(.22,1,.36,1) .3s backwards }
+.sc-problems .enter { animation:problems-rise .55s cubic-bezier(.22,1,.36,1) backwards }
+@keyframes problems-tapburst {0%{box-shadow:0 0 0 0 rgba(31,107,58,.45)}100%{box-shadow:0 0 0 22px rgba(31,107,58,0)}}
+.sc-problems .tapped { animation:problems-tapburst .4s ease-out !important }
+@keyframes problems-micring {0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}100%{box-shadow:0 0 0 18px rgba(255,255,255,0)}}
+.sc-problems .micdot { animation:problems-micring 2.4s ease-out infinite }
+@keyframes problems-cellpop {0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.sc-problems .cellpop { animation:problems-cellpop .3s cubic-bezier(.34,1.56,.64,1) }
+@keyframes problems-cloudmove {from{transform:translateX(-220px)}to{transform:translateX(1700px)}}
+.sc-problems .cloud { animation:problems-cloudmove 80s linear infinite }
+.sc-problems .cloud.c2 { animation-duration:110s; animation-delay:-45s }
+@keyframes problems-drift {0%{transform:translateY(0) scale(1);opacity:.95}100%{transform:translateY(-16px) scale(1.25);opacity:0}}
+.sc-problems .smoke ellipse { transform-box:fill-box; transform-origin:center; animation:problems-drift 5s ease-out infinite }
+.sc-problems .smoke ellipse:nth-child(2) { animation-delay:1.6s }
+.sc-problems .smoke ellipse:nth-child(3) { animation-delay:3.2s }
+@keyframes problems-spin {to{transform:rotate(360deg)}}
+.sc-problems .spin { transform-box:fill-box; transform-origin:center; animation:problems-spin 7s linear infinite }
+.sc-problems .spin.s2 { animation-duration:5s }
+@keyframes problems-drivewide {from{transform:translateX(-80px)}to{transform:translateX(1640px)}}
+.sc-problems .bus { animation:problems-drivewide 34s linear infinite }
+@keyframes problems-fly {from{transform:translate(-50px,0)}50%{transform:translate(780px,-10px)}to{transform:translate(1600px,4px)}}
+.sc-problems .bird { animation:problems-fly 40s linear infinite }
+.sc-problems .bird.b2 { animation-duration:55s; animation-delay:-20s }
+@keyframes problems-tw {0%,100%{opacity:1}50%{opacity:.3}}
+.sc-problems .tw { animation:problems-tw 3s ease-in-out infinite }
+.sc-problems .tw.t2 { animation-delay:-1s }
+.sc-problems .tw.t3 { animation-delay:-2s }
+@keyframes problems-ping {0%{transform:scale(.6);opacity:.9}100%{transform:scale(3);opacity:0}}
+.sc-problems .ping { transform-box:fill-box; transform-origin:center; animation:problems-ping 2.2s ease-out infinite }
+@keyframes problems-flutter {from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
+.sc-problems .flut { transform-box:fill-box; transform-origin:0% 50%; animation:problems-flutter 3.6s ease-in-out infinite alternate }
+.sc-problems .flut.f2 { animation-duration:4.6s; animation-delay:-1.4s }
+.sc-problems .flut.f3 { animation-duration:3.1s; animation-delay:-2.2s }
+@keyframes problems-swayanim {from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+.sc-problems .sway { animation:problems-swayanim 6s ease-in-out infinite alternate }
+.sc-problems .sway.s2 { animation-duration:7.5s; animation-direction:alternate-reverse }
+@keyframes problems-wave {0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+.sc-problems .bar { transform-box:fill-box; transform-origin:center; animation:problems-wave 1.1s ease-in-out infinite }
+.sc-problems .bar.b2 { animation-delay:.15s }
+.sc-problems .bar.b3 { animation-delay:.3s }
+.sc-problems .bar.b4 { animation-delay:.45s }
+.sc-problems .bar.b5 { animation-delay:.6s }
+@keyframes problems-soundring {0%{transform:scale(.7);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+.sc-problems .sring { transform-box:fill-box; transform-origin:center; animation:problems-soundring 2.4s ease-out infinite }
+.sc-problems .sring.r2 { animation-delay:1.2s }
+@media (prefers-reduced-motion:reduce) {
+.sc-problems * { animation:none!important; transition:none!important }
+}
+@keyframes problems-livering {0%,100%{box-shadow:0 0 0 0 rgba(31,107,58,.35)}50%{box-shadow:0 0 0 9px rgba(31,107,58,0)}}
+.sc-problems .live { animation:problems-livering 2s ease-out infinite }

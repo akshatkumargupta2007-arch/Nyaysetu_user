@@ -1,0 +1,36 @@
+file_id,type,screen,plays_when,english_script
+home,fixed,Home,screen opens or Listen tapped,Something wrong in your area? Tap Speak.
+speak,fixed,Speak,screen opens or Listen tapped,Speak now. Say what is wrong.
+photo,fixed,Photo,screen opens or Listen tapped,Tap the green button to take a photo.
+where,fixed,Where is it?,screen opens or Listen tapped,Where is the problem? Tap I am here.
+send,fixed,Send?,screen opens or Listen tapped,Check and tap Send.
+phone,fixed,Phone,screen opens or Listen tapped,Type your phone number then tap OK.
+code,fixed,Code,screen opens or Listen tapped,Type the code we sent you then tap OK.
+my_problems,fixed,My problems,screen opens or Listen tapped,These are your problems. Tap Waiting or Fixed or Needs fix.
+fixed_ask,fixed,Is it fixed?,screen opens or Listen tapped,Is it fixed? Tap the happy face for yes or the sad face for no.
+fixed_yes,fixed,Is it fixed?,after Yes is tapped,Thank you!
+fixed_no,fixed,Is it fixed?,after No is tapped,We will look again.
+not_sent,fixed,Not sent,screen opens or Listen tapped,Not sent. Check your internet and tap Again.
+privacy,fixed,Privacy,screen opens or Listen tapped,Privacy. Your phone number is used to send you news about your problem. Your photo and place help the team find it. Only the people who fix problems can see them.
+reject_ai,fixed-reason,Use a real photo,screen opens or Listen tapped,This photo looks made by AI. Please take a real photo.
+flag_mismatch,fixed-reason,Needs a fix,screen opens or Listen tapped,This problem needs a fix. The photo and the place do not match.
+sent_intro,fixed,Sent!,screen opens (before the number),Sent. Your number is
+status_intro,fixed,Status,screen opens (before the details),Your team is on the way.
+review_readback,demo-custom,Send?,optional read-back of the complaint,Streetlight not working near the temple. Sector 6 Bhilai. Tap Send.
+sent_demo,demo-custom,Sent!,full demo line with the sample number,Sent. Your number is B H 2 4 0 8 2.
+status_demo,demo-custom,Status,full demo line with sample data,Your streetlight team is on the way. Two workers. They come at 4:30 PM.
+list_demo,demo-custom,My problems,optional read-out of the sample list,Streetlight in Sector 6: team on the way. Garbage in Khursipar: being fixed. Water in Supela: waiting.
+digit_0,building-block,Numbers,used to read complaint numbers,Zero
+digit_1,building-block,Numbers,used to read complaint numbers,One
+digit_2,building-block,Numbers,used to read complaint numbers,Two
+digit_3,building-block,Numbers,used to read complaint numbers,Three
+digit_4,building-block,Numbers,used to read complaint numbers,Four
+digit_5,building-block,Numbers,used to read complaint numbers,Five
+digit_6,building-block,Numbers,used to read complaint numbers,Six
+digit_7,building-block,Numbers,used to read complaint numbers,Seven
+digit_8,building-block,Numbers,used to read complaint numbers,Eight
+digit_9,building-block,Numbers,used to read complaint numbers,Nine
+letter_B,building-block,Numbers,used to read complaint numbers,B
+letter_H,building-block,Numbers,used to read complaint numbers,H
+voice_ask,fixed,AI voice,screen opens or Listen tapped (always plays),Do you want AI voice? Tap the switch to turn it on or off then tap OK.
+voice_on,fixed,AI voice,after On is tapped,Voice is on.
