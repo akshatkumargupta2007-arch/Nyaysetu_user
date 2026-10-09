@@ -1,225 +1,138 @@
-# NyaySetu — Progress Log
+# NyaySetu: Progress Log
 
-**Read this first, then `NYAYSETU_BUILD_MAP.md`, then `NYAYSETU_BIBLE.md`.**
+**Last fully updated: 2026-10-09** (hackathon day 1, SSTC Bhilai, 9 to 10 Oct 2026).
+Read this first, then `NYAYSETU_BUILD_MAP.md`, then `NYAYSETU_BIBLE.md`. For going live: `DEPLOYMENT_CHECKLIST.md`. For the hackathon sprint: `~/Downloads/NYAYSETU_HACKATHON_MASTER_BUILD_MAP.md`.
 
-This file exists so anyone (or any agent) picking up this project can see exactly what's built, what's stubbed, what's untested, and what to do next — without re-reading the whole chat history. Keep it updated as tickets close.
-
----
-
-## The three documents in this repo, and what each one is for
-
-| File | What it is | When to read it |
-|---|---|---|
-| `NYAYSETU_BIBLE.md` | The *why*: product thesis, prior-art research, every design decision explained, the full architecture, the demo script, judge Q&A. | Before making any product/architecture decision. |
-| `NYAYSETU_BUILD_MAP.md` | The *how*: every piece of work broken into numbered tickets (`#A1`, `#B3`, `#D4`, …), grouped into phases, each with Priority/Window/Blocked-by/Build/Watch-out/Test/Done-when. | Before starting any new work. Pick the next unblocked ticket; don't freelance outside it. |
-| `PROGRESS.md` (this file) | The *where we are*: what's actually done, actually tested, actually committed — vs. what's stubbed or still TODO. | First, every session. |
-
-**The ticket IDs (`#A1`, `#B2`, `#D4`, etc.) are the shared vocabulary.** Always refer to work by its ticket number so it's unambiguous which build-map item is being discussed.
+This file says exactly what is built, what is tested, what is only designed, and what is missing, so anyone (or any agent) can pick the project up without the chat history. Ticket IDs (`#A1`, `#C4`, `CA3`, `GB4`) are the shared vocabulary.
 
 ---
 
-## Current state in one sentence
+## 1. The project in one paragraph
 
-**The backend (Phases 0–G) is built and tested (133/133 API tests, run in mock mode), login is Phone + OTP, and the new cipher frontend (phone and desktop designs, auto-selected by screen width) is wired to it. A full complaint (write → AI summary → phone → OTP → filed → My problems → Status) was exercised in a browser at both widths with the real Gemini key. Not yet: a real OTP delivery provider, the officer/government UI, the voice bot, photo/mic/GPS verified on a real device, and nothing has been committed since `1aa239c`.**
+NyaySetu is a voice-first civic-grievance platform for India. A citizen logs in with a phone number and OTP, speaks or types a problem in any of 11 languages (optionally adds a photo), sees an AI summary, and sends it. The engine works out the category, the owning office, the urgency and any duplicates; the citizen tracks it like an online order; field work needs proof; and **only the citizen can close a complaint** ("Closed is not fixed"). A **separate government portal** gets the tickets over a signed, one-way channel, shows officials a filterable table, KPIs and a heat map, lets them reveal a phone number (logged against their name) and ask the citizen to verify the fix. Demo tenant: Bhilai, Chhattisgarh. The architecture is pan-India (one national taxonomy plus per-city data).
 
----
+## 2. The system at a glance
 
-## ✅ Done, tested, and committed to git
+| Part | Where | What it is | Tests |
+|---|---|---|---|
+| **Citizen app** | `NyaySetu_Full_v2` (this repo) | Fastify 5 + TypeScript API, Postgres 17 (PostGIS + pgvector + pg_trgm), React 18 + Vite frontend with two complete designs (phone and desktop) | **188 API tests pass** (26 files) |
+| **Government portal** | `NyaySetu_Gov` (separate repo, own API, own database, own keys) | Officials-only portal: login, filters, KPIs, map, phone reveal, close request, audit log, CSV export | **163 API tests pass** (13 files) |
+| **The bridge between them** | both repos | Ed25519-signed channels in both directions, replay protection, phone numbers sealed so only gov can open them | covered by both suites |
+| **Whole loop, real servers** | `NyaySetu_Gov/scripts/e2e.mjs` | citizen files, field team finishes, gov sees it, reveals the phone, requests verification, citizen answers live, complaint reopens | **13 of 13 checks pass** on the full six-container Docker stack, from a cold start with rotated keys |
 
-Git log (`git log --oneline` from the repo root):
-```
-1aa239c Phase B/C EVIDENCE tickets: photo fraud detection + the eval harness
-f5d394b Phase C (CORE): the Complaint Intelligence Engine, end to end
-29c88f2 Phase B (CORE): national taxonomy, Bhilai tenant data, KB, history
-51589ce Phase 0 + Phase A: foundation scaffold, verified end to end
-```
-No remote is configured — this is **local-only** git history on this machine. Nothing has been pushed anywhere.
+Run the whole stack: in `NyaySetu_Gov`, `npm run up:all`, then `npm run init:all` (first time), then `npm run e2e`. The citizen folder is found automatically (`CITIZEN_DIR`, a sibling folder, or `~/Documents/NyaySetu_Full_v2`).
 
-### Phase 0 — Accounts & config
-- `README.md` with the product one-liner and the "what is real / simulated / approximate / cached" claim block.
-- `docs/accounts.md` — checklist of every external service needed (Gemini, ElevenLabs, Railway, Cloudflare, Cloudinary, Sentry, UptimeRobot), with the ElevenLabs Eleven v4 free-window deadline noted.
-- `.env.example` with every env var the project needs.
-- `scripts/check-keys.mjs` — pings Gemini/ElevenLabs/Cloudinary, never crashes on a missing key (`npm run check-keys`).
+## 3. What is built
 
-### Phase A — Repo, Docker, database, API skeleton, CI
-- npm workspaces monorepo: `apps/api` (Fastify + TypeScript), `apps/web` (React 19 + Vite + TypeScript).
-- `infra/db/Dockerfile`: Postgres 17 + PostGIS 3.6 + pgvector 0.8 + pg_trgm, **built on `postgres:17-bookworm` + the PGDG apt repo, not `FROM postgis/postgis`** — that image's current tag is pinned to an archived Debian bullseye and `apt-get update` 404s. This was a real bug found and fixed during the build; don't revert it.
-- Full Drizzle schema for all 18 tables (`apps/api/src/db/schema.ts`), including PostGIS geometry and pgvector columns, HNSW indexes, and a generated `tsvector` column for hybrid search.
-- **The event ledger is append-only at the database level**, not just by app convention: a restricted `app_rw` Postgres role can `INSERT` into `events` but is refused on `UPDATE`/`DELETE` — verified live.
-- `docker-compose.yml` for local dev (hot-reload) + separate production multi-stage Dockerfiles for both apps, verified standalone (compiled `dist/server.js` boots and answers real requests).
-- Fastify app: Zod validation, CORS scoped to the web origin, per-route rate limiting, structured logs, `/healthz`.
-- GitHub Actions CI (`.github/workflows/ci.yml`): secret scan (gitleaks) + build-the-real-db-image + migrate + seed + typecheck + test + eval, run against a from-scratch container — verified to match exactly what CI will do.
+### 3.1 Backend: Phases 0, A, B, C (committed, original work)
+- **Phase 0/A:** monorepo, `docker-compose`, production Dockerfiles, CI (secret scan, build the real DB image, migrate, seed, typecheck, test, eval), Fastify with Zod, CORS, per-route rate limits, `/healthz`. The database image is built on `postgres:17-bookworm` plus the PGDG repo (not `postgis/postgis`, which has no arm64 build and a dead apt mirror). The **event ledger is append-only at the database level** (a restricted `app_rw` role cannot update or delete events).
+- **Phase B data:** 61-category national taxonomy; Bhilai tenant with 7 agencies, 6 hand-drawn **approximate** boundaries, 176 routing rules, 61 SLA policies, 5 landmarks; 61 knowledge-base chunks; 150 synthetic closed tickets for precedent and ETA. Bengaluru is an empty placeholder (#B6 not built).
+- **Phase C engine:** jurisdiction by PostGIS point-in-polygon; hybrid retrieval (full text plus vector, Reciprocal Rank Fusion); one constrained Gemini "understand" call whose category must be one of the tenant's own (an invented category is impossible); deterministic SQL routing (**the AI never picks a department**); three-way confidence gate; H3 plus PostGIS plus cosine duplicate detection; transparent priority formula with a safety override; dHash photo-reuse detection; an eval harness over 188 golden rows. Runs in automatic **mock mode** when `GEMINI_API_KEY` is empty.
+- **Phase G voice backend:** `POST /voice/transcribe` (Gemini or ElevenLabs Scribe with automatic fallback and a daily cap), `voice/tts.ts` (ElevenLabs with a cache, mock fallback), read-only voice tools scoped to the citizen, `POST /voice/ask`, a grounding validator for free-form answers.
 
-### Phase B — Data (CORE tickets #B1–#B4)
-- `data/taxonomy.json`: **61 categories** (60 real + `OTHER_CIVIC` fallback) across 12 L1 groups — Hindi/English names, icons, default severity, safety hazards, dedup radius/window, seasonal factors.
-- `data/tenants/cg.bhilai/`: 7 agencies (BMC, BSP Town Services, CSPDCL, PHED, PWD, NHAI, triage desk), 6 hand-drawn **approximate** boundaries (2 BMC wards, 2 BSP sectors, the NH-53 corridor, the city extent — all marked `approximate: true`), 176 routing rules, 61 SLA policies with escalation ladders, 5 POIs.
-- `data/tenants/cg.bhilai/kb/*.md`: 61 knowledge-base chunks, one per category, with local Hindi/Hinglish word variants (category-specific words kept separate from L1-shared words — a real bug was found and fixed here, see below).
-- `data/tenants/cg.bhilai/history.jsonl`: 150 synthetic `CLOSED_CONFIRMED` tickets with realistic resolution-time spreads, used for precedent retrieval and ETA estimation.
-- `data/tenants/ka.bengaluru/` exists as an **empty directory** — ticket `#B6` (Bengaluru tenant) is tagged STRETCH and was *not* built. The seed script skips it gracefully.
-- `apps/api/src/db/seed.ts` loads all of the above into Postgres. **Idempotent** — safe to re-run.
+### 3.2 Lifecycle, officers, proof (Phases E and F, by Antigravity, backend verified)
+State machine with `transition()` and row locks; hash-linked event ledger with a verify endpoint; citizen-facing stage mapping; tracking; live updates (SSE over Postgres LISTEN/NOTIFY); simulated team movement and a demo clock; SLA timers, escalation and priority recompute (pg-boss cron, inside the API process, so **run one API instance**); officer login and feeds; field jobs; five proof gates before "work done". The old React/TypeScript officer console and field app are in `legacy/web/` and are **not** part of the new frontend (see section 5).
 
-### Phase C — The Complaint Intelligence Engine (CORE tickets #C1–#C8, #C10; EVIDENCE tickets #C9, #C11)
-- `lib/gemini.ts`: the single wrapper for every Gemini call. **Runs in automatic MOCK MODE whenever `GEMINI_API_KEY` is empty** — a deterministic hash-based pseudo-embedding for vector math, and each caller owns its own mock derivation for structured calls (no central fixture registry).
-- `modules/jurisdiction/resolve.ts` (#C3): point-in-polygon → nearest-centroid fallback → "no match", pure PostGIS, no AI.
-- `modules/intelligence/retrieve.ts` (#C2): hybrid full-text + vector search over the KB and historical precedent, merged with Reciprocal Rank Fusion. In mock mode, ranks on full-text alone (blending in meaningless random vectors would actively hurt correctness — this was discovered by the tests, not decided in advance).
-- `modules/intelligence/understand.ts` (#C4): the single multimodal structured call. `category_code` is constrained to a runtime enum built from the tenant's own category list — **an invented category is impossible by construction**, in both live and mock mode.
-- `modules/routing/route.ts` (#C5): deterministic SQL lookup, boundary-specific rule beats city-wide, no match → human triage. **The LLM never picks a department.**
-- `modules/intelligence/confidence.ts` (#C6): the three-outcome gate (card / amber card / clarify).
-- `modules/dedup/find.ts` (#C7): H3 ring pre-filter → PostGIS `ST_DWithin` → time window → cosine similarity, category-aware thresholds.
-- `modules/priority/score.ts` (#C8): pure function. **Reproduces the Bible's worked example exactly** (63.5 → 71.9 → 76.1 as time passes), plus a hazard-based safety override that forces Critical regardless of score.
-- `modules/intelligence/orchestrate.ts` + `modules/reports/routes.ts` (#C10): `POST /reports/understand` wires everything above into one pipeline with per-stage timings and its own stricter rate limit.
-- `modules/proof/dhash.ts` + `modules/proof/intake.ts` (#C9): perceptual difference-hashing for photo-reuse fraud detection. Verified: a resize/crop/recompress of the same photo lands at Hamming distance 5–8 (comfortably under the 10-bit threshold); an unrelated photo lands at 19.
-- `eval/golden.jsonl` + `eval/baselines/keyword.ts` + `eval/run.ts` (#C11): 188 real-data-derived test rows, run through the real engine and compared against a faithful port of the *original* prototype's keyword logic. **Measured result: 88.3% category accuracy (our engine) vs. 8.3% (the old keyword baseline)** — the baseline only reads English; this golden set is mostly Hindi/Hinglish.
+### 3.3 Authentication: Phone plus OTP only
+No passwords, no device tokens. `POST /auth/request-otp` then `POST /auth/verify-otp` returns a citizen JWT (30 days). OTP: HMAC-hashed, 5-minute life, 30-second resend cooldown, 5 per hour, 5 attempts. Phones are stored as a keyed hash plus an AES-256-GCM encrypted copy. Officers use a separate JWT kind. The AI preview (`/voice/transcribe`, `/reports/understand`) is anonymous but rate-limited and saves a server-side **draft**; `POST /reports/confirm` (login required) takes only `{draftId, photo}`, so the client can never choose its own category, priority or location. Tracking, uploads, closure, the live stream and the voice assistant check ownership. **No SMS/WhatsApp provider is connected yet:** in development the code is returned in the response and prefilled; the code is no longer printed in production logs.
 
-### Phase G — Voice (CORE tickets #G1–#G5)
-- `modules/capture/transcribe.ts` + `modules/capture/routes.ts` + `app.ts` (#G1): STT provider interface that unifies Gemini audio transcription (`STT_PROVIDER=gemini`) and ElevenLabs Scribe (`STT_PROVIDER=eleven`) behind a single `transcribe(audio, mime, deviceKey)` function returning `{ text, lang, ms, provider }`.
-- **Automatic fallback:** If the primary provider fails, it logs `STT_FALLBACK` and automatically delegates to the fallback provider.
-- **Daily cap enforcement:** Tracks daily volume per device and globally against `STT_DAILY_CAP`.
-- `modules/voice/tts.ts` (#G2): TTS service using ElevenLabs with SHA-256 caching logic (`model|voice|text`), mock fallback, and Cloudinary signed uploads.
-- `modules/voice/tools.ts` (#G3): Read-only voice tools scoped to `citizen_id` (status, cluster, team, ETA using empirical p85 times).
-- `modules/voice/routes.ts` (#G4): `POST /voice/ask` endpoint integrating transcription, Gemini intent routing, tool execution, template response generation, and TTS caching. Includes `voice_turns` auditing.
-- `apps/web/src/components/VoiceAssistant.tsx` (#G4): Frontend bottom-sheet UI for "Ask about my complaint" floating button.
-- `scripts/tts-prewarm.ts` (#G5): Pre-generates and caches audio for static UI strings and the demo showcase flow (`docs/demo-script.md`) by setting `demoFallback = true`.
-- `apps/api/src/modules/intelligence/orchestrate.ts` + `UnderstoodCard.tsx` (#G6): Generates and plays a spoken confirmation template ("मैंने समझा: {ward} में {category}। {agency} को भेज रहे हैं। सही है?") when the UnderstoodCard mounts.
+### 3.4 Citizen frontend (new, wired to the API)
+- `apps/web/src/phone/` and `apps/web/src/desktop/`: the two "cipher" designs. `src/main.jsx` picks one at load (width up to 820 px = phone) and loads only that tree. Force one for testing with `?ui=phone`, `?ui=desktop`, `?ui=auto`.
+- **Flow:** language, phone, OTP, AI-voice setting, home, speak/photo/write, where, send (AI summary shown first), sent, My problems, status, "Is it fixed?". A route guard blocks every complaint screen until login; a logged-in person skips phone and OTP.
+- **Browser permissions** are asked on arrival: location (Where), microphone (Speak), camera (Photo).
+- **11 languages:** English, Hindi, Bengali, Marathi, Gujarati, Kannada, Malayalam, Tamil, Telugu, Odia, Assamese. Screen text goes through `T("English text")` (`shared/i18n.js`, 88 strings x 10 languages, falls back to English). **Machine-drafted: needs native review (Odia and Assamese least certain).**
+- **Voice:** 33 pre-generated clips per language = **363 MP3s (about 17 MB)** in `public/audio/<lang>/`, made with ElevenLabs v4 and the voices the owner chose (`scripts/voice/generate.mjs`, lines in `scripts/voice/lines/`). Ticket numbers are spoken by chaining digit/letter/"dash" clips. Browser speech is the fallback for English only; other languages stay silent rather than speak English. A clip blocked by autoplay rules plays on the first tap.
+- New screens for the verification loop: a **"Verify resolution" banner** at the top of My Problems (live, about 50 ms), and a **re-report screen** (voice, photo, text) that reopens the same complaint.
 
-### Real bugs found by tests and fixed (not special-cased)
-1. `boundaries.centroid` was never added to the Drizzle schema (Postgres generated columns aren't modeled well by Drizzle) — the nearest-centroid jurisdiction fallback crashed until this was caught and fixed with a raw-SQL migration.
-2. The full-text search tokenizer used a `[\p{L}\p{N}]+` regex, which silently fragments Devanagari conjuncts (a virama/vowel-sign are Unicode combining marks, not letters) — "गड्ढा" was being split into meaningless pieces and never matching its own content.
-3. KB chunk generation originally put hazard-specific words (e.g. "गड्ढा", "जाम") in a word list *shared* across an entire L1 category group, diluting every subcategory's ranking equally. Fixed by separating category-specific vocabulary from L1-generic vocabulary.
-4. CI's Postgres service container (bare `postgis/postgis:17-3.5`) has no pgvector extension at all — would have failed the instant any integration test ran. Replaced with building and running the project's own `infra/db` image.
-5. Missing Windows native binding for rolldown (`@rolldown/binding-win32-x64-msvc`) because `node_modules` was originally installed on a macOS darwin-arm64 machine. Resolved by installing the Windows x64 native binary.
-6. Synchronously awaiting `aiCalls` database insertion during `transcribe()` blocked HTTP responses when testing in environments without an active database container, causing timeouts. Fixed by making observability logging non-blocking fire-and-forget.
-7. Vitest in `apps/api` wasn't inheriting the repo root `.env` file, causing `env.DATABASE_URL` check to fail before tests could execute. Fixed by configuring `envDir: "../../"` and test default `DATABASE_URL` in `vitest.config.ts`.
+### 3.5 The government bridge (citizen side: CA1 to CA9, CB1 to CB4)
+GOV actor and `CLOSE_REQUESTED_BY_GOV` event; signed internal listener (port 8090, never published); push sync with a per-ticket cursor and sealed phones; a per-citizen live stream (`/me/stream`); `pending_close_request` on `/me/reports`; hourly 7-day `CLOSED_UNCONFIRMED` timeout counted from "work done" (a gov request never extends it); daily 180-day phone erasure with a ledger note so gov erases too; officer passcodes use bcrypt. **Still half done (CA9):** citizens and officers share one JWT secret in this app (the gov portal is unaffected: it rejects any such token).
 
-### Verification standard used throughout Phases 0–C and Phase G
-Every ticket above was: typechecked → tested against a **live** Postgres database (not mocked, except where explicitly documented as mock-mode) → re-run 3–5× to rule out flakiness → confirmed against a **from-scratch** Docker container matching CI exactly, before being committed. `eval/results.md` (gitignored, regenerated by `npm run eval`) is the only source of truth for any accuracy number — never hand-type one.
+### 3.6 The government portal (`NyaySetu_Gov`, summary)
+Own API, own PostgreSQL + PostGIS database, own keys, own web app. Login (argon2id, 15-minute EdDSA token, rotating refresh cookie with reuse detection), role scope on every query (national, state, district, city, department; fails closed), filters shared by list, counts, KPIs, map and export; phone reveal logged before it is shown; close request; heat map with five zoom levels; hash-linked audit log and CSV export (safe in Excel); Hindi and English. Details: `NyaySetu_Gov/PROGRESS.md` and `HANDOFF.md`.
 
----
+### 3.7 Gemini and ElevenLabs configuration (fixed 2026-10-06 and 07)
+Models: `gemini-3.5-flash-lite` (fast), `gemini-3.5-flash` (vision), `gemini-embedding-001` (768 dimensions via `outputDimensionality`); structured output uses `responseJsonSchema`; `GEMINI_TIMEOUT_MS` is a setting (default 6000). Google retires models often: re-check before every demo. ElevenLabs: voice clips use model `eleven_v4`; speech-to-text can use Gemini (`STT_PROVIDER=gemini`) so ElevenLabs is not needed at run time.
 
-## 🟡 Built but NOT YET committed to git
+## 4. Code review and fixes (2026-10-09)
+A review of the gov portal and the bridge found 21 issues; **all were fixed and verified**: forged `X-Forwarded-For` no longer escapes rate limits (`TRUST_PROXY`); login answers are uniform and lockout is per device; phone-digit search is limited and audited; phone reveal needs a reason; production insists on the restricted `gov_app` database role; map tooltips are escaped; no third-party fonts; bad cursors give 400; several tabs no longer sign each other out; rejected tickets back off; one bad boundary no longer fails a batch; the citizen API no longer **crashes** when its background sync runs before the database is migrated; `.dockerignore` and `.gitattributes` added; keys and passwords rotated. Full list: `NyaySetu_Gov/HANDOFF.md` section 10.
 
-Everything after commit `1aa239c` is uncommitted (no remote exists; the owner chose to stay local): Antigravity's Phases D–G backend, the auth rework, and the new frontend. Check `git status` before committing; `.claude/` and scratch files (`apps/api/check_db.ts`, `apps/api/drop_cols.*`, `find_file.js`) probably should not be committed.
+## 5. Known gaps (honest list)
 
-### Frontend (current): cipher designs wired to the API
-- `apps/web/src/phone/` and `apps/web/src/desktop/`: two full designs (React 18, plain JS). `src/main.jsx` picks one with `isPhoneLayout()` (width ≤ 820) and lazy-loads only that tree, so their CSS never mixes. It reloads if the window crosses the breakpoint.
-- `apps/web/src/shared/`: `api.js` (all backend calls), `store.js` (draft in sessionStorage, token in localStorage), `recorder.js` (MediaRecorder), `device.js`, `config.js` (`VITE_API_URL`; fallback coordinates for Bhilai Ward 14).
-- Wired screens (both designs): Home (write), Speak (record → `/voice/transcribe`), Where (geolocation → jurisdiction), Send (AI summary from `/reports/understand`), Phone, Code (OTP; dev code prefilled), Sent (real ticket code), My problems (`/me/reports`), Status (`/tickets/:id/tracking`), Fixed (`confirm-closure`).
-- Verified in a browser: full flow at 375 px and 1440 px; production build passes.
-- **Not verified:** microphone recording, camera/photo upload (Cloudinary keys not set; uploads are simulated), real GPS (denied in the test browser, so it falls back to Bhilai coordinates), the Fixed / Needs-fix path in a browser, and the status step times (still static).
-- **Languages (11):** English, Hindi, Bengali, Marathi, Gujarati, Kannada, Malayalam, Tamil, Telugu, Odia, Assamese. Screen text goes through `T("English text")` in `apps/web/src/shared/i18n.js` (88 strings x 10 languages; falls back to English; `{n}` placeholders). The translations were machine-drafted and need native-speaker review. Not translated: language names (shown in their own script), the status timeline step times, `aria-label` texts for screen readers, and the AI summary (Gemini writes it in the chosen language). Voice clips are in `public/audio/<lang>/` (33 each), generated with `scripts/voice/generate.mjs` from `scripts/voice/lines/<lang>.txt`.
-- The older React/TS frontend (#D1–#D10 below) is in `legacy/web/` and is superseded. Its anonymous device-token identity (#D8) and optional phone prompt (#D9) no longer exist.
+- **No real OTP delivery** (WhatsApp or SMS provider not connected).
+- **Photos are simulated:** no Cloudinary keys.
+- **Not tried on a real device:** microphone recording, camera, real GPS, sound on iPhone/Android.
+- **Officer/field UI:** the gov portal covers officials (read, reveal, request verification). Nothing in the new frontend lets a **field team mark work done**; the backend endpoints and the old `legacy/web` field app exist, and `scripts/demo-workdone.mjs` does it for demos. The Status screen's step times are still design placeholders.
+- **Only Bhilai has data.** Elsewhere the web app silently retries at the Bhilai demo coordinates (`VITE_DEMO_FALLBACK`).
+- **Translations and voice clips are not native-reviewed.**
+- **Seed data was embedded in mock mode;** re-seed with the real Gemini key for real vector matching. The eval figure (88.3 percent category accuracy against an 8.3 percent keyword baseline) was measured earlier; **re-measure with the real model before quoting it.**
+- **Gemini sometimes exceeds 6 seconds;** a timeout currently returns a 500 to the citizen instead of a gentle fallback.
+- **Not deployed;** nothing is pushed anywhere (see 6).
 
-### Auth model (current)
-Phone + OTP only. `POST /auth/request-otp` → `POST /auth/verify-otp` → citizen JWT (30 days). Officers use a separate JWT; the two kinds are not interchangeable. `/voice/transcribe` and `/reports/understand` are anonymous but rate-limited, and their result is saved server-side as a draft; `POST /reports/confirm` (login required) takes only `{draftId, photo}`, so the client cannot choose its own category, priority or location. Tracking, uploads, closure, the SSE stream and the voice assistant need the owner's token.
+## 6. Git and deployment state
 
-### Gemini config (fixed Oct 2026)
-The model names in `.env` were retired. Now `GEMINI_MODEL_FAST=gemini-3.5-flash-lite`, `GEMINI_MODEL_VISION=gemini-3.5-flash`, `GEMINI_EMBED_MODEL=gemini-embedding-001` (pinned to 768 dimensions with `outputDimensionality`). Structured output uses `responseJsonSchema`. Seed data embedded in mock mode will not match real embeddings until re-seeded.
+- **Citizen repo (`NyaySetu_Full_v2`):** 13 local commits. Uncommitted: the 2026-10-09 fixes (`syncTrigger`, backoff migration `0008`, `GEMINI_TIMEOUT_MS`, `.dockerignore`, `.gitattributes`) and this file. **No remote.**
+- **Gov repo (`NyaySetu_Gov`):** 38 local commits, plus the review fixes uncommitted. **No remote.**
+- **Deployment:** not started. Everything needed (blockers, steps, environment variables, after-deploy checks) is in `DEPLOYMENT_CHECKLIST.md`. Scope decided: Railway (Postgres and API), Cloudinary (photos), Cloudflare (website, domain, protection); ElevenLabs is not needed at run time.
 
-### OTP delivery (open decision)
-No provider is connected; `deliverOtp` only logs. Options and the recommendation are in the conversation notes below and should be turned into a ticket:
-1. **Demo / hackathon:** keep `DEMO_MODE` (code shown on screen), or a fixed `OTP_FIXED_CODE`.
-2. **WhatsApp OTP** (Meta Cloud API, authentication template; about $0.0014 per message in India, quick to start with Meta's free test number, which only reaches a few pre-added numbers). Fits the planned WhatsApp bot.
-3. **SMS:** needs TRAI DLT (company entity, sender ID, template) via MSG91 / 2Factor / Fast2SMS; about ₹0.18–0.25 per SMS. Twilio's *international* route to India needs no DLT but costs more and is not for production.
-4. **Firebase Phone Auth:** simplest to integrate, pays per SMS, but moves login to Firebase tokens.
+## 7. Numbers (all measured)
 
-### (legacy) #D1 — Design tokens + typography ✅ built
-`src/styles/tokens.css`: CSS custom properties for a warm consumer-app palette (not government blue), the exact 4 status colours from Bible §9 (amber/blue/green + red-outline for reopened), a type scale starting at 18px body / 32px heading, 56px minimum tap targets. `src/styles/fonts.ts`: self-hosted Mukta (Devanagari) + Inter (Latin) via `@fontsource`. `src/components/CategoryIcon.tsx`: one `lucide-react` icon per taxonomy icon name. `src/pages/StyleGuide.tsx`: the dev-only `/styleguide` route rendering every token/icon/script.
+| Thing | Value |
+|---|---|
+| Citizen API tests | 188 passing (185 before the review fixes) |
+| Gov API tests | 163 passing (132 before) |
+| Full-stack end to end | 13 of 13 checks, cold start |
+| Languages in the app | 11 (10 translated + English) |
+| Voice clips | 363 MP3, about 17 MB |
+| Categories in the taxonomy | 61 |
+| Bhilai routing rules / SLA policies | 176 / 61 |
+| Golden eval rows | 188 |
 
-### #D2 — i18n with Hindi/English toggle ✅ built
-`src/i18n/hi.json` + `en.json` + `LanguageContext.tsx`: a custom (not react-i18next) `useLanguage()` hook, default Hindi-unless-browser-says-otherwise, persisted to `localStorage`, the हिं | EN toggle always visible in `TopBar.tsx`.
+## 8. Real bugs found by tests or review, and fixed (not special-cased)
 
-### #D3 — Home / Report screen ✅ built
-`src/pages/Home.tsx` (605 lines): the full screen shell — heading, mic button, text area, photo button, location chip, submit, "your complaints" section below the fold. Built with three sub-components still deliberately stubbed per their own later tickets (see below).
+Earlier: (1) `boundaries.centroid` missing from the Drizzle schema; (2) a tokenizer regex that split Devanagari conjuncts; (3) category-specific words diluted by L1-shared words in the knowledge base; (4) CI database image lacking pgvector; (5) wrong native bindings after moving between operating systems; (6) a blocking observability insert; (7) Vitest not reading the root `.env`.
+Frontend and auth (Oct 6 to 8): `DEMO_MODE` parsed with `z.coerce.boolean` made "false" mean true; `/reports/confirm` trusted client fields and faked success on error (rewritten around server-side drafts); retired Gemini model names and a JSON-schema field Gemini rejects; a missing Gemini embedding dimension setting; the old OTP code printed to production logs; the production image could not run migrations (no `tsx`).
+Review (Oct 9): see section 4. Two were found only by running the real stack: the sync sweep crashing the API, and the missing `.dockerignore` overwriting the container's `node_modules`.
 
-### #D4 — Push-to-talk voice capture ✅ built and integrated
-`src/features/voice/usePushToTalk.ts`: a genuinely thorough implementation — synchronous audio-context unlock in the `pointerdown` handler (so TTS can autoplay later without a second tap), a ref-based state machine to avoid stale closures in async `MediaRecorder` callbacks, MIME-type priority fallback (webm/opus → mp4 → aac), a 500ms watchdog for the iOS "no data ever arrives" bug, a 30s hard cap, haptic ticks wrapped in try/catch.
+## 9. What comes next
 
-**Integration:** Fully integrated with the backend `POST /voice/transcribe` endpoint (Phase G, `#G1`). Tested end-to-end with real STT processing (Gemini/ElevenLabs fallback logic).
+1. **Hackathon sprint (today and tomorrow):** `~/Downloads/NYAYSETU_HACKATHON_MASTER_BUILD_MAP.md` (Tiger Data, ElevenLabs, Gemini, Tin Computer, with a time-boxed plan and a demo script).
+2. **Deploy** (after the hackathon, or a cut-down version for the demo): `DEPLOYMENT_CHECKLIST.md`.
+3. **Commit and push** (create the GitHub repository first).
+4. Real OTP provider, Cloudinary, real-phone testing, native-speaker review.
+5. Field-team screen in the new frontend; more cities (#B6); the WhatsApp and voice bots.
 
-### #D5 — Photo Input (Camera, Gallery, EXIF & Signed Upload) ✅ built
-`apps/api/src/modules/uploads/routes.ts`: `POST /uploads/sign` generates direct Cloudinary upload signatures (with fallback). `apps/web/src/features/photo/usePhotoUpload.ts`: reads EXIF (GPS, timestamp) via `exifr` before canvas resize, resizes to max 1600px (0.8 JPEG), requests signature, and uploads directly. Two-option camera/gallery sheet wired into `Home.tsx`.
+## Appendix: ticket notes from the earlier frontend (superseded, kept for history)
 
-### #D6 — Location Chip & Draggable Pin Map ✅ built
-`apps/api/src/modules/jurisdiction/routes.ts`: `GET /jurisdiction/resolve?lat=...&lng=...` reverse-labels coordinates to boundary names and landmarks. `apps/web/src/features/location/useLocation.ts`: requests geolocation, flags accuracy > 150m as `"poor"`, accepts manual pin overrides. `LocationPickerModal.tsx` provides interactive Leaflet map with draggable pin.
+The first React/TypeScript frontend (tickets #D1 to #D10) and the first officer console and field app (#F1 to #F4) live in `legacy/web/` and are replaced by the cipher designs and the gov portal. Their backend halves remain: photo signing and EXIF handling (#D5), `GET /jurisdiction/resolve` (#D6), officer login/feeds/field jobs/proof gates (#F1 to #F4). #E1 to #E8 (state machine, ledger, stage mapping, tracking, SSE, simulated movement, closure loop, SLA and priority crons) are backend and remain in use. #G7 (free-form answers with a grounding validator) is built.
 
-### #D7 — "What We Understood" Card & Clarify Sheet ✅ built
-`apps/web/src/components/UnderstoodCard.tsx`: Screen 2 implementation with category icon, urgent badge for High/Critical, department label, citizen verbatim words, duplicate clustering banner, "Looks right" (हाँ, सही है) and "Change" (बदलें) buttons, and clarifying question variant. Home submit wired to `POST /reports/understand`.
+## Google Map on Where / Status (2026-10-09)
+- `apps/web/src/shared/GoogleMap.jsx` (+ `.css`): one component for phone and desktop. Where: a real Google Map with a draggable pin; tap the map or drag the pin to set the exact place (saves coordinates, reverse-resolves the ward/address through the existing `/jurisdiction/resolve`); "I am here" still uses the browser location and drops the pin. Status: map centred on the complaint's coordinates (from `/tickets/:id` tracking), with a pulsing pin and a team marker that glides to it (an illustration, not live GPS, as before).
+- Key: `VITE_GOOGLE_MAPS_API_KEY` (browser key; `.env.example`, both compose files, `apps/web/Dockerfile` build arg). In Google Cloud restrict it to the Maps JavaScript API and to your site addresses (HTTP referrers). Empty key, load error, or a rejected key (`gm_authFailure`) all fall back to the old static picture, so nothing breaks without it.
+- Tested with a fake Google API in a throwaway page: map created with the pin, drag and tap both call `onPick`, panning, team mode, and the fallback with no key. NOT tested against real Google (no key yet): needs the key to confirm tiles, the Hindi language setting and the pin look.
 
-### (legacy) #D8/#D9 — replaced by Phone + OTP login
-The device-token session (`POST /session`, `POST /session/phone`, `X-Device-Token`) was removed. See "Auth model" above.
+## Bolo, the ElevenLabs voice agent (2026-10-09): backend + logic done, UI is a placeholder
+- API: `GET /agent/status`, `POST /agent/session` (citizen login required; ElevenLabs signed link, per-language voice and greeting, daily cap `AGENT_DAILY_CAP`=6, `AGENT_SESSION_SECONDS`=180, `AGENT_LANGS`=hi,en); migration `sql/0009_agent_sessions.sql`; 6 tests (194 API tests pass). The ElevenLabs key never leaves the server.
+- Decision: all six tools are CLIENT tools run in the citizen's own browser with their own login (`apps/web/src/shared/boloTools.js`): understand_complaint, confirm_complaint, track_complaint, confirm_closure, show_photo_button, go_to. No webhook, so it works on localhost, and no new way to touch other people's data.
+- `npm run agent:create` (apps/api) creates/updates the agent in ElevenLabs and writes ELEVEN_AGENT_ID to .env. Its request body was checked against ElevenLabs' OpenAPI schema offline.
+- Tests: `node scripts/agent/test-agent.mjs --tools-only` (13/13 against the live stack: refusals, no double filing, other citizens' tickets refused, allow-listed screens). `node scripts/agent/test-agent.mjs` runs the six scripted conversations in TEXT mode with the real agent (happy path, "no" at read-back, tool failure, off-topic, other person's ticket, prompt injection).
+- UNBLOCKED (new ElevenLabs key with ElevenAgents Write + Speech to Text + Text to Speech). Agent created (`agent_9601m4g4207dfz5sgdd7v49q4te9`, id saved in .env as ELEVEN_AGENT_ID); `/agent/status` says enabled. Conversation tests in TEXT mode with the real agent: 9/9 pass (English and Hindi happy paths, saying no files nothing, tool failure is spoken about, off-topic, other person's ticket refused, prompt injection ignored). NOT verified: actual voice quality / microphone round trip (needs a person talking in the browser), and the other 9 languages (only hi, en enabled).
+- The ElevenLabs key was pasted into chat once: rotate it when convenient.
+- Placeholder UI (button on Home + `shared/BoloOverlay.jsx`): works functionally but its layout is clipped inside the desktop frame; the user will supply the real UI.
+- Not built: City Radio, Scribe Realtime.
 
-### #D10 — Offline Draft Queue ✅ built
-`apps/web/src/features/offline/useOfflineDraft.ts`: if submit fails offline or network drops, saves draft (text, coordinates, photo preview) to IndexedDB with localStorage fallback. Displays amber banner: "नेटवर्क नहीं है — आते ही भेज देंगे". Automatically retries submission upon the browser's `online` event.
+## Talk screen integrated (2026-10-09): the designer's voice-bot frontend + Bolo backend
+- New design files (`cipher-phone-frontend.zip`, `cipher-desktop-frontend.zip`): only `Talk.jsx/.css`, a Talk tile on Home, `/talk` route. Integrated into `apps/web/src/{phone,desktop}`: `screens/Talk.jsx` now draws only; all behaviour is in `shared/useTalk.js` (voice session via `@elevenlabs/react` and our signed link, trays for map, photo and review) and `shared/boloTools.js` (the agent's tools, real API calls).
+- Flow the agent follows: listen, `request_location` (map tray, real Google Map when the key is set, else the picture), `understand_complaint`, read back + yes, optional `request_photo`, `show_review` (the PERSON taps Send; the agent can never file alone), `finish_complaint`. Also `track_complaint`, `confirm_closure`, `go_to`. The old overlay and the phone/code trays were removed (login happens before Home).
+- All 11 languages: UI strings translated (T()), agent enabled for hi,en,bn,mr,gu,kn,ml,ta,te,or,as (`AGENT_LANGS`), per-language voice + greeting. `node scripts/agent/test-agent.mjs --langs` checks each language greets in its own script.
+- Tests passed today: tools-only 15/15, scripted conversations 9/9 (text mode, real agent), 11 languages accepted (greeting in own script), full-stack e2e 13/13, citizen API 194. Browser checks: Home tile in Hindi, Talk screen, trays (place/photo/review) fit in phone (375x812) and desktop; photo upload (resized JPEG stored); mic-denied message shown; Done goes to /sent.
+- Fixed: phone trays overlapped the End button on 812px-tall screens (the middle now scrolls, orb shrinks).
+- NOT verified: real microphone round trip and voice quality (the Browser pane blocks the mic), Google Map pieces (no key), non-Hindi/English conversation quality beyond the greeting (agent answered in script in all 10 non-English tests), mobile Safari/Chrome autoplay behaviour.
+- Dev only: `window.__talkDebug.open('place'|'photo'|'review')` opens the trays without the agent (not present in production builds).
 
-### #E1 — State Machine + transition() ✅ built
-`apps/api/src/modules/lifecycle/transition.ts`: implements the strict `ALLOWED` state transition table from Bible §9. Enforces atomic `SELECT ... FOR UPDATE` row locks, actor authorization checks, sequential sequence numbering, and updates `tickets.state`, `escalation_level`, and closure timestamps. `POST /tickets/:id/transition` and `POST /reports/confirm` expose the engine.
+## Google Maps key added and verified (2026-10-09)
+Key set in both .env files (VITE_GOOGLE_MAPS_API_KEY). Verified in the browser on /where: real Google tiles load, no error dialog, tapping the map drops the pin, saves the coordinates and resolves the address in Hindi. The key was pasted in chat: in Google Cloud make sure it is restricted to the Maps JavaScript API and to your site addresses (HTTP referrers), or create a fresh restricted one. Still to eyeball: the Status screen's team marker and the look of the pin.
 
-### #E2 — Hash-Linked Event Ledger + Verify Endpoint ✅ built
-`apps/api/src/modules/lifecycle/canonical.ts` & `verify.ts`: deterministic canonical JSON formatting and sequential SHA-256 hash chains (`hash = sha256(prev_hash || ":" || canonical_json(event_without_hash))`). `GET /tickets/:id/verify-chain` verifies the entire ledger chain and detects any tampered payload or sequence break (`broken_at`). Tested with 11/11 passing tests.
-
-### #E3 — Citizen Stage Mapping & Timeline ✅ built
-`apps/api/src/modules/lifecycle/citizenView.ts` & `citizenView.test.ts`: implements the mapping from internal database states to the 5 citizen-facing stages (RECEIVED, VERIFIED, ASSIGNED, DISPATCHED, RESOLVED_PROMPT, CLOSED). Builds timeline entries from the event ledger with durations, icons, and bilingual labels. `TRANSFERRED` events are formatted into hand-off rows. Tested with vitest and integrated.
-
-### #E4 — Tracking Screen (Amazon-style view) ✅ built
-`apps/api/src/modules/lifecycle/routes.ts`: `GET /tickets/:id/tracking` returns aggregated tracking state. `apps/web/src/pages/Tracking.tsx`: implements the Amazon-style status stepper based on `CitizenStage`, an expandable "View full journey" timeline showing duration offsets, and a Leaflet map that only appears when `DISPATCHED`.
-
-### #E5 — Server-Sent Events (SSE) updates ✅ built
-`apps/api/src/modules/lifecycle/routes.ts`: `GET /reports/:id/stream` provides real-time SSE stream of `snapshot`, `state`, and `team_position` updates driven by Postgres `LISTEN/NOTIFY`. `apps/web/src/features/tracking/useTicketStream.ts`: custom EventSource React hook with automatic exponential backoff reconnects and typed event handling. `Tracking.tsx` updated to show a pulsing "Live" indicator.
-
-### #E6 — Simulated team movement ✅ built
-`apps/api/src/modules/lifecycle/routes.ts`: `POST /demo/trip/:ticketId` spawns an async background worker that simulates field team movement towards the ticket destination at ~25 km/h. It writes intermediate points to `team_positions` and emits `team_position` SSE ticks every 3s with an ETA. `Tracking.tsx` Leaflet map decoupled map re-renders from coordinate updates to allow smooth `.panTo()` animations when receiving SSE ticks.
-
-### #E7 — Closure loop ✅ built
-`apps/api/src/modules/lifecycle/routes.ts`: `POST /reports/:id/confirm-closure` handles citizen feedback (transitioning to `CLOSED_CONFIRMED` or `REOPENED` with escalation). 
-`apps/web/src/pages/Tracking.tsx`: displays the "Is it actually fixed?" prompt when the state is `WORK_DONE_PENDING_CONFIRMATION`, showing the before/after photos and the two-button feedback flow.
-
-### #E8 — SLA timers, escalation, priority recompute ✅ built
-`apps/api/src/db/boss.ts` and `apps/api/src/modules/lifecycle/worker.ts`: initialized pg-boss and registered cron jobs. 
-`processEscalations()` runs every 5m, advancing `escalation_level` if elapsed time breaches SLA ladder, and updating `assignee_officer_id`.
-`processPriority()` runs every 15m, evaluating Bible §7 priority formula dynamically and enforcing safety overrides. Both trigger `NOTIFY` events to refresh SSE listeners on state change.
-`POST /demo/clock` allows fast-forwarding ticket lifecycle to simulate SLAs in presentations.
-
-### #F1 — Officer login (demo passcodes) ✅ built
-`apps/api/src/modules/officers/routes.ts`: `POST /officer/login` validating passcode hash and returning a scoped 24h JWT. `GET /officer/tickets` enforcing agency-level row visibility.
-`apps/web/src/pages/OfficerLogin.tsx` and `useOfficerAuth.ts`: login form and localStorage token state.
-`apps/api/src/db/seed.ts`: creates demo officers per agency (FIELD_SUPERVISOR to COMMISSIONER) with passcode `1234`.
-
-### #F2 — Officer feeds ✅ built
-`apps/api/src/modules/officers/routes.ts`: `GET /officer/stats` (open/breached/fix rate metrics), expanded `GET /officer/tickets` with `categoryIcon` and `boundaryName`, `GET /officer/tickets/:id` (full details + ledger timeline).
-`apps/web/src/pages/OfficerConsole.tsx`: 3-pane UI with SLA-sorted queue, Leaflet priority-colored markers, detail drawer with breakdown and mock action buttons.
-
-### #F3 — Field app ✅ built
-`apps/api/src/modules/officers/routes.ts`: added `GET /field/jobs` and `POST /field/tickets/:id/location`.
-`apps/web/src/pages/FieldApp.tsx`: mobile UI with big job cards, Wake Lock API integration, and mock GPS heartbeat interval every 15s. Calls transition to `DISPATCHED` on start.
-
-### #F4 — Proof gates ✅ built
-`apps/api/src/modules/proof/gates.ts`: logic implementing the 5 gates checking dHash reusing (same ticket and last 180 days cross-ticket), PostGIS distance bounds, EXIF time vs ledger dispatch time, and AI confidence.
-`apps/api/src/modules/officers/routes.ts`: `POST /field/tickets/:id/work-done` calls gates. On pass, writes to `media` and transitions to `WORK_DONE_PENDING_CONFIRMATION`.
-`apps/web/src/pages/FieldApp.tsx`: updated to trigger a file input `<input type="file" capture="environment">` on "Work done" and POST the result.
-
----
-
-### #G7 — Free-form LLM & Grounding Validator ✅ built
-`apps/api/src/modules/voice/routes.ts` & `tools.ts`: added `ESCALATE` intent, `CONFIRM_ESCALATE` flow, and an inline LLM call with a Grounding Validator prompt to ensure LLM facts are backed by real database data.
-
----
-
-## 🚦 Before deployment
-
-**Not ready to deploy yet.** The full list (blockers, gaps, env variables, order of work, after-deploy checks, who does what) **and the step-by-step deployment plan** (Railway database + API, Cloudinary, Cloudflare Pages, domain and protection) are in [`DEPLOYMENT_CHECKLIST.md`](./DEPLOYMENT_CHECKLIST.md). Scope decided 2026-10-06: full deployment on Railway + Cloudinary + Cloudflare; **ElevenLabs is not needed for now** (voice clips are static files, `STT_PROVIDER=gemini`). The big ones: no real OTP provider (and the dev OTP must be off in production), default secrets (`JWT_SECRET`, `PHONE_ENC_KEY`, the `app_rw` password), nothing committed and no git remote, Phase H infrastructure not started, fake seed data and officer passcode `1234`, no Cloudinary keys, no officer/field UI, nothing tried on a real phone, translations and voices not reviewed by native speakers.
-
-Fixed while writing the checklist: the OTP code is no longer printed to the server log in production, and `npm run db:migrate:prod` (runs the compiled `dist/db/migrate.js`) was added because the production image has no `tsx`.
-
-## ❌ Not started
-
-- **Phase H — Deployment:** Railway, Cloudflare, Cloudinary live provisioning.
-- **Phase I — Demo hardening & integrity checklist**.
-
----
-
-## Immediate next steps, in order
-
-0. **OTP delivery provider** (see above) and **commit the work** (decide what to ignore first).
-1. **Phase H — Deployment:** `#H2` (Railway: database service).
-2. **Phase H — Deployment:** `#H3` (Railway: API service).
-3. **Phase H — Deployment:** `#H4` (Cloudinary configuration).
+## Gemini build map: Closure Court, engine done (2026-10-09 evening)
+Done (see `NYAYSETU_GEMINI_BUILD_MAP.md`): **GC0** reliability layer (`lib/gemini.ts`: per-purpose timeouts, one retry with jitter, model fallback chain `GEMINI_MODEL_FALLBACKS`, circuit breaker, error taxonomy, `generateJsonSafe` returns a degraded result instead of throwing, start-up model check, per-model health via `geminiHealth()`, optional `thinkingBudget`; thinking budget 256 took a two-pass assessment from 19.7 s to 3.7 s on the real key). **GC2** catalogue + contract schema (`modules/court/catalogue.ts`, `contract.ts`). **GC3** contract compile/freeze/hash into the ledger (`compile.ts`, migration `0010_court.sql`, template fallback). **GC4** gates G1 exact reuse, G2 similar/mirrored/cropped reuse, G3 GPS, G4 time, G5 sun position (pure maths), G6 instruction-in-image scan (`gates.ts`, `sun.ts`, `hashes.ts`). **GC5** two-pass assessment + merge + verdict rules table (`assess.ts`, `verdict.ts`, `pipeline.ts`). **GC6** API: `POST /tickets/:id/proof` (officer), `POST /tickets/:id/court/before`, `GET /tickets/:id/court`, `GET /court/media/:id`. **GC7** the challenge loop (every submission is re-assessed against the same frozen contract; events PROOF_SUBMITTED / REJECTED_REUSED / NEEDS_MORE / FAILED / CONTESTED / PASSED).
+Tests: 232 citizen API tests pass (38 new: sun, exhaustive verdict table, contract validation, gates with generated images incl. mirrored/cropped/recompressed reuse, pipeline against the real database with a scripted model, ledger chain, access rules). Real-key smoke test: both passes, gate G6 (note "IGNORE THE RULES" -> yes; plain road -> no), and contract compile all work.
+Not yet: GC1 fixtures + calibration of the reuse thresholds on REAL photos (needs the user's photos), GC8 sync to gov, GC9 gov screen (designer), GC10 citizen contract view, GC11, GC12 Tiger panel, GC13, GC14 scorecard, GC15 safety suite, GC16 replay, GC17 demo scripts.

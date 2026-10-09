@@ -23,7 +23,7 @@ Nothing in the deployed app needs an ElevenLabs account:
 - 🟠 **Should.** Works without it, but it will hurt you (cost, abuse, bad experience).
 - 🟢 **Nice.** Do it if there is time.
 - 👤 Only the account owner can do it (needs a login, a payment, or a decision).
-- 🤖 The developer can do it in the repo once you say go.
+- 🤖 Claude can do it in the repo once you say go.
 - ✅ Already done.
 
 **Two ways to ship. Pick one first, because it changes what you must do.**
@@ -263,7 +263,7 @@ Rule: never put a secret in a `VITE_` variable. Everything `VITE_` ends up in th
 
 ## 7. Who does what
 
-| 👤 Only you (accounts, keys, money, decisions) | 🤖 The developer can do in the repo |
+| 👤 Only you (accounts, keys, money, decisions) | 🤖 Claude can do in the repo |
 |---|---|
 | Choose demo or launch; choose WhatsApp or SMS | Implement the WhatsApp or SMS call in `deliverOtp()` |
 | Create Railway, Cloudflare, Cloudinary, Meta accounts and pay | Split the seed (reference vs demo data) |
@@ -284,7 +284,7 @@ Cost and timing figures are approximate and **unverified**. Check each provider'
 
 ## 8. Plan, phase by phase
 
-### Phase 1: Prepare the code (The developer, in the repo, no accounts needed)
+### Phase 1: Prepare the code (Claude, in the repo, no accounts needed)
 Goal: nothing in the repo can make a production deployment unsafe.
 - [ ] 🤖 **Startup safety check.** In production the API refuses to start if `JWT_SECRET` is the default, `PHONE_ENC_KEY` is empty, `DEMO_MODE` is on, or `OTP_FIXED_CODE` is set.
 - [ ] 🤖 **Split the seed.** `npm run seed:prod` = reference data only (taxonomy, Bhilai tenant, boundaries, agencies, routing rules, SLA policies, knowledge base). No fake tickets, no officers with passcode `1234`.
@@ -372,7 +372,7 @@ Do these early because some take days to approve.
 ### Rough effort and waiting time (approximate, unverified)
 | Phase | Hands-on | Waiting |
 |---|---|---|
-| 1 Prepare the code | about 1 to 2 working sessions for the developer | none |
+| 1 Prepare the code | about 1 to 2 working sessions for Claude | none |
 | 2 Accounts | 1 to 2 hours for you | Meta template approval (days), domain nameserver change (minutes to hours), DLT if you choose SMS (days to weeks) |
 | 3 Deploy | 2 to 4 hours together | DNS propagation, first builds |
 | 4 Test | half a day to a day | native-speaker review |
