@@ -10,6 +10,8 @@
     "typecheck": "echo 'web is plain JS (cipher design): nothing to typecheck'"
   },
   "dependencies": {
+    "@elevenlabs/client": "^1.27.0",
+    "@elevenlabs/react": "^1.17.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2"
