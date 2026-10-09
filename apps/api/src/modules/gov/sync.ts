@@ -34,7 +34,8 @@ function sealForGov(phoneEnc: string | null): PhoneParts {
 export async function pendingTicketIds(limit = BATCH_SIZE): Promise<string[]> {
   const { rows } = await pool.query<{ id: string }>(
     `SELECT t.id FROM tickets t LEFT JOIN gov_sync_cursor c ON c.ticket_id = t.id
-     WHERE c.ticket_id IS NULL OR c.acked_seq < t.last_event_seq
+     WHERE (c.ticket_id IS NULL OR c.acked_seq < t.last_event_seq)
+       AND (c.rejected_until IS NULL OR c.rejected_until <= now())   -- a rejected ticket waits (see 0008)
      ORDER BY t.created_at LIMIT $1`,
     [limit],
   );
@@ -134,11 +135,26 @@ export async function pushOnce(opts: { forceReference?: boolean } = {}): Promise
   for (const a of acked) {
     await pool.query(
       `INSERT INTO gov_sync_cursor (ticket_id, acked_seq, updated_at) VALUES ($1,$2,now())
-       ON CONFLICT (ticket_id) DO UPDATE SET acked_seq = GREATEST(gov_sync_cursor.acked_seq, EXCLUDED.acked_seq), updated_at = now()`,
+       ON CONFLICT (ticket_id) DO UPDATE SET acked_seq = GREATEST(gov_sync_cursor.acked_seq, EXCLUDED.acked_seq),
+         reject_count = 0, rejected_until = NULL, reject_reason = NULL, updated_at = now()`,
       [a.ticket_id, a.seq],
     );
   }
-  return { ok: true, sent: ids.length, acked: acked.length, rejected: (res.json.rejected ?? []).length };
+  // Rejected tickets back off: 2, 4, 8 ... minutes, at most 24 hours, so one unfixable ticket cannot be re-sent
+  // every 30 seconds forever or crowd newer tickets out of the batch.
+  const rejected: { ticket_id: string; reason?: string }[] = res.json.rejected ?? [];
+  for (const r of rejected) {
+    await pool.query(
+      `INSERT INTO gov_sync_cursor (ticket_id, acked_seq, reject_count, rejected_until, reject_reason, updated_at)
+       VALUES ($1, 0, 1, now() + interval '2 minutes', $2, now())
+       ON CONFLICT (ticket_id) DO UPDATE SET
+         reject_count = gov_sync_cursor.reject_count + 1,
+         rejected_until = now() + LEAST(interval '1 minute' * power(2, gov_sync_cursor.reject_count + 1), interval '24 hours'),
+         reject_reason = EXCLUDED.reject_reason, updated_at = now()`,
+      [r.ticket_id, String(r.reason ?? "rejected").slice(0, 200)],
+    );
+  }
+  return { ok: true, sent: ids.length, acked: acked.length, rejected: rejected.length };
 }
 
 let running = false;

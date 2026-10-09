@@ -17,6 +17,21 @@ export async function enqueueGovSync(_ticketId?: string): Promise<void> {
   }
 }
 
+/**
+ * One background sweep. It must NEVER throw: an unhandled error here is an unhandled promise rejection, which
+ * kills the whole API process (it did, when the sweep ran before the database was migrated, and it would again
+ * whenever the database restarts). Problems are logged and the next sweep simply tries again.
+ */
+export async function sweepOnce(): Promise<void> {
+  try {
+    const results = await runGovSync();
+    const bad = results.find((r) => !r.ok);
+    if (bad && env.NODE_ENV !== "test") console.warn(`gov sync: ${bad.error}`);
+  } catch (err) {
+    if (env.NODE_ENV !== "test") console.warn(`gov sync: sweep failed, will retry: ${(err as Error).message}`);
+  }
+}
+
 /** Starts the on-event worker and the 30 s sweep. Single API instance only (the app already requires that). */
 export async function registerGovSync(): Promise<void> {
   if (!govSyncConfigured()) {
@@ -32,12 +47,7 @@ export async function registerGovSync(): Promise<void> {
   });
   started = true;
 
-  const sweep = async () => {
-    const results = await runGovSync();
-    const bad = results.find((r) => !r.ok);
-    if (bad && env.NODE_ENV !== "test") console.warn(`gov sync: ${bad.error}`);
-  };
-  void sweep(); // first run = full backfill (reference data + every ticket)
-  setInterval(() => void sweep(), 30_000).unref();
+  void sweepOnce(); // first run = full backfill (reference data + every ticket)
+  setInterval(() => void sweepOnce(), 30_000).unref();
   console.log("gov sync: on, pushing to", env.GOV_SYNC_URL);
 }

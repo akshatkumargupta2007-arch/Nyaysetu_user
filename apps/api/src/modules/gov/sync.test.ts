@@ -10,6 +10,7 @@ import { openSealedPhone } from "./phoneSeal.js";
 import { decryptPhone } from "../session/phone.js";
 import { appendEvent } from "../lifecycle/transition.js";
 import { fileTicket, moveToWorkDone } from "../../test/govBridge.js";
+import { sweepOnce } from "./syncTrigger.js";
 
 const SYNC_PUB = process.env.TEST_SYNC_SIGNING_PUBLIC_KEY!;
 const SEAL_PRIV = process.env.TEST_GOV_PHONE_SEAL_PRIVATE_KEY!;
@@ -96,6 +97,24 @@ describe("CA4 gov-sync payload", () => {
   });
 });
 
+describe("CA4 the background sweep never takes the API down", () => {
+  it("a database error (for example: not migrated yet, or the database restarting) is swallowed, not thrown", async () => {
+    const spy = vi.spyOn(pool, "query").mockRejectedValue(new Error('relation "tickets" does not exist'));
+    try {
+      await expect(sweepOnce()).resolves.toBeUndefined();
+    } finally {
+      spy.mockRestore();
+    }
+  });
+
+  it("an unreachable gov portal is also just a retry", async () => {
+    vi.stubGlobal("fetch", async () => {
+      throw new Error("connect ECONNREFUSED");
+    });
+    await expect(sweepOnce()).resolves.toBeUndefined();
+  });
+});
+
 describe("CA4 cursor and retries", () => {
   it("the cursor advances only for acknowledged tickets, then the ticket is no longer pending", async () => {
     const { ticketId } = await fileTicket(app);
@@ -107,11 +126,36 @@ describe("CA4 cursor and retries", () => {
     expect(await pendingTicketIds(5000)).not.toContain(ticketId);
   });
 
-  it("a ticket gov rejected is NOT acknowledged and stays pending", async () => {
+  it("a ticket gov rejected is NOT acknowledged, and backs off instead of being re-sent every sweep", async () => {
     const { ticketId } = await fileTicket(app);
     stubGov((b) => ({ json: { acked: [], rejected: b.tickets.map((t: any) => ({ ticket_id: t.ticket_id, reason: "unknown_tenant" })) } }));
     await pushOnce();
+    const c = (await pool.query("SELECT acked_seq, reject_count, reject_reason, rejected_until > now() AS waiting FROM gov_sync_cursor WHERE ticket_id = $1", [ticketId])).rows[0];
+    expect(c).toMatchObject({ acked_seq: 0, reject_count: 1, reject_reason: "unknown_tenant", waiting: true });
+    expect(await pendingTicketIds(5000)).not.toContain(ticketId); // waiting, so the next sweep does not send it again
+    // when the wait is over it is tried again, and a second rejection waits LONGER
+    await pool.query("UPDATE gov_sync_cursor SET rejected_until = now() - interval '1 second' WHERE ticket_id = $1", [ticketId]);
     expect(await pendingTicketIds(5000)).toContain(ticketId);
+    await pushOnce();
+    const c2 = (await pool.query("SELECT reject_count, rejected_until - now() AS wait FROM gov_sync_cursor WHERE ticket_id = $1", [ticketId])).rows[0];
+    expect(c2.reject_count).toBe(2);
+    expect(c2.wait.minutes).toBeGreaterThanOrEqual(3); // 4 minutes (2^2), not the first 2
+  });
+
+  it("a rejected ticket does not crowd out newer tickets, and a later acknowledgement clears the backoff", async () => {
+    const bad = await fileTicket(app);
+    stubGov((b) => ({ json: { acked: [], rejected: b.tickets.filter((t: any) => t.ticket_id === bad.ticketId).map((t: any) => ({ ticket_id: t.ticket_id, reason: "x" })) } }));
+    await pushOnce(); // the bad ticket is now waiting
+    const good = await fileTicket(app);
+    const ids = await pendingTicketIds(1); // a batch of ONE: the waiting ticket must not take the slot
+    expect(ids).not.toContain(bad.ticketId);
+    expect(await pendingTicketIds(5000)).toContain(good.ticketId);
+    // gov fixes its side: the next attempt is accepted and the backoff disappears
+    await pool.query("UPDATE gov_sync_cursor SET rejected_until = now() - interval '1 second' WHERE ticket_id = $1", [bad.ticketId]);
+    stubGov(ackAll);
+    await pushOnce();
+    const c = (await pool.query("SELECT reject_count, rejected_until, reject_reason FROM gov_sync_cursor WHERE ticket_id = $1", [bad.ticketId])).rows[0];
+    expect(c).toEqual({ reject_count: 0, rejected_until: null, reject_reason: null });
   });
 
   it("when gov is down nothing is lost: error reported, ticket still pending, next push re-sends", async () => {
