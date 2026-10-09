@@ -10,13 +10,25 @@ const EnvSchema = z.object({
   PUBLIC_WEB_ORIGIN: z.string().default("http://localhost:5173"),
 
   GEMINI_API_KEY: z.string().optional().default(""),
-  GEMINI_API_KEYS: z.string().optional().default(""), // extra keys, comma separated; rotated automatically when one runs out
   GEMINI_MODEL_FAST: z.string().optional().default(""),
   GEMINI_MODEL_VISION: z.string().optional().default(""),
   GEMINI_EMBED_MODEL: z.string().optional().default(""),
+  // How long one Gemini call may take before it is abandoned. Gemini latency varies a lot (2 s to 7 s on a trivial
+  // request in one afternoon), so this is a setting; the default is unchanged.
+  // Fallback models tried in order when the main one fails ("model-a,model-b"), and per-purpose timeouts ("vision=20000,video=30000").
+  // Closure Court: the second (cross-examining) model must differ from GEMINI_MODEL_VISION.
+  COURT_MODEL_B: z.string().optional().default(""),
+  GEMINI_MODEL_FALLBACKS: z.string().optional().default(""),
+  GEMINI_TIMEOUTS: z.string().optional().default(""),
+  GEMINI_TIMEOUT_MS: z.coerce.number().int().min(1000).default(6000),
   EMBED_DIM: z.coerce.number().default(768),
 
   ELEVEN_API_KEY: z.string().optional().default(""),
+  // Bolo, the browser voice agent. The agent itself is created by `npm run agent:create` (writes the id below).
+  ELEVEN_AGENT_ID: z.string().optional().default(""),
+  AGENT_DAILY_CAP: z.coerce.number().int().min(1).default(6),
+  AGENT_SESSION_SECONDS: z.coerce.number().int().min(30).max(600).default(180),
+  AGENT_LANGS: z.string().default("hi,en,bn,mr,gu,kn,ml,ta,te,or,as"),
   ELEVEN_STT_MODEL: z.string().optional().default(""),
   ELEVEN_TTS_MODEL: z.string().optional().default(""),
   ELEVEN_TTS_MODEL_FALLBACK: z.string().optional().default(""),

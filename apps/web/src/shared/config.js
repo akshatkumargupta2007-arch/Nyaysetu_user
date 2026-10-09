@@ -4,3 +4,7 @@ export const API_URL =
 
 // Used only when the person denies location and has not dropped a pin: Bhilai (Ward 14).
 export const FALLBACK_COORDS = { lat: 21.185, lng: 81.33 };
+
+// Google Maps JavaScript API key (browser key, restricted to this site's address in Google Cloud). When it is empty,
+// or Google refuses it, the screens fall back to the static map picture.
+export const GOOGLE_MAPS_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '';
