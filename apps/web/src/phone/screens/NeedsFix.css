@@ -1,0 +1,42 @@
+.sc-needsfix a, .sc-needsfix button { transition:background-color .35s cubic-bezier(.32,.72,0,1),border-color .35s cubic-bezier(.32,.72,0,1),color .35s cubic-bezier(.32,.72,0,1),box-shadow .45s cubic-bezier(.32,.72,0,1),transform .45s cubic-bezier(.32,.72,0,1) }
+.sc-needsfix a:active, .sc-needsfix button:active { transform:scale(.96) }
+.sc-needsfix a:focus-visible, .sc-needsfix button:focus-visible { outline:3px solid #E0A526; outline-offset:3px }
+.sc-needsfix button.pill:hover, .sc-needsfix a.plain:hover, .sc-needsfix a.text:hover { background:#E3F1E6 }
+.sc-needsfix a.solid:hover { background:#14502B }
+@keyframes needsfix-rise {from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes needsfix-wave {0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
+@keyframes needsfix-badge {0%{transform:scale(.3);opacity:0}60%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
+.sc-needsfix header { animation:needsfix-rise .6s cubic-bezier(.22,1,.36,1) backwards }
+.sc-needsfix main>* { animation:needsfix-rise .8s cubic-bezier(.22,1,.36,1) backwards }
+.sc-needsfix main>*:nth-child(2) { animation-delay:.12s }
+.sc-needsfix main>*:nth-child(3) { animation-delay:.2s }
+.sc-needsfix .flag { transform-box:fill-box; transform-origin:50% 100%; animation:needsfix-wave 1.6s ease-in-out .6s 2 }
+.sc-needsfix .warn { transform-box:fill-box; transform-origin:center; animation:needsfix-badge .7s cubic-bezier(.22,1,.36,1) .3s backwards }
+@media (prefers-reduced-motion:reduce) {
+.sc-needsfix * { animation:none!important; transition:none!important }
+}
+@keyframes needsfix-tapburst {0%{box-shadow:0 0 0 0 rgba(31,107,58,.45)}100%{box-shadow:0 0 0 22px rgba(31,107,58,0)}}
+.sc-needsfix .tapped { animation:needsfix-tapburst .4s ease-out !important }
+@keyframes needsfix-micring {0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}100%{box-shadow:0 0 0 16px rgba(255,255,255,0)}}
+.sc-needsfix .micdot { animation:needsfix-micring 2.4s ease-out infinite }
+.sc-needsfix a.link svg { transition:transform .4s cubic-bezier(.32,.72,0,1) }
+.sc-needsfix a.link:hover svg { transform:translateX(6px) }
+.sc-needsfix a.solid svg, .sc-needsfix a.big svg { transition:transform .45s cubic-bezier(.32,.72,0,1) }
+.sc-needsfix a.solid:hover svg { transform:translateX(5px) }
+@keyframes needsfix-cellpop {0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.sc-needsfix .cellpop { animation:needsfix-cellpop .3s cubic-bezier(.34,1.56,.64,1) }
+@keyframes needsfix-dropin {0%{transform:translate(-50%,-260%);opacity:0}55%{transform:translate(-50%,-100%);opacity:1}72%{transform:translate(-50%,-150%)}100%{transform:translate(-50%,-100%)}}
+@keyframes needsfix-growx {from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes needsfix-popin {0%{transform:scale(.3);opacity:0}60%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
+.sc-needsfix .prog>span:nth-child(odd) { animation:needsfix-popin .55s cubic-bezier(.34,1.56,.64,1) backwards }
+.sc-needsfix .prog>span:nth-child(even) { transform-origin:left center; animation:needsfix-growx .5s cubic-bezier(.32,.72,0,1) backwards }
+.sc-needsfix .prog>span:nth-child(1) { animation-delay:.3s }
+.sc-needsfix .prog>span:nth-child(2) { animation-delay:.55s }
+.sc-needsfix .prog>span:nth-child(3) { animation-delay:.7s }
+.sc-needsfix .prog>span:nth-child(4) { animation-delay:.95s }
+.sc-needsfix .prog>span:nth-child(5) { animation-delay:1.1s }
+.sc-needsfix .prog>span:nth-child(6) { animation-delay:1.35s }
+.sc-needsfix .prog>span:nth-child(7) { animation-delay:1.5s }
+.sc-needsfix .prog>span:nth-child(8) { animation-delay:1.75s }
+.sc-needsfix .prog>span:nth-child(9) { animation-delay:1.9s }
+.sc-needsfix .prog>span.ring:nth-child(5) { animation:needsfix-popin .55s cubic-bezier(.34,1.56,.64,1) 1.1s backwards, ring 2.4s ease-in-out 1.7s infinite }

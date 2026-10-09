@@ -1,0 +1,20 @@
+.sc-fixed a, .sc-fixed button { transition:background-color .35s cubic-bezier(.32,.72,0,1),border-color .35s cubic-bezier(.32,.72,0,1),color .35s cubic-bezier(.32,.72,0,1),box-shadow .45s cubic-bezier(.32,.72,0,1),transform .45s cubic-bezier(.32,.72,0,1) }
+.sc-fixed a:active, .sc-fixed button:active { transform:scale(.96) }
+.sc-fixed a:focus-visible, .sc-fixed button:focus-visible { outline:3px solid #E0A526; outline-offset:3px }
+.sc-fixed button.pill:hover, .sc-fixed a.plain:hover { background:#E3F1E6 }
+.sc-fixed button.face:active { transform:scale(.94) }
+@keyframes fixed-rise {from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fixed-bob {0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes fixed-tapburst {0%{box-shadow:0 0 0 0 rgba(31,107,58,.45)}100%{box-shadow:0 0 0 22px rgba(31,107,58,0)}}
+@keyframes fixed-pop {0%{transform:scale(.4);opacity:0}60%{transform:scale(1.18);opacity:1}100%{transform:scale(1)}}
+.sc-fixed .tapped { animation:fixed-tapburst .4s ease-out !important }
+.sc-fixed header { animation:fixed-rise .6s cubic-bezier(.22,1,.36,1) backwards }
+.sc-fixed main>* { animation:fixed-rise .8s cubic-bezier(.22,1,.36,1) backwards }
+.sc-fixed main>*:nth-child(2) { animation-delay:.12s }
+.sc-fixed .bob { display:block; animation:fixed-bob 2.6s ease-in-out infinite }
+.sc-fixed .bob.b2 { animation-delay:-1.3s }
+.sc-fixed .settled .bob { animation:none }
+.sc-fixed .badge { animation:fixed-pop .6s cubic-bezier(.34,1.56,.64,1) .35s backwards }
+@media (prefers-reduced-motion:reduce) {
+.sc-fixed * { animation:none!important; transition:none!important }
+}
