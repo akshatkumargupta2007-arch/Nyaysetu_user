@@ -1,0 +1,41 @@
+.sc-code a, .sc-code button, .sc-code input { transition:background-color .35s cubic-bezier(.32,.72,0,1),border-color .35s cubic-bezier(.32,.72,0,1),color .35s cubic-bezier(.32,.72,0,1),box-shadow .45s cubic-bezier(.32,.72,0,1),transform .45s cubic-bezier(.32,.72,0,1) }
+.sc-code a:active, .sc-code button:active { transform:scale(.96) }
+.sc-code a:focus-visible, .sc-code button:focus-visible, .sc-code input:focus-visible { outline:3px solid #E0A526; outline-offset:3px }
+.sc-code input:focus { box-shadow:0 0 0 5px rgba(31,107,58,.16); transform:translateY(-2px) }
+.sc-code button.pill:hover, .sc-code a.plain:hover { background:#E3F1E6 }
+.sc-code a.solid:hover { background:#14502B }
+@keyframes code-rise {from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.sc-code header { animation:code-rise .6s cubic-bezier(.22,1,.36,1) backwards }
+.sc-code main>* { animation:code-rise .8s cubic-bezier(.22,1,.36,1) backwards }
+.sc-code main>*:nth-child(2) { animation-delay:.08s }
+.sc-code main>*:nth-child(3) { animation-delay:.16s }
+.sc-code main>*:nth-child(4) { animation-delay:.24s }
+.sc-code main>*:nth-child(5) { animation-delay:.32s }
+@media (prefers-reduced-motion:reduce) {
+.sc-code * { animation:none!important; transition:none!important }
+}
+@keyframes code-tapburst {0%{box-shadow:0 0 0 0 rgba(31,107,58,.45)}100%{box-shadow:0 0 0 22px rgba(31,107,58,0)}}
+.sc-code .tapped { animation:code-tapburst .4s ease-out !important }
+@keyframes code-micring {0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}100%{box-shadow:0 0 0 16px rgba(255,255,255,0)}}
+.sc-code .micdot { animation:code-micring 2.4s ease-out infinite }
+.sc-code a.link svg { transition:transform .4s cubic-bezier(.32,.72,0,1) }
+.sc-code a.link:hover svg { transform:translateX(6px) }
+.sc-code a.solid svg, .sc-code a.big svg { transition:transform .45s cubic-bezier(.32,.72,0,1) }
+.sc-code a.solid:hover svg { transform:translateX(5px) }
+@keyframes code-cellpop {0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.sc-code .cellpop { animation:code-cellpop .3s cubic-bezier(.34,1.56,.64,1) }
+@keyframes code-dropin {0%{transform:translate(-50%,-260%);opacity:0}55%{transform:translate(-50%,-100%);opacity:1}72%{transform:translate(-50%,-150%)}100%{transform:translate(-50%,-100%)}}
+@keyframes code-growx {from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes code-popin {0%{transform:scale(.3);opacity:0}60%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
+.sc-code .prog>span:nth-child(odd) { animation:code-popin .55s cubic-bezier(.34,1.56,.64,1) backwards }
+.sc-code .prog>span:nth-child(even) { transform-origin:left center; animation:code-growx .5s cubic-bezier(.32,.72,0,1) backwards }
+.sc-code .prog>span:nth-child(1) { animation-delay:.3s }
+.sc-code .prog>span:nth-child(2) { animation-delay:.55s }
+.sc-code .prog>span:nth-child(3) { animation-delay:.7s }
+.sc-code .prog>span:nth-child(4) { animation-delay:.95s }
+.sc-code .prog>span:nth-child(5) { animation-delay:1.1s }
+.sc-code .prog>span:nth-child(6) { animation-delay:1.35s }
+.sc-code .prog>span:nth-child(7) { animation-delay:1.5s }
+.sc-code .prog>span:nth-child(8) { animation-delay:1.75s }
+.sc-code .prog>span:nth-child(9) { animation-delay:1.9s }
+.sc-code .prog>span.ring:nth-child(5) { animation:code-popin .55s cubic-bezier(.34,1.56,.64,1) 1.1s backwards, ring 2.4s ease-in-out 1.7s infinite }
