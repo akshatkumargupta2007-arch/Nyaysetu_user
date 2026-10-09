@@ -1,0 +1,15 @@
+node_modules/
+dist/
+build/
+.env
+.env.local
+*.local
+.DS_Store
+coverage/
+.turbo/
+eval/results.md
+.cache/
+*.log
+*.tsbuildinfo
+.claude/
+.vscode/
