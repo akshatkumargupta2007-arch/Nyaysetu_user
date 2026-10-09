@@ -1,0 +1,1 @@
+import { pool } from './src/db/client.js'; async function main() { await pool.query('ALTER TABLE citizens DROP COLUMN IF EXISTS username CASCADE'); await pool.query('ALTER TABLE citizens DROP COLUMN IF EXISTS password_hash CASCADE'); process.exit(0); } main();  

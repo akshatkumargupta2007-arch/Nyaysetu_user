@@ -1,0 +1,1 @@
+import { db } from './src/db/client.js'; import { citizens } from './src/db/schema.js'; async function main() { const all = await db.select().from(citizens); console.log(all); process.exit(0); } main();  
