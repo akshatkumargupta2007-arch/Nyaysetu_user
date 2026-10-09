@@ -1,0 +1,72 @@
+.sc-talk a, .sc-talk button { transition:background-color .35s cubic-bezier(.32,.72,0,1),border-color .35s cubic-bezier(.32,.72,0,1),color .35s cubic-bezier(.32,.72,0,1),box-shadow .45s cubic-bezier(.32,.72,0,1),transform .45s cubic-bezier(.32,.72,0,1),opacity .45s cubic-bezier(.32,.72,0,1) }
+.sc-talk a:active, .sc-talk button:active { transform:scale(.97) }
+.sc-talk a:focus-visible, .sc-talk button:focus-visible { outline:3px solid #E0A526; outline-offset:3px }
+.sc-talk button.pill:hover, .sc-talk a.plain:hover { background:#E3F1E6 }
+.sc-talk a.solid:hover { background:#14502B }
+@keyframes talk-rise {from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.sc-talk header { animation:talk-rise .6s cubic-bezier(.22,1,.36,1) backwards }
+.sc-talk .r1 { animation:talk-rise .8s cubic-bezier(.22,1,.36,1) backwards }
+.sc-talk .r2 { animation:talk-rise .8s cubic-bezier(.22,1,.36,1) .12s backwards }
+@keyframes talk-tapburst {0%{box-shadow:0 0 0 0 rgba(31,107,58,.45)}100%{box-shadow:0 0 0 22px rgba(31,107,58,0)}}
+.sc-talk .tapped { animation:talk-tapburst .4s ease-out !important }
+.sc-talk /* the voice orb: one shape, .sc-talk four moods */
+.orbwrap { position:relative; width:var(--O); height:var(--O); flex:none; border:0; padding:0; background:transparent; cursor:pointer }
+.sc-talk .halo { position:absolute; inset:0; border-radius:50%; background:#1F6B3A; opacity:0; transform:scale(.7) }
+.sc-talk .core { position:absolute; inset:14%; border-radius:50%; background:#1F6B3A; box-shadow:0 18px 44px rgba(31,107,58,.35); display:flex; align-items:center; justify-content:center; gap:calc(var(--O) * .028); transition:background-color .5s ease,transform .6s cubic-bezier(.32,.72,0,1) }
+.sc-talk .core i { display:block; width:calc(var(--O) * .04); height:calc(var(--O) * .1); border-radius:99px; background:#fff; transform-origin:center; transition:height .5s cubic-bezier(.32,.72,0,1) }
+@keyframes talk-halo {0%{transform:scale(.72);opacity:.38}100%{transform:scale(1.02);opacity:0}}
+@keyframes talk-bars {0%,100%{transform:scaleY(.45)}50%{transform:scaleY(2.1)}}
+@keyframes talk-breathe {0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+@keyframes talk-orbit {to{transform:rotate(360deg)}}
+.sc-talk .orb-idle .core { animation:talk-breathe 4s ease-in-out infinite; background:#4F7A5C }
+.sc-talk .orb-listening .halo { animation:talk-halo 1.8s ease-out infinite }
+.sc-talk .orb-listening .halo.h2 { animation-delay:.9s }
+.sc-talk .orb-listening .core i { animation:talk-bars .9s ease-in-out infinite }
+.sc-talk .orb-listening .core i:nth-child(2) { animation-delay:.12s }
+.sc-talk .orb-listening .core i:nth-child(3) { animation-delay:.24s }
+.sc-talk .orb-listening .core i:nth-child(4) { animation-delay:.36s }
+.sc-talk .orb-listening .core i:nth-child(5) { animation-delay:.48s }
+.sc-talk .orb-speaking .core { background:#14502B }
+.sc-talk .orb-speaking .halo { animation:talk-halo 1.3s ease-out infinite; background:#E0A526 }
+.sc-talk .orb-speaking .halo.h2 { animation-delay:.65s }
+.sc-talk .orb-speaking .core i { animation:talk-bars .55s ease-in-out infinite; height:calc(var(--O) * .13) }
+.sc-talk .orb-speaking .core i:nth-child(2) { animation-delay:.08s }
+.sc-talk .orb-speaking .core i:nth-child(3) { animation-delay:.16s }
+.sc-talk .orb-speaking .core i:nth-child(4) { animation-delay:.24s }
+.sc-talk .orb-speaking .core i:nth-child(5) { animation-delay:.32s }
+.sc-talk .orb-thinking .core { background:#4F7A5C }
+.sc-talk .orb-thinking .core i { height:calc(var(--O) * .06); width:calc(var(--O) * .06); animation:talk-bars 1s ease-in-out infinite }
+.sc-talk .orb-thinking .core i:nth-child(2) { animation-delay:.15s }
+.sc-talk .orb-thinking .core i:nth-child(3) { animation-delay:.3s }
+.sc-talk .orb-thinking .core i:nth-child(4), .sc-talk .orb-thinking .core i:nth-child(5) { display:none }
+.sc-talk .orb-muted .core { background:#9AA6A4; box-shadow:none }
+.sc-talk .orb-muted .halo, .sc-talk .orb-muted .core i { animation:none!important }
+@keyframes talk-bub {from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+.sc-talk .bub { animation:talk-bub .5s cubic-bezier(.22,1,.36,1) backwards }
+@keyframes talk-tick {0%{transform:scale(.4)}60%{transform:scale(1.2)}100%{transform:scale(1)}}
+.sc-talk .done .tk { animation:talk-tick .5s cubic-bezier(.34,1.56,.64,1) }
+@keyframes talk-capin {from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.sc-talk .cap { animation:talk-capin .55s cubic-bezier(.22,1,.36,1) backwards }
+@keyframes talk-floaty {0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.sc-talk .aura { position:absolute; border-radius:50%; pointer-events:none }
+.sc-talk a.end:hover { filter:brightness(1.1) }
+.sc-talk .orbwrap { transition:width .55s cubic-bezier(.32,.72,0,1),height .55s cubic-bezier(.32,.72,0,1) }
+.sc-talk .tray { animation:talk-capin .6s cubic-bezier(.22,1,.36,1) backwards }
+.sc-talk .filein { position:absolute; inset:0; width:100%; height:100%; opacity:0; cursor:pointer; font-size:0 }
+.sc-talk.has-tray .prevline { display:none }
+.sc-talk .cellb { flex:1 1 0; min-width:0; display:flex; align-items:center; justify-content:center; background:#fff; border:3px solid #1F6B3A; font-weight:700; color:#1E2B22 }
+@keyframes talk-dropin {0%{transform:translate(-50%,-260%);opacity:0}55%{transform:translate(-50%,-100%);opacity:1}72%{transform:translate(-50%,-150%)}100%{transform:translate(-50%,-100%)}}
+@keyframes talk-cellp {0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.sc-talk .cellpop { animation:talk-cellp .3s cubic-bezier(.34,1.56,.64,1) }
+@keyframes talk-pinhop {0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.sc-talk .pinh { animation:talk-pinhop 1.4s ease-in-out infinite }
+@media (prefers-reduced-motion:reduce) {
+.sc-talk * { animation:none!important; transition:none!important }
+}
+.sc-talk.has-tray .orbbox { --O:150px !important }
+.sc-talk.has-tray .cap { font-size:21px !important }
+
+/* With a tray open the middle can be taller than the screen (small phones): scroll it instead of covering the End button. */
+.sc-talk.has-tray main { justify-content: flex-start !important; overflow-y: auto; padding-top: 4px; }
+.sc-talk.has-tray .orbbox { --O: 110px !important; }
+.sc-talk.has-tray h1 { font-size: 26px !important; }
