@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build-and-test:
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: postgres://postgres:dev@localhost:5432/nyaysetu
+      JWT_SECRET: ci-test-secret
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm install
+
+      # The official postgis/postgis image has PostGIS but NOT pgvector, so
+      # it can't be used as a plain GitHub Actions `services:` container —
+      # infra/db/Dockerfile builds both on postgres:17-bookworm + the PGDG
+      # apt repo (see that file's comment for why postgis/postgis itself is
+      # avoided: its current tag is pinned to an archived Debian bullseye).
+      - name: Build and start the real db image
+        run: |
+          docker build -t nyaysetu-db ./infra/db
+          docker run -d --name db -p 5432:5432 \
+            -e POSTGRES_PASSWORD=dev -e POSTGRES_DB=nyaysetu \
+            nyaysetu-db
+      - name: Wait for Postgres to be ready
+        run: |
+          for i in $(seq 1 30); do
+            docker exec db pg_isready -U postgres && exit 0
+            sleep 1
+          done
+          echo "Postgres did not become ready in time" && exit 1
+
+      - run: npm run db:migrate
+      - run: npm run seed
+      - run: npm run typecheck
+      - run: npm run test
+      - run: npm run eval
+
+      - name: Build API Docker image
+        run: docker build -f apps/api/Dockerfile -t nyaysetu-api .
+      - name: Build web Docker image
+        run: docker build -f apps/web/Dockerfile -t nyaysetu-web .
