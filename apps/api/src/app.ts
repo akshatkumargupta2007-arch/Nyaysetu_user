@@ -22,7 +22,6 @@ import { registerAuthRoutes } from "./modules/auth/routes.js";
 import { registerLifecycleRoutes } from "./modules/lifecycle/routes.js";
 import { registerOfficerRoutes } from "./modules/officers/routes.js";
 import { registerVoiceRoutes } from "./modules/voice/routes.js";
-import { registerAgentRoutes } from "./modules/agent/routes.js";
 import { registerCourtRoutes } from "./modules/court/routes.js";
 import fastifyJwt from "@fastify/jwt";
 import type { AppInstance } from "./types.js";
@@ -101,7 +100,6 @@ export async function buildApp(): Promise<AppInstance> {
   registerLifecycleRoutes(app);
   registerOfficerRoutes(app);
   registerVoiceRoutes(app);
-  registerAgentRoutes(app);
   registerCourtRoutes(app);
 
   return app;

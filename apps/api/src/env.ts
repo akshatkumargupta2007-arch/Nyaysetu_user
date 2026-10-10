@@ -24,11 +24,6 @@ const EnvSchema = z.object({
   EMBED_DIM: z.coerce.number().default(768),
 
   ELEVEN_API_KEY: z.string().optional().default(""),
-  // Bolo, the browser voice agent. The agent itself is created by `npm run agent:create` (writes the id below).
-  ELEVEN_AGENT_ID: z.string().optional().default(""),
-  AGENT_DAILY_CAP: z.coerce.number().int().min(1).default(6),
-  AGENT_SESSION_SECONDS: z.coerce.number().int().min(30).max(600).default(180),
-  AGENT_LANGS: z.string().default("hi,en,bn,mr,gu,kn,ml,ta,te,or,as"),
   ELEVEN_STT_MODEL: z.string().optional().default(""),
   ELEVEN_TTS_MODEL: z.string().optional().default(""),
   ELEVEN_TTS_MODEL_FALLBACK: z.string().optional().default(""),
