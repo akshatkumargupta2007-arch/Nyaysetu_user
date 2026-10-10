@@ -19,7 +19,6 @@ import MyProblems from './screens/MyProblems.jsx';
 import Status from './screens/Status.jsx';
 import Fixed from './screens/Fixed.jsx';
 import ReReport from './screens/ReReport.jsx';
-import Talk from './screens/Talk.jsx';
 import NeedsFix from './screens/NeedsFix.jsx';
 import PhotoRejected from './screens/PhotoRejected.jsx';
 import NotSent from './screens/NotSent.jsx';
@@ -63,7 +62,6 @@ export default function App() {
             <Route path={ROUTES.photoRejected} element={<PhotoRejected />} />
             <Route path={ROUTES.notSent} element={<NotSent />} />
             <Route path={ROUTES.privacy} element={<Privacy />} />
-            <Route path={ROUTES.talk} element={<Talk />} />
           </Route>
           <Route path="*" element={<Navigate to={ROUTES.language} replace />} />
         </Routes>

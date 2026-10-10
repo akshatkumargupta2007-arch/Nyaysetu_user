@@ -14,7 +14,6 @@ export const ROUTES = {
   status: '/status',
   fixed: '/fixed',
   reReport: '/re-report',
-  talk: '/talk',
   needsFix: '/needs-fix',
   photoRejected: '/photo-rejected',
   notSent: '/not-sent',
