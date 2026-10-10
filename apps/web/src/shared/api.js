@@ -62,6 +62,8 @@ export const api = {
 
   // needs login
   signUpload: () => call('/uploads/sign', { method: 'POST', body: { folder: 'nyaysetu/reports' }, authed: true }),
+  // Is this a real photo? Answers 422 PHOTO_REJECTED for an AI-made, drawn, screenshot or already-used picture.
+  checkPhoto: (dataUrl, aiMarker) => call('/uploads/photo/check', { method: 'POST', body: { dataUrl, aiMarker: aiMarker === true }, authed: true }),
   confirm: (draftId, photo) => call('/reports/confirm', { method: 'POST', body: { draftId, ...photo }, authed: true }),
   myReports: () => call('/me/reports', { authed: true }),
   tracking: (ticketId) => call(`/tickets/${ticketId}/tracking`, { authed: true }),
@@ -71,10 +73,20 @@ export const api = {
     call(`/reports/${ticketId}/confirm-closure`, { method: 'POST', body: { confirmed, note, photoPublicId }, authed: true }),
 };
 
-// Uploads the saved photo straight to Cloudinary (the API never touches image bytes).
+// Uploads the saved photo straight to Cloudinary (the API never touches image bytes). With no Cloudinary keys
+// configured, the photo goes to our own API instead, so the government portal can still show it.
 export async function uploadPhoto(dataUrl) {
   const sign = await api.signUpload();
-  if (sign.simulated) return { photoPublicId: `simulated_${Date.now()}` }; // no Cloudinary keys configured
+  if (sign.simulated) {
+    try {
+      return await call('/uploads/photo', { method: 'POST', body: { dataUrl }, authed: true });
+    } catch (e) {
+      if (e.network || e.code === 'PHOTO_REJECTED') throw e;
+      return { photoPublicId: `simulated_${Date.now()}` }; // the photo is optional: file the complaint without it
+    }
+  }
+  // Cloudinary is on: the picture does not pass through our API, so ask for the check first.
+  try { await api.checkPhoto(dataUrl); } catch (e) { if (e.code === 'PHOTO_REJECTED') throw e; /* a check that could not run never blocks */ }
   const blob = await (await fetch(dataUrl)).blob();
   const form = new FormData();
   form.append('file', blob, 'photo.jpg');
@@ -99,7 +111,7 @@ export async function fileComplaint() {
   const dataUrl = store.photo();
   let photo = {};
   if (dataUrl) {
-    try { photo = await uploadPhoto(dataUrl); } catch (e) { if (e.network) throw e; /* photo is optional */ }
+    try { photo = await uploadPhoto(dataUrl); } catch (e) { if (e.network || e.code === 'PHOTO_REJECTED') throw e; /* photo is optional */ }
   }
   const filed = await api.confirm(understood.draftId, photo);
   store.setFiled(filed);
