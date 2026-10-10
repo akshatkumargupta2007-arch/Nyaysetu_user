@@ -96,24 +96,6 @@ export default function Home() {
                   {T("Speak")}
                 </span>
               </TLink>
-              <TLink className="talk" to="/talk" aria-label="Talk to the AI voice assistant" style={{ flex: "1 1 0", minWidth: "0", height: "124px", boxSizing: "border-box", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "8px", borderRadius: "28px", color: "#FFFFFF", textDecoration: "none", position: "relative", background: "linear-gradient(160deg,#0F3F22,#1F6B3A)", border: "3px solid #E0A526" }}>
-                <span style={{ position: "absolute", top: "10px", right: "10px", padding: "2px 10px", borderRadius: "99px", background: "#E0A526", color: "#14502B", fontSize: "13px", fontWeight: "700", letterSpacing: ".06em" }}>
-                  {T("AI")}
-                </span>
-                <span className="tb" style={{ flex: "none", width: "58px", height: "58px", borderRadius: "50%", background: "#E0A526", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "4px" }}>
-                  <i>
-                  </i>
-                  <i>
-                  </i>
-                  <i>
-                  </i>
-                  <i>
-                  </i>
-                </span>
-                <span style={{ fontSize: "26px", fontWeight: "700", lineHeight: "1.1" }}>
-                  {T("Talk")}
-                </span>
-              </TLink>
             </div>
             <div style={{ display: "flex", gap: "12px" }}>
               <TLink className="alt" to="/photo" style={{ flex: "1 1 0", minWidth: "0", height: "116px", boxSizing: "border-box", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "8px", background: "#EFF5D5", border: "3px solid #1F6B3A", borderRadius: "28px", color: "#1F6B3A", font: "inherit", fontSize: "22px", fontWeight: "700", textDecoration: "none", cursor: "pointer" }}>
