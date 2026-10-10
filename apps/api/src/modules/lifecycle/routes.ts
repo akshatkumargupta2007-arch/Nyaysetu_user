@@ -10,6 +10,7 @@ import { transition, appendEvent, IllegalTransitionError, TicketNotFoundError } 
 import { verifyEventChain } from "./verify.js";
 import type { ActorType, State } from "./types.js";
 import { env } from "../../env.js";
+import { etaText as estimateEtaText } from "./eta.js";
 
 interface StoredDraft {
   request: { text: string; lang: string; lat: number; lng: number; inputMode: "voice" | "text" };
@@ -100,10 +101,12 @@ export function registerLifecycleRoutes(app: AppInstance) {
             agency_id: string;
             department: any;
             sla_due_at: string;
+            created_at: string;
+            priority_band: string;
             lat: number;
             lng: number;
           }>(
-            `SELECT id, public_code, category_code, state, agency_id, department, sla_due_at,
+            `SELECT id, public_code, category_code, state, agency_id, department, sla_due_at, created_at, priority_band,
                     ST_Y(geom::geometry) as lat, ST_X(geom::geometry) as lng
              FROM tickets WHERE id = $1`,
             [ticketId],
@@ -136,12 +139,7 @@ export function registerLifecycleRoutes(app: AppInstance) {
           const timeline = buildCitizenTimeline(eventsRes.rows);
           const stage = mapInternalStateToCitizenStage(ticket.state as State);
 
-          const eta = ticket.sla_due_at ? new Date(ticket.sla_due_at).getTime() - Date.now() : null;
-          let etaText: string | null = null;
-          if (eta !== null && eta > 0) {
-            const hours = Math.ceil(eta / (1000 * 60 * 60));
-            etaText = `लगभग ${hours} घंटे`;
-          }
+          const etaText = estimateEtaText({ categoryCode: ticket.category_code, priorityBand: ticket.priority_band, state: ticket.state, createdAt: ticket.created_at, slaDueAt: ticket.sla_due_at });
 
           return {
             id: ticket.id,
@@ -295,12 +293,14 @@ export function registerLifecycleRoutes(app: AppInstance) {
           agency_id: string;
           department: any;
           sla_due_at: string;
+          created_at: string;
+          priority_band: string;
           category_names: { hi: string; en: string } | null;
           place: { hi: string; en: string } | null;
           lat: number;
           lng: number;
         }>(
-          `SELECT id, public_code, category_code, state, agency_id, department, sla_due_at,
+          `SELECT id, public_code, category_code, state, agency_id, department, sla_due_at, created_at, priority_band,
                   (SELECT names FROM categories c WHERE c.code = tickets.category_code) AS category_names,
                   (SELECT name FROM boundaries b WHERE b.id = tickets.boundary_id) AS place,
                   ST_Y(geom::geometry) as lat, ST_X(geom::geometry) as lng
@@ -341,12 +341,7 @@ export function registerLifecycleRoutes(app: AppInstance) {
         const timeline = buildCitizenTimeline(eventsRes.rows);
         const stage = mapInternalStateToCitizenStage(ticket.state as State);
 
-        const eta = ticket.sla_due_at ? new Date(ticket.sla_due_at).getTime() - Date.now() : null;
-        let etaText = null;
-        if (eta !== null && eta > 0) {
-          const hours = Math.ceil(eta / (1000 * 60 * 60));
-          etaText = `लगभग ${hours} घंटे`;
-        }
+        const etaText = estimateEtaText({ categoryCode: ticket.category_code, priorityBand: ticket.priority_band, state: ticket.state, createdAt: ticket.created_at, slaDueAt: ticket.sla_due_at });
 
         return reply.status(200).send({
           id: ticket.id,
