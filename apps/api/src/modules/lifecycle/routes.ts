@@ -450,9 +450,21 @@ export function registerLifecycleRoutes(app: AppInstance) {
            WHERE r.citizen_id = $1 AND r.understanding->>'draftId' = $2`,
           [citizenId, draftId],
         );
+        // A photo sent with a repeat of an existing report is still kept: it goes on the report the citizen already has.
+        const keepPhoto = async (tId: string, repId: string) => {
+          if (!photoPublicId) return;
+          await client.query(
+            `INSERT INTO media (ticket_id, report_id, kind, cloudinary_public_id, dhash, uploader_type, uploader_id)
+             SELECT $1,$2,'before',$3,$4::bit(64),'CITIZEN',$5
+              WHERE NOT EXISTS (SELECT 1 FROM media WHERE ticket_id = $1 AND cloudinary_public_id = $3)`,
+            [tId, repId, photoPublicId, photoDhash ?? null, citizenId],
+          );
+        };
+
         if (already.rows[0]) {
-          await client.query("ROLLBACK");
           const a = already.rows[0];
+          await keepPhoto(a.ticket_id, a.id);
+          await client.query("COMMIT");
           return reply.status(200).send({ ok: true, ticketId: a.ticket_id, publicCode: a.public_code, reportId: a.id, state: a.state, merged: false, alreadyFiled: true });
         }
 
@@ -470,7 +482,8 @@ export function registerLifecycleRoutes(app: AppInstance) {
             const mine = await client.query<{ id: string }>(
               `SELECT id FROM reports WHERE ticket_id = $1 AND citizen_id = $2`, [open.rows[0].id, citizenId]);
             if (mine.rows[0]) {
-              await client.query("ROLLBACK");
+              await keepPhoto(open.rows[0].id, mine.rows[0].id);
+              await client.query("COMMIT");
               return reply.status(200).send({ ok: true, ticketId: open.rows[0].id, publicCode: open.rows[0].public_code, reportId: mine.rows[0].id, merged: false, alreadyFiled: true });
             }
             ticketId = open.rows[0].id;
