@@ -88,13 +88,14 @@ export default function ReReportBody({ big = false, onDone, onBack }) {
     try {
       let photoPublicId;
       if (photo) {
-        try { photoPublicId = (await uploadPhoto(photo)).photoPublicId; } catch (e) { if (e.network) throw e; /* a photo is optional */ }
+        try { photoPublicId = (await uploadPhoto(photo)).photoPublicId; } catch (e) { if (e.network || e.code === 'PHOTO_REJECTED') throw e; /* a photo is optional */ }
       }
       await api.confirmClosure(ticketId, false, text.trim() || undefined, photoPublicId);
       store.setFiled({ publicCode: store.selectedCode() }); // the Sent page shows the SAME complaint number
       onDone();
     } catch (e) {
       setBusy(false);
+      if (e.code === 'PHOTO_REJECTED') { setPhoto(null); setMsg(T('This does not look like a real photo. Please take a new photo.')); return; }
       setMsg(e.network ? T('No internet. Please try again.') : T('Could not send. Please try again.'));
     }
   }

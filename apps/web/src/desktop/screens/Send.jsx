@@ -47,7 +47,7 @@ export default function Send() {
     }
     if (!auth.isLoggedIn()) { go('/phone'); return false; }
     setSending(true); setSendErr(T("Sending..."));
-    _file().then(() => go('/sent')).catch((e) => { setSending(false); if (e.network) go('/not-sent'); else setSendErr(T("Could not send. Please try again.")); });
+    _file().then(() => go('/sent')).catch((e) => { setSending(false); if (e.network) go('/not-sent'); else if (e.code === 'PHOTO_REJECTED') { try { sessionStorage.removeItem('cipher.photo'); } catch {} go('/photo-rejected'); } else setSendErr(T("Could not send. Please try again.")); });
     return false;
   };
 
