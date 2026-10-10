@@ -6,18 +6,22 @@ import { say, auto, stopVoice, useScreenVoice, setLang, setVoiceOn, isVoiceOn, g
 import { useGo } from '../components/Transition.jsx';
 import './Photo.css';
 import { askCamera } from '../../shared/permissions.js';
+import { api } from '../../shared/api.js';
+import { hasAiMarker } from '../../shared/photoHints.js';
 
 export default function Photo() {
   const go = useGo();
   const listen = useScreenVoice('photo', 'Tap the green button to take a photo.');
   useEffect(() => { askCamera(); }, []); // shows the browser's \"allow camera?\" pop-up on arrival
   const [picked, setPicked] = useState(false);
+  const [checking, setChecking] = useState(false);
   const notPicked = !picked;
-  const tileLabel = picked ? T("Photo added") : T("Open camera");
+  const tileLabel = picked ? (checking ? T("Checking the photo...") : T("Photo added")) : T("Open camera");
   const onPick = (e) => {
     const input = e.target;
     const f = input.files && input.files[0];
     if (!f) return;
+    const markerP = hasAiMarker(f); // read the ORIGINAL file's labels before it is shrunk
     const fr = new FileReader();
     fr.onload = () => {
       const img = new Image();
@@ -28,9 +32,15 @@ export default function Photo() {
         c.height = Math.round(img.height * s);
         c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
         const url = c.toDataURL('image/jpeg', 0.82);
-        try { sessionStorage.setItem('cipher.photo', url); } catch {}
         setPicked(true);
-        setTimeout(() => go('/where'), 900);
+        setChecking(true);
+        // Is it a real photo? A fake is turned away here, not after the whole form. A check that cannot run never blocks.
+        markerP.then((marked) => api.checkPhoto(url, marked)).then(() => true).catch((err) => err.code !== 'PHOTO_REJECTED').then((fine) => {
+          setChecking(false);
+          if (!fine) { try { sessionStorage.removeItem('cipher.photo'); } catch {} setPicked(false); go('/photo-rejected'); return; }
+          try { sessionStorage.setItem('cipher.photo', url); } catch {}
+          setTimeout(() => go('/where'), 900);
+        });
       };
       img.src = fr.result;
     };
