@@ -12,9 +12,16 @@ import { appendEvent } from "../lifecycle/transition.js";
 import { publishToCitizen } from "./citizenEvents.js";
 import { enqueueGovSync } from "./syncTrigger.js";
 import { verifySignedRequest } from "./signing.js";
+import { MAX_PHOTO_BYTES, isLocalPhotoId, isSafeCloudinaryId, isSimulatedPhotoId, sniffMime } from "../uploads/photoStore.js";
 
 export const CLOSE_REQUEST_PATH = "/internal/gov/close-request";
+export const MEDIA_PATH = "/internal/gov/media";
 export const CLOSE_REQUEST_COOLDOWN_HOURS = 24;
+
+const MediaBody = z.discriminatedUnion("op", [
+  z.object({ op: z.literal("list"), ticket_id: z.string().uuid() }),
+  z.object({ op: z.literal("get"), ticket_id: z.string().uuid(), media_id: z.string().uuid() }),
+]);
 
 const Body = z.object({
   ticket_id: z.string().uuid(),
@@ -113,6 +120,68 @@ export async function buildBridgeApp() {
       return reply.status(500).send({ error: "Internal error", code: "INTERNAL" });
     } finally {
       client.release();
+    }
+  });
+
+  // The photos a citizen attached. Read-only, one ticket at a time, same signature rules as the door above.
+  // The portal checks the official's area BEFORE it calls, so this only has to answer for the ticket it is asked about.
+  //   { op: "list", ticket_id }                 -> the photos of that ticket (kind, time, whether we can show them)
+  //   { op: "get",  ticket_id, media_id }       -> one photo as base64 (kept by us, or fetched from Cloudinary)
+  app.post(MEDIA_PATH, async (req, reply) => {
+    const raw = typeof req.body === "string" ? req.body : "";
+    const v = verifySignedRequest(env.GOV_WRITEBACK_PUBLIC_KEY, "POST", MEDIA_PATH, req.headers, raw);
+    if (!v.ok) return reply.status(401).send({ error: "Rejected", code: v.reason === "stale" ? "STALE" : "BAD_SIGNATURE" });
+    await pool.query(`DELETE FROM gov_nonces WHERE at < now() - interval '10 minutes'`);
+    const fresh = await pool.query(`INSERT INTO gov_nonces (nonce) VALUES ($1) ON CONFLICT DO NOTHING`, [v.nonce]);
+    if (!fresh.rowCount) return reply.status(401).send({ error: "Rejected", code: "REPLAY" });
+
+    let parsed;
+    try { parsed = MediaBody.safeParse(JSON.parse(raw)); } catch { return reply.status(400).send({ error: "Invalid JSON", code: "VALIDATION" }); }
+    if (!parsed.success) return reply.status(400).send({ error: "Invalid request", code: "VALIDATION" });
+    const b = parsed.data;
+
+    try {
+      const rows = await pool.query<{ id: string; kind: string; public_id: string; created_at: Date }>(
+        `SELECT id, kind, cloudinary_public_id AS public_id, created_at FROM media
+          WHERE ticket_id = $1 AND kind IN ('before', 'reopen') ORDER BY created_at, id`,
+        [b.ticket_id],
+      );
+      if (b.op === "list") {
+        const items = [];
+        for (const r of rows.rows) {
+          let available = false;
+          let check: { verdict: string; confidence: number | null; reason: string | null } | null = null;
+          if (isLocalPhotoId(r.public_id)) {
+            const blob = await pool.query<{ v: string | null; c: number | null; why: string | null }>(
+              `SELECT check_verdict AS v, check_confidence AS c, check_reason AS why FROM media_blobs WHERE public_id = $1`, [r.public_id]);
+            available = Boolean(blob.rowCount);
+            if (blob.rows[0]) check = { verdict: blob.rows[0].v ?? "unchecked", confidence: blob.rows[0].c, reason: blob.rows[0].why };
+          } else if (!isSimulatedPhotoId(r.public_id)) available = Boolean(env.CLOUDINARY_CLOUD_NAME) && isSafeCloudinaryId(r.public_id);
+          items.push({ id: r.id, kind: r.kind, at: r.created_at.toISOString(), available, check });
+        }
+        return reply.send({ ok: true, items });
+      }
+
+      const m = rows.rows.find((r) => r.id === b.media_id);
+      if (!m) return reply.status(404).send({ error: "Photo not found", code: "NOT_FOUND" });
+      if (isLocalPhotoId(m.public_id)) {
+        const blob = await pool.query<{ mime: string; data: Buffer }>(`SELECT mime, data FROM media_blobs WHERE public_id = $1`, [m.public_id]);
+        const row = blob.rows[0];
+        if (!row) return reply.status(404).send({ error: "Photo not found", code: "NOT_FOUND" });
+        return reply.send({ ok: true, mime: row.mime, data_base64: row.data.toString("base64") });
+      }
+      if (isSimulatedPhotoId(m.public_id) || !env.CLOUDINARY_CLOUD_NAME || !isSafeCloudinaryId(m.public_id)) {
+        return reply.status(404).send({ error: "This photo is not stored", code: "NOT_STORED" });
+      }
+      const res = await fetch(`https://res.cloudinary.com/${encodeURIComponent(env.CLOUDINARY_CLOUD_NAME)}/image/upload/${m.public_id}`, { signal: AbortSignal.timeout(10_000) });
+      if (!res.ok) return reply.status(404).send({ error: "This photo is not available", code: "NOT_STORED" });
+      const bytes = Buffer.from(await res.arrayBuffer());
+      const mime = sniffMime(bytes);
+      if (!mime || bytes.length > MAX_PHOTO_BYTES * 2) return reply.status(404).send({ error: "This photo is not available", code: "NOT_STORED" });
+      return reply.send({ ok: true, mime, data_base64: bytes.toString("base64") });
+    } catch (err) {
+      req.log.error({ err }, "media request failed");
+      return reply.status(500).send({ error: "Internal error", code: "INTERNAL" });
     }
   });
 
